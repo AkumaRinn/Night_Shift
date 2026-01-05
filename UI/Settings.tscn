@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxyt3pua3wrn4"]
+
+[ext_resource type="Script" uid="uid://duyuel17y6s2o" path="res://UI/Settings.gd" id="1_bvb5x"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_bvb5x")
