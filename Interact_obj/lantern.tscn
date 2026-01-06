@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqyfcb344ldx2"]
+
+[ext_resource type="PackedScene" uid="uid://xp67x33b8ysa" path="res://Level_n_props/Lantern_01_4k.gltf" id="1_kxgpu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kxgpu"]
+size = Vector3(0.2924366, 0.23751831, 0.21675491)
+
+[node name="lantern" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." groups=["lantern"]]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0010844916, 0.10335562, 0.008745253)
+shape = SubResource("BoxShape3D_kxgpu")
+
+[node name="Lantern_01_4k" parent="RigidBody3D" instance=ExtResource("1_kxgpu")]
