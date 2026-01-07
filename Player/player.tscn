@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cxj3xrf7056c0" path="res://Player/cross.png" id="2_4ntmi"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
+radius = 0.41796875
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4flbx"]
 

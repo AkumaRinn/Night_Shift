@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bqyqxwmlvgoq8"]
+[gd_scene load_steps=9 format=3 uid="uid://cpcsasyhwolj8"]
 
-[ext_resource type="Script" uid="uid://cg0y3khys4btt" path="res://Interact_obj/door.gd" id="1_28fel"]
-[ext_resource type="PackedScene" uid="uid://bcgak3n17rsv1" path="res://main_door.glb" id="2_du4od"]
+[ext_resource type="Script" uid="uid://cg0y3khys4btt" path="res://Interact_obj/door.gd" id="1_de64p"]
+[ext_resource type="PackedScene" uid="uid://cx60q4ma3ph4o" path="res://bth_door.glb" id="2_de64p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hun61"]
 size = Vector3(0.7786865, 0.9545288, 1)
@@ -62,17 +62,17 @@ _data = {
 size = Vector3(2.2568512, 2.9408875, 2.3051758)
 
 [node name="door" type="Node3D"]
-script = ExtResource("1_28fel")
+script = ExtResource("1_de64p")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1.3897164, 0, 0, 0, 2.640803, 0, 0, 0, 0.2306517, 0, 0, 0)
+transform = Transform3D(1.3897164, 0, 0, 0, 2.640803, 0, 0, 0, 0.2306517, 0.1147778, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(0.99999994, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000004, -0.43570375, -0.0144958515, 0)
 shape = SubResource("BoxShape3D_hun61")
 
-[node name="main_door" parent="StaticBody3D" instance=ExtResource("2_du4od")]
-transform = Transform3D(0.7195713, 0, 0, 0, 0.3786727, 0, 0, 0, 4.3355412, -4.816483, -0.5328873, 61.93797)
+[node name="bth_door" parent="StaticBody3D" instance=ExtResource("2_de64p")]
+transform = Transform3D(-3.4757159e-07, 0, -0.7195713, 0, 0.3786727, 0, 4.3355412, 0, 1.2660563e-07, -15.216849, -0.5533262, -90.19359)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
