@@ -149,9 +149,6 @@ shape = SubResource("BoxShape3D_jkr46")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.52421165, -0.2111206, -3.395976)
 shape = SubResource("BoxShape3D_hj6re")
 
-[node name="lantern" parent="Colliders/Station" instance=ExtResource("6_yucxg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.421184, 0.26411664, -3.1619558)
-
 [node name="covered_car_4k" parent="Colliders/Station" instance=ExtResource("7_ijamo")]
 transform = Transform3D(0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881907, 20.253654, -1.0348237, 3.9689932)
 
@@ -160,3 +157,6 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 20.9
 
 [node name="fire_hydrant_4k" parent="." instance=ExtResource("9_nqovv")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 25.833405, 0.012295746, -24.886366)
+
+[node name="lantern" parent="." instance=ExtResource("6_yucxg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.231429, 1.7828938, -17.615591)
