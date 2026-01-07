@@ -53,8 +53,6 @@ func equip_item(index: int):
 	equipped_item = inventory[inv_index]
 
 
-
-
 func _ready():
 	light.visible = not light.visible
 	# Make mouse dissapear
