@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b4c2pxeob6wi4"]
+[gd_scene load_steps=28 format=3 uid="uid://b4c2pxeob6wi4"]
 
 [ext_resource type="PackedScene" uid="uid://c6ccpe8oqxaq3" path="res://Player/player.tscn" id="1_p1oqu"]
 [ext_resource type="PackedScene" uid="uid://cp2efuucpuwyg" path="res://Level_n_props/Station/Base_station.glb" id="3_1aab7"]
@@ -64,6 +64,12 @@ size = Vector3(4.9138794, 1.5092773, 0.5576172)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hj6re"]
 size = Vector3(4.8777466, 1.4222412, 1.3407593)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bqybp"]
+size = Vector3(2.231079, 0.8598633, 3.0216064)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5g8rr"]
+size = Vector3(1.2340088, 0.28948975, 2.932129)
 
 [node name="level" type="Node3D"]
 
@@ -155,8 +161,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.421184, 0.26411664, -3.1619
 [node name="covered_car_4k" parent="Colliders/Station" instance=ExtResource("7_ijamo")]
 transform = Transform3D(0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881907, 20.253654, -1.0348237, 3.9689932)
 
-[node name="wooden_picnic_table_4k" parent="Colliders/Station" instance=ExtResource("8_7plxk")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 20.953133, -1.0345649, -15.953326)
-
 [node name="fire_hydrant_4k" parent="." instance=ExtResource("9_nqovv")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 25.833405, 0.012295746, -24.886366)
+
+[node name="wooden_picnic_table_4k" parent="." instance=ExtResource("8_7plxk")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 23.266907, 0.012465835, -30.22372)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wooden_picnic_table_4k"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.009457264, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wooden_picnic_table_4k/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0021476746, -0.07006836, 0.012634277)
+shape = SubResource("BoxShape3D_bqybp")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="wooden_picnic_table_4k/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008972168, 0.60719603, -0.004638672)
+shape = SubResource("BoxShape3D_5g8rr")
+
+[node name="wooden_picnic_table_4k2" parent="." instance=ExtResource("8_7plxk")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 23.266907, 0.012465835, -25.523062)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wooden_picnic_table_4k2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.009457264, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wooden_picnic_table_4k2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0021476746, -0.07006836, 0.012634277)
+shape = SubResource("BoxShape3D_bqybp")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="wooden_picnic_table_4k2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008972168, 0.60719603, -0.004638672)
+shape = SubResource("BoxShape3D_5g8rr")
