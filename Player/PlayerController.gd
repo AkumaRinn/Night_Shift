@@ -59,6 +59,8 @@ func add_to_inventory(item: Node3D):
 	item.reparent(hand)
 	item.transform = Transform3D.IDENTITY
 	item.visible = false
+	item.set_collision_layer(0)
+	item.set_collision_mask(0)
 	inventory.append(item)
 	if inv_index == -1:
 		equip_item(0)
