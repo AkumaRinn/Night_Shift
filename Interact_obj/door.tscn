@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bqyqxwmlvgoq8"]
 
 [ext_resource type="Script" uid="uid://cg0y3khys4btt" path="res://Interact_obj/door.gd" id="1_28fel"]
-[ext_resource type="PackedScene" uid="uid://bcgak3n17rsv1" path="res://main_door.glb" id="2_du4od"]
+[ext_resource type="PackedScene" uid="uid://bcgak3n17rsv1" path="res://Interact_obj/main_door.glb" id="2_du4od"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hun61"]
 size = Vector3(0.7786865, 0.9545288, 1)
@@ -81,6 +81,7 @@ libraries = {
 speed_scale = 1.494
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.57949066, 0.0617218, -0.6525879)

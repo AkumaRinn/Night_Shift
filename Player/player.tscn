@@ -1,16 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6ccpe8oqxaq3"]
+[gd_scene load_steps=8 format=3 uid="uid://c6ccpe8oqxaq3"]
 
-[ext_resource type="Script" uid="uid://d4fgifuivoajg" path="res://Player/PlayerController.gd" id="1_tok1r"]
+[ext_resource type="Script" uid="uid://ct7wc7pmarf35" path="res://Player/PlayerController.gd" id="1_tok1r"]
 [ext_resource type="Texture2D" uid="uid://cxj3xrf7056c0" path="res://Player/cross.png" id="2_4ntmi"]
-[ext_resource type="Script" uid="uid://cnd7xamge8xfo" path="res://Player/Stamina.gd" id="3_btcbx"]
-[ext_resource type="Script" uid="uid://dymvuca14unww" path="res://Player/PlayerCamera.gd" id="3_ddoul"]
+[ext_resource type="Script" uid="uid://bvshplcj4be85" path="res://Player/Stamina.gd" id="3_btcbx"]
+[ext_resource type="Script" uid="uid://b76rbvxqt18g8" path="res://Player/PlayerCamera.gd" id="3_ddoul"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
 radius = 0.41796875
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4flbx"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_gwnis"]
+
 [node name="player" type="CharacterBody3D" groups=["player"]]
+collision_layer = 4
 script = ExtResource("1_tok1r")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -53,10 +56,8 @@ script = ExtResource("3_ddoul")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06573194, 0)
 target_position = Vector3(0, 0, -5)
 collision_mask = 2
+hit_from_inside = true
 collide_with_areas = true
-
-[node name="hand" type="Node3D" parent="Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48747587, -0.3026371, -0.6010891)
 
 [node name="light" type="SpotLight3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020264745, 0.081270576, -0.43702412)
@@ -64,8 +65,15 @@ light_energy = 5.0
 spot_range = 6.524307
 spot_angle = 28.644676
 
+[node name="hand" type="Node3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0.3727372, -0.32993436, -0.5066085)
+
 [node name="Stamina" type="CharacterBody3D" parent="."]
 script = ExtResource("3_btcbx")
 
 [node name="PlayerController" type="Node" parent="."]
 script = ExtResource("1_tok1r")
+
+[node name="objects_clipping" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.22460139, -0.019991398, -0.6186275)
+shape = SubResource("SphereShape3D_gwnis")
