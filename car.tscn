@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://b22hrmbiec36h"]
+
+[ext_resource type="PackedScene" uid="uid://c8yphy4pw7l5p" path="res://Level_n_props/covered_car_4k.gltf" id="1_7822p"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uoj53"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_24jkt"]
+size = Vector3(1.6708984, 0.8126526, 4.2523804)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k61xc"]
+size = Vector3(1.3104858, 0.77197266, 2.2912598)
+
+[node name="Car" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_uoj53")
+
+[node name="base_collision" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.044433594, 0.41722107, -0.003326416)
+shape = SubResource("BoxShape3D_24jkt")
+
+[node name="covered_car_4k" parent="RigidBody3D" instance=ExtResource("1_7822p")]
+
+[node name="top_collision" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.052642822, 0.9672917, -0.30334473)
+shape = SubResource("BoxShape3D_k61xc")

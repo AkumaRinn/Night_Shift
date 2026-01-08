@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b4c2pxeob6wi4"]
+[gd_scene load_steps=33 format=3 uid="uid://b4c2pxeob6wi4"]
 
 [ext_resource type="PackedScene" uid="uid://c6ccpe8oqxaq3" path="res://Player/player.tscn" id="1_p1oqu"]
 [ext_resource type="Script" uid="uid://2o168nn1txj3" path="res://Player/PlayerMovement.gd" id="2_7plxk"]
@@ -7,10 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://bqyqxwmlvgoq8" path="res://Interact_obj/door.tscn" id="4_1aab7"]
 [ext_resource type="PackedScene" uid="uid://cpcsasyhwolj8" path="res://Interact_obj/door_bth.tscn" id="5_efb6n"]
 [ext_resource type="PackedScene" uid="uid://cqyfcb344ldx2" path="res://Interact_obj/lantern.tscn" id="6_yucxg"]
-[ext_resource type="PackedScene" uid="uid://c8yphy4pw7l5p" path="res://Level_n_props/covered_car_4k.gltf" id="7_ijamo"]
 [ext_resource type="PackedScene" uid="uid://cphl2n8ax5c58" path="res://Level_n_props/wooden_picnic_table_4k.gltf" id="8_7plxk"]
 [ext_resource type="PackedScene" uid="uid://ck8f6cqpslve2" path="res://Level_n_props/fire_hydrant_4k.gltf" id="9_nqovv"]
 [ext_resource type="Script" uid="uid://duyuel17y6s2o" path="res://UI/Settings.gd" id="11_nqovv"]
+[ext_resource type="PackedScene" uid="uid://b22hrmbiec36h" path="res://car.tscn" id="12_4kdk2"]
+[ext_resource type="PackedScene" uid="uid://sq2rtimcakll" path="res://car_fill_place.tscn" id="12_j2llm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hykmj"]
 sky_top_color = Color(0.46018535, 0.4560359, 0.42742452, 1)
@@ -105,12 +106,6 @@ transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2354126, -0.24996948, -0.012275696)
 shape = SubResource("BoxShape3D_efb6n")
 
-[node name="main_door" parent="." instance=ExtResource("4_1aab7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.679784, 1.4194574, -14.245346)
-
-[node name="door2" parent="." instance=ExtResource("5_efb6n")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 20.827322, 1.4734325, -20.033134)
-
 [node name="Colliders" type="Node3D" parent="."]
 
 [node name="Station" type="StaticBody3D" parent="Colliders"]
@@ -180,17 +175,37 @@ shape = SubResource("BoxShape3D_qn2ik")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4912252, 0.12619019, -8.735675)
 shape = SubResource("BoxShape3D_a50bj")
 
-[node name="fire_hydrant_4k" parent="." instance=ExtResource("9_nqovv")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 25.833405, 0.012295746, -24.886366)
-
 [node name="lantern" parent="." instance=ExtResource("6_yucxg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.231429, 1.7828938, -17.615591)
 
-[node name="covered_car_4k" parent="." instance=ExtResource("7_ijamo")]
-transform = Transform3D(0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881907, 22.567429, 0.012207031, -10.301401)
-
-[node name="wooden_picnic_table_4k" parent="." instance=ExtResource("8_7plxk")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 23.266907, 0.012465835, -30.22372)
-
 [node name="Settings" type="Node" parent="."]
 script = ExtResource("11_nqovv")
+
+[node name="Map_Props" type="Node3D" parent="."]
+
+[node name="Carr_fill_place" parent="Map_Props" instance=ExtResource("12_j2llm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.230366, 0.32592773, 1.072694)
+
+[node name="Carr_fill_place2" parent="Map_Props" instance=ExtResource("12_j2llm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.230366, 0.32592773, 6.4529376)
+
+[node name="Carr_fill_place3" parent="Map_Props" instance=ExtResource("12_j2llm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.894351, 0.32592773, 6.4529376)
+
+[node name="Carr_fill_place4" parent="Map_Props" instance=ExtResource("12_j2llm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.894351, 0.32592773, 0.9693694)
+
+[node name="fire_hydrant_4k" parent="Map_Props" instance=ExtResource("9_nqovv")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 25.833405, 0.012295746, -24.886366)
+
+[node name="wooden_picnic_table_4k" parent="Map_Props" instance=ExtResource("8_7plxk")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 23.266907, 0.012465835, -30.22372)
+
+[node name="main_door" parent="Map_Props" instance=ExtResource("4_1aab7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.679784, 1.4194574, -14.245346)
+
+[node name="door2" parent="Map_Props" instance=ExtResource("5_efb6n")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 20.827322, 1.4734325, -20.033134)
+
+[node name="Car" parent="." groups=["car"] instance=ExtResource("12_4kdk2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.926647, 0.012207031, 1.4181286)
