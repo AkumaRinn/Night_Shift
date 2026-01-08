@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6ccpe8oqxaq3"]
+[gd_scene load_steps=7 format=3 uid="uid://c6ccpe8oqxaq3"]
 
-[ext_resource type="Script" uid="uid://ofqrjyb2t53v" path="res://Player/player.gd" id="1_l8h54"]
+[ext_resource type="Script" uid="uid://d4fgifuivoajg" path="res://Player/PlayerController.gd" id="1_tok1r"]
 [ext_resource type="Texture2D" uid="uid://cxj3xrf7056c0" path="res://Player/cross.png" id="2_4ntmi"]
+[ext_resource type="Script" uid="uid://cnd7xamge8xfo" path="res://Player/Stamina.gd" id="3_btcbx"]
+[ext_resource type="Script" uid="uid://dymvuca14unww" path="res://Player/PlayerCamera.gd" id="3_ddoul"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
 radius = 0.41796875
@@ -9,7 +11,7 @@ radius = 0.41796875
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4flbx"]
 
 [node name="player" type="CharacterBody3D" groups=["player"]]
-script = ExtResource("1_l8h54")
+script = ExtResource("1_tok1r")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -45,6 +47,7 @@ mesh = SubResource("CapsuleMesh_4flbx")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4111585, 0)
+script = ExtResource("3_ddoul")
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06573194, 0)
@@ -60,3 +63,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020264745, 0.081270576, -0.
 light_energy = 5.0
 spot_range = 6.524307
 spot_angle = 28.644676
+
+[node name="Stamina" type="CharacterBody3D" parent="."]
+script = ExtResource("3_btcbx")
+
+[node name="PlayerController" type="Node" parent="."]
+script = ExtResource("1_tok1r")
