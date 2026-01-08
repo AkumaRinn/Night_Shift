@@ -2,7 +2,7 @@
 extends Control
 
 @onready var main_menu = $PausePanel
-@onready var settings_menu = $SettingsMenu/SettingsPanel
+@onready var settings_menu = $SettingsMenu
 @onready var sens_slider = $SettingsMenu/SettingsPanel/Sensitivity
 @onready var invert_checkbox = $SettingsMenu/SettingsPanel/InvertY
 
