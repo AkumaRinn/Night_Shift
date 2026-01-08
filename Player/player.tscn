@@ -62,8 +62,8 @@ collide_with_areas = true
 [node name="light" type="SpotLight3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020264745, 0.081270576, -0.43702412)
 light_energy = 5.0
-spot_range = 6.524307
-spot_angle = 28.644676
+spot_range = 12.467312
+spot_angle = 26.718748
 
 [node name="hand" type="Node3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0.3727372, -0.32993436, -0.5066085)

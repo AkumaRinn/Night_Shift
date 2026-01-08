@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://b4c2pxeob6wi4"]
+[gd_scene load_steps=34 format=3 uid="uid://b4c2pxeob6wi4"]
 
 [ext_resource type="PackedScene" uid="uid://c6ccpe8oqxaq3" path="res://Player/player.tscn" id="1_p1oqu"]
 [ext_resource type="Script" uid="uid://2o168nn1txj3" path="res://Player/PlayerMovement.gd" id="2_7plxk"]
@@ -12,13 +12,14 @@
 [ext_resource type="Script" uid="uid://duyuel17y6s2o" path="res://UI/Settings.gd" id="11_nqovv"]
 [ext_resource type="PackedScene" uid="uid://b22hrmbiec36h" path="res://car.tscn" id="12_4kdk2"]
 [ext_resource type="PackedScene" uid="uid://sq2rtimcakll" path="res://car_fill_place.tscn" id="12_j2llm"]
+[ext_resource type="PackedScene" uid="uid://dcgffnxylpqmg" path="res://Level_n_props/utility_box_02_4k.gltf" id="13_4kdk2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hykmj"]
-sky_top_color = Color(0.46018535, 0.4560359, 0.42742452, 1)
-sky_horizon_color = Color(0.60072654, 0.5898238, 0.59528863, 1)
-sky_cover_modulate = Color(0.5251013, 0.5251013, 0.5251012, 1)
-ground_bottom_color = Color(0.46409017, 0.46513027, 0.58621573, 1)
-ground_horizon_color = Color(0.6106876, 0.53757054, 0.6532329, 1)
+sky_top_color = Color(0.21753925, 0.21753505, 0.19927138, 1)
+sky_horizon_color = Color(0.2402634, 0.23092592, 0.23715264, 1)
+sky_cover_modulate = Color(0.22670761, 0.22670746, 0.22670743, 1)
+ground_bottom_color = Color(0.2201559, 0.2228409, 0.29710582, 1)
+ground_horizon_color = Color(0.30744535, 0.2542063, 0.3377715, 1)
 
 [sub_resource type="Sky" id="Sky_1aab7"]
 sky_material = SubResource("ProceduralSkyMaterial_hykmj")
@@ -87,6 +88,7 @@ environment = SubResource("Environment_efb6n")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+visible = false
 shadow_enabled = true
 
 [node name="player" parent="." instance=ExtResource("1_p1oqu")]
@@ -207,5 +209,144 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.679784, 1.4194574, -14.2453
 [node name="door2" parent="Map_Props" instance=ExtResource("5_efb6n")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 20.827322, 1.4734325, -20.033134)
 
+[node name="utility_box_02_4k" parent="Map_Props" instance=ExtResource("13_4kdk2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.491304, 0.012207031, -13.758665)
+
 [node name="Car" parent="." groups=["car"] instance=ExtResource("12_4kdk2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.926647, 0.012207031, 1.4181286)
+
+[node name="Level_Light" type="Node3D" parent="."]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Level_Light"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.9494612, 6.4645824, -2.1008198)
+light_energy = 3.0
+spot_range = 9.345545
+spot_angle = 41.38615
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Level_Light"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 9.761113, 6.4645824, -2.1008198)
+light_energy = 3.0
+spot_range = 9.345545
+spot_angle = 41.38615
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Level_Light"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 14.946758, 6.4645824, -2.1008198)
+light_energy = 3.0
+spot_range = 9.345545
+spot_angle = 41.38615
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Level_Light"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.9494612, 6.4645824, 3.988037)
+light_energy = 3.0
+spot_range = 9.345545
+spot_angle = 41.38615
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="Level_Light"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 9.761113, 6.4645824, 3.988037)
+light_energy = 3.0
+spot_range = 9.345545
+spot_angle = 41.38615
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="Level_Light"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 14.946758, 6.4645824, 3.988037)
+light_energy = 3.0
+spot_range = 9.345545
+spot_angle = 41.38615
+
+[node name="SpotLight3D7" type="SpotLight3D" parent="Level_Light"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.9494612, 6.4645824, 9.580957)
+light_energy = 3.0
+spot_range = 9.345545
+spot_angle = 41.38615
+
+[node name="SpotLight3D10" type="SpotLight3D" parent="Level_Light"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.541237, 6.4645824, -2.1008198)
+light_energy = 3.0
+spot_range = 9.345545
+spot_angle = 41.38615
+
+[node name="SpotLight3D11" type="SpotLight3D" parent="Level_Light"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.541237, 6.4645824, 3.988037)
+light_energy = 3.0
+spot_range = 9.345545
+spot_angle = 41.38615
+
+[node name="SpotLight3D12" type="SpotLight3D" parent="Level_Light"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.541237, 6.4645824, 9.580957)
+light_energy = 3.0
+spot_range = 9.345545
+spot_angle = 41.38615
+
+[node name="SpotLight3D8" type="SpotLight3D" parent="Level_Light"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 9.761113, 6.4645824, 9.580957)
+light_energy = 3.0
+spot_range = 9.345545
+spot_angle = 41.38615
+
+[node name="SpotLight3D9" type="SpotLight3D" parent="Level_Light"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 14.946758, 6.4645824, 9.580957)
+light_energy = 3.0
+spot_range = 9.345545
+spot_angle = 41.38615
+
+[node name="Inside_Light" type="Node3D" parent="Level_Light"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Level_Light/Inside_Light"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.315424, 4.006493, -21.545107)
+light_energy = 5.0
+spot_range = 6.7604256
+spot_angle = 89.38978
+
+[node name="SpotLight3D9" type="SpotLight3D" parent="Level_Light/Inside_Light"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.9969904, 4.006493, -26.489773)
+light_energy = 5.0
+spot_angle = 81.67024
+
+[node name="SpotLight3D10" type="SpotLight3D" parent="Level_Light/Inside_Light"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4.8210893, 4.006493, -26.489773)
+light_energy = 5.0
+spot_angle = 82.12997
+
+[node name="SpotLight3D11" type="SpotLight3D" parent="Level_Light/Inside_Light"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.8858895, 4.006493, -26.489773)
+light_energy = 5.0
+spot_angle = 86.31326
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Level_Light/Inside_Light"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.315424, 4.006493, -17.26786)
+light_energy = 5.0
+spot_range = 6.9738626
+spot_angle = 87.07593
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Level_Light/Inside_Light"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 3.8462067, 4.006493, -21.545107)
+light_energy = 5.0
+spot_angle = 89.0235
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Level_Light/Inside_Light"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 3.8462067, 4.006493, -17.26786)
+light_energy = 5.0
+spot_angle = 83.24191
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="Level_Light/Inside_Light"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 6.3229737, 4.006493, -21.545107)
+light_energy = 5.0
+spot_angle = 89.39702
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="Level_Light/Inside_Light"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 6.3229737, 4.006493, -17.26786)
+light_energy = 5.0
+spot_range = 5.449175
+spot_angle = 86.42718
+
+[node name="SpotLight3D7" type="SpotLight3D" parent="Level_Light/Inside_Light"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 9.551605, 4.006493, -21.545107)
+light_energy = 5.0
+spot_range = 6.3350334
+spot_angle = 84.9379
+
+[node name="SpotLight3D8" type="SpotLight3D" parent="Level_Light/Inside_Light"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 9.551605, 4.006493, -17.26786)
+light_energy = 5.0
+spot_range = 5.7452445
+spot_angle = 88.8914
