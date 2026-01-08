@@ -3,7 +3,7 @@ extends CharacterBody3D
 
 # --- Movement Constants ---
 const SPEED = 4.5
-const JUMP_VELOCITY = 6.7
+const JUMP_VELOCITY = 9
 const GRAVITY = 44.1
 
 # --- Speed Multipliers ---

@@ -38,7 +38,7 @@ func _unhandled_input(event):
 		toggle_light()
 
 # --- Pickup interaction ---
-func _process(delta):
+func _process(_delta):
 	if not reach or not reach.is_enabled():
 		return
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=32 format=3 uid="uid://b4c2pxeob6wi4"]
 
-[ext_resource type="PackedScene" uid="uid://c6ccpe8oqxaq3" path="res://Player/Player.tscn" id="1_p1oqu"]
-[ext_resource type="Script" uid="uid://b6iqkoobbig33" path="res://Player/PlayerMovement.gd" id="2_7plxk"]
+[ext_resource type="PackedScene" uid="uid://c6ccpe8oqxaq3" path="res://Player/player.tscn" id="1_p1oqu"]
+[ext_resource type="Script" uid="uid://2o168nn1txj3" path="res://Player/PlayerMovement.gd" id="2_7plxk"]
 [ext_resource type="PackedScene" uid="uid://cp2efuucpuwyg" path="res://Level_n_props/Station/Base_station.glb" id="3_1aab7"]
 [ext_resource type="PackedScene" uid="uid://c3dxj4ftggn1" path="res://UI/pause_menu.tscn" id="3_hykmj"]
 [ext_resource type="PackedScene" uid="uid://bqyqxwmlvgoq8" path="res://Interact_obj/door.tscn" id="4_1aab7"]
