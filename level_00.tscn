@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b4c2pxeob6wi4"]
+[gd_scene load_steps=35 format=3 uid="uid://b4c2pxeob6wi4"]
 
 [ext_resource type="PackedScene" uid="uid://c6ccpe8oqxaq3" path="res://Player/player.tscn" id="1_p1oqu"]
 [ext_resource type="Script" uid="uid://2o168nn1txj3" path="res://Player/PlayerMovement.gd" id="2_7plxk"]
@@ -10,9 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://cphl2n8ax5c58" path="res://Level_n_props/wooden_picnic_table_4k.gltf" id="8_7plxk"]
 [ext_resource type="PackedScene" uid="uid://ck8f6cqpslve2" path="res://Level_n_props/fire_hydrant_4k.gltf" id="9_nqovv"]
 [ext_resource type="Script" uid="uid://duyuel17y6s2o" path="res://UI/Settings.gd" id="11_nqovv"]
-[ext_resource type="PackedScene" uid="uid://b22hrmbiec36h" path="res://car.tscn" id="12_4kdk2"]
 [ext_resource type="PackedScene" uid="uid://sq2rtimcakll" path="res://car_fill_place.tscn" id="12_j2llm"]
 [ext_resource type="PackedScene" uid="uid://dcgffnxylpqmg" path="res://Level_n_props/utility_box_02_4k.gltf" id="13_4kdk2"]
+[ext_resource type="PackedScene" uid="uid://b22hrmbiec36h" path="res://car.tscn" id="13_agx0f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hykmj"]
 sky_top_color = Color(0.21753925, 0.21753505, 0.19927138, 1)
@@ -81,6 +81,13 @@ size = Vector3(1.6004639, 1.0495605, 1.0268555)
 [sub_resource type="BoxShape3D" id="BoxShape3D_a50bj"]
 size = Vector3(1, 2.0985718, 3.005005)
 
+[sub_resource type="Curve3D" id="Curve3D_4kdk2"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 66.63042, 0, 21.001255, 0, 0, 0, 0, 0, 0, 28.453625, 0.010028005, 21.854544, 2.5758457, -2.9087067e-05, 1.6614208, -2.5758457, 2.9087067e-05, -1.6614208, 20.818539, 0.027861118, 21.610357, 0, 0, 0, 0, 0, 0, 19.607628, 0, 11.328708, 0, 0, 0, 0, 0, 0, 19.589901, -1.1920929e-07, 1.8316181, 0.8490257, 0, 1.6285944, -0.8490257, 0, -1.6285944, 19.441673, 0, -6.107197, 0.4839306, -6.276369e-05, -0.23705196, -0.4839306, 6.276369e-05, 0.23705196, 15.029609, 0.011289775, -8.092112, 1.697155, 0, -1.9901891, -1.697155, 0, 1.9901891, 10.245839, 0.014160156, -6.8719506, 0, 0, 0, 0, 0, 0, 9.770804, 0.009540886, -3.8858266, 0, 0, 0, 0, 0, 0, 10.498369, 0.007582873, 1.1869025, 0, 0, 0, 0, 0, 0, 10.781402, 0.0108392835, 9.474508, 0, 0, 0, 0, 0, 0, 9.752034, -0.0041536093, 14.254217, 4.689935, -4.708767e-06, -1.5889969, -4.689935, 4.708767e-06, 1.5889969, 4.700075, 0.011591971, 21.603987, 0, 0, 0, 0, 0, 0, -17.725657, 0.0031416714, 21.704775, 0, 0, 0, 0, 0, 0, -50.63675, 0.41784668, 21.562344, 0, 0, 0, 0, 0, 0, -89.08262, 0.41784668, 21.525042),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 16
+
 [node name="level" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -100,6 +107,7 @@ script = ExtResource("2_7plxk")
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("3_hykmj")]
 
 [node name="Base_station" parent="." instance=ExtResource("3_1aab7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009320974, 0.015978813, -0.0048692226)
 
 [node name="StationBody" type="StaticBody3D" parent="Base_station"]
 transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, 0, 0, 0)
@@ -177,9 +185,6 @@ shape = SubResource("BoxShape3D_qn2ik")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4912252, 0.12619019, -8.735675)
 shape = SubResource("BoxShape3D_a50bj")
 
-[node name="lantern" parent="." instance=ExtResource("6_yucxg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.231429, 1.7828938, -17.615591)
-
 [node name="Settings" type="Node" parent="."]
 script = ExtResource("11_nqovv")
 
@@ -212,8 +217,8 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 20.8
 [node name="utility_box_02_4k" parent="Map_Props" instance=ExtResource("13_4kdk2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.491304, 0.012207031, -13.758665)
 
-[node name="Car" parent="." groups=["car"] instance=ExtResource("12_4kdk2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.926647, 0.012207031, 1.4181286)
+[node name="lantern" parent="Map_Props" instance=ExtResource("6_yucxg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.231429, 1.7828938, -17.615591)
 
 [node name="Level_Light" type="Node3D" parent="."]
 
@@ -350,3 +355,11 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 9.55
 light_energy = 5.0
 spot_range = 5.7452445
 spot_angle = 88.8914
+
+[node name="CarPath" type="Path3D" parent="."]
+curve = SubResource("Curve3D_4kdk2")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="CarPath"]
+transform = Transform3D(-0.022344347, 0.00026253014, 0.9996976, -1.4551232e-11, 0.9999562, -0.00026259338, -0.99970335, -5.8678197e-06, -0.022344219, 66.63042, 0, 21.001255)
+
+[node name="Car_Node" parent="CarPath/PathFollow3D" instance=ExtResource("13_agx0f")]

@@ -44,12 +44,19 @@ func _process(_delta):
 
 	reach.force_raycast_update()
 
+	# Adding interacting object to inventory
 	if reach.is_colliding():
 		var obj = reach.get_collider()
 		if obj and obj.is_in_group("lantern"):
 			var distance = camera.global_position.distance_to(obj.global_position)
 			if distance <= pickup_distance and Input.is_action_just_pressed("interact"):
 				add_to_inventory(obj)
+		elif obj and obj.is_in_group("car"): # if object is a CAR
+			var distance = camera.global_position.distance_to(obj.global_position)
+			if distance <= pickup_distance and Input.is_action_just_pressed("interact"):
+				obj.interact(self)
+			
+			
 
 # --- Inventory / flashlight functions ---
 func add_to_inventory(item: Node3D):
