@@ -1,6 +1,7 @@
-[gd_scene load_steps=30 format=3 uid="uid://b4c2pxeob6wi4"]
+[gd_scene load_steps=32 format=3 uid="uid://b4c2pxeob6wi4"]
 
-[ext_resource type="PackedScene" uid="uid://c6ccpe8oqxaq3" path="res://Player/player.tscn" id="1_p1oqu"]
+[ext_resource type="PackedScene" uid="uid://c6ccpe8oqxaq3" path="res://Player/Player.tscn" id="1_p1oqu"]
+[ext_resource type="Script" uid="uid://b6iqkoobbig33" path="res://Player/PlayerMovement.gd" id="2_7plxk"]
 [ext_resource type="PackedScene" uid="uid://cp2efuucpuwyg" path="res://Level_n_props/Station/Base_station.glb" id="3_1aab7"]
 [ext_resource type="PackedScene" uid="uid://c3dxj4ftggn1" path="res://UI/pause_menu.tscn" id="3_hykmj"]
 [ext_resource type="PackedScene" uid="uid://bqyqxwmlvgoq8" path="res://Interact_obj/door.tscn" id="4_1aab7"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c8yphy4pw7l5p" path="res://Level_n_props/covered_car_4k.gltf" id="7_ijamo"]
 [ext_resource type="PackedScene" uid="uid://cphl2n8ax5c58" path="res://Level_n_props/wooden_picnic_table_4k.gltf" id="8_7plxk"]
 [ext_resource type="PackedScene" uid="uid://ck8f6cqpslve2" path="res://Level_n_props/fire_hydrant_4k.gltf" id="9_nqovv"]
+[ext_resource type="Script" uid="uid://duyuel17y6s2o" path="res://UI/Settings.gd" id="11_nqovv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hykmj"]
 sky_top_color = Color(0.46018535, 0.4560359, 0.42742452, 1)
@@ -88,6 +90,7 @@ shadow_enabled = true
 
 [node name="player" parent="." instance=ExtResource("1_p1oqu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3254194, 0.9593967, -0.92472506)
+script = ExtResource("2_7plxk")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -188,3 +191,6 @@ transform = Transform3D(0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.2588
 
 [node name="wooden_picnic_table_4k" parent="." instance=ExtResource("8_7plxk")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 23.266907, 0.012465835, -30.22372)
+
+[node name="Settings" type="Node" parent="."]
+script = ExtResource("11_nqovv")
