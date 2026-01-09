@@ -6,7 +6,7 @@
 size = Vector3(0.48071983, 0.19550896, 0.15916601)
 
 [node name="lantern" type="Node3D"]
-transform = Transform3D(-0.34251213, 0, 0.9395136, -0.3341489, -0.9346148, -0.121818416, 0.8780833, -0.3556616, 0.3201169, 0, 0, 0)
+transform = Transform3D(1.0000001, 0, 0, 0, 0.99999994, 0, 0, 0, 1.0000001, 0, 0, 0)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." groups=["lantern"]]
 collision_layer = 2
