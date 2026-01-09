@@ -48,6 +48,7 @@ func _process(_delta):
 	if reach.is_colliding():
 		var obj = reach.get_collider()
 		if obj and obj.is_in_group("lantern"):
+			#add popup text for lanter
 			var distance = camera.global_position.distance_to(obj.global_position)
 			if distance <= pickup_distance and Input.is_action_just_pressed("interact"):
 				add_to_inventory(obj)
@@ -55,7 +56,10 @@ func _process(_delta):
 			var distance = camera.global_position.distance_to(obj.global_position)
 			if distance <= pickup_distance and Input.is_action_just_pressed("interact"):
 				obj.interact(self)
-			
+		elif obj and obj.is_in_group("door"):
+			var distance = camera.global_position.distance_to(obj.global_position)
+			if distance <= pickup_distance and Input.is_action_just_pressed("interact"):
+				obj.interact(self)
 			
 
 # --- Inventory / flashlight functions ---
