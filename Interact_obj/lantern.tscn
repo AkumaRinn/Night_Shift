@@ -1,6 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqyfcb344ldx2"]
-
-[ext_resource type="PackedScene" uid="uid://ckar02ttjoll3" path="res://scene.gltf" id="1_mfvwh"]
+[gd_scene load_steps=2 format=3 uid="uid://cqyfcb344ldx2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kxgpu"]
 size = Vector3(0.48071983, 0.19550896, 0.15916601)
@@ -14,6 +12,3 @@ collision_layer = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.009536177, 0.027425021, 0.0005912334)
 shape = SubResource("BoxShape3D_kxgpu")
-
-[node name="Sketchfab_Scene" parent="RigidBody3D" instance=ExtResource("1_mfvwh")]
-transform = Transform3D(0.19245566, 3.109004e-05, 0.0007043539, -3.1976728e-05, 0.22494347, 0.0013867472, -0.00072483916, -0.0016686423, 0.1869553, 0.0012064278, 0.032535978, -0.0025431663)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b22hrmbiec36h"]
 
 [ext_resource type="PackedScene" uid="uid://c8yphy4pw7l5p" path="res://Level_n_props/covered_car_4k.gltf" id="1_7822p"]
-[ext_resource type="Script" uid="uid://bnuuyfu2bo61e" path="res://car.gd" id="1_uoj53"]
+[ext_resource type="Script" uid="uid://bnuuyfu2bo61e" path="res://Interact_obj/car.gd" id="1_uoj53"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uoj53"]
 
