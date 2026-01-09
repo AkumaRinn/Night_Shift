@@ -18,6 +18,14 @@ script = ExtResource("1_tok1r")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 682.0
+offset_top = 998.0
+offset_right = 928.0
+offset_bottom = 1017.0
+size_flags_vertical = 8
+show_percentage = false
+
 [node name="crosshair" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15

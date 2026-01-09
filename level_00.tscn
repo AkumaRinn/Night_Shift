@@ -10,9 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://cphl2n8ax5c58" path="res://Level_n_props/wooden_picnic_table_4k.gltf" id="8_7plxk"]
 [ext_resource type="PackedScene" uid="uid://ck8f6cqpslve2" path="res://Level_n_props/fire_hydrant_4k.gltf" id="9_nqovv"]
 [ext_resource type="Script" uid="uid://duyuel17y6s2o" path="res://UI/Settings.gd" id="11_nqovv"]
-[ext_resource type="PackedScene" uid="uid://sq2rtimcakll" path="res://car_fill_place.tscn" id="12_j2llm"]
+[ext_resource type="PackedScene" path="res://car_fill_place.tscn" id="12_j2llm"]
 [ext_resource type="PackedScene" uid="uid://dcgffnxylpqmg" path="res://Level_n_props/utility_box_02_4k.gltf" id="13_4kdk2"]
-[ext_resource type="PackedScene" uid="uid://b22hrmbiec36h" path="res://car.tscn" id="13_agx0f"]
+[ext_resource type="PackedScene" path="res://car.tscn" id="13_agx0f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hykmj"]
 sky_top_color = Color(0.21753925, 0.21753505, 0.19927138, 1)
@@ -218,7 +218,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 20.8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.491304, 0.012207031, -13.758665)
 
 [node name="lantern" parent="Map_Props" instance=ExtResource("6_yucxg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.231429, 1.7828938, -17.615591)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.025596, 1.7576818, -17.615591)
 
 [node name="Level_Light" type="Node3D" parent="."]
 
@@ -360,6 +360,6 @@ spot_angle = 88.8914
 curve = SubResource("Curve3D_4kdk2")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="CarPath"]
-transform = Transform3D(-0.022344347, 0.00026253014, 0.9996976, -1.4551232e-11, 0.9999562, -0.00026259338, -0.99970335, -5.8678197e-06, -0.022344219, 66.63042, 0, 21.001255)
+transform = Transform3D(-0.022344345, 0.00026253014, 0.99969757, -1.4551231e-11, 0.99995613, -0.00026259338, -0.9997033, -5.8678197e-06, -0.022344217, 66.63042, 0, 21.001255)
 
 [node name="Car_Node" parent="CarPath/PathFollow3D" instance=ExtResource("13_agx0f")]
