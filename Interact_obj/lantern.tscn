@@ -1,17 +1,19 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqyfcb344ldx2"]
 
-[ext_resource type="PackedScene" uid="uid://xp67x33b8ysa" path="res://Level_n_props/Lantern_01_4k.gltf" id="1_kxgpu"]
+[ext_resource type="PackedScene" uid="uid://ckar02ttjoll3" path="res://scene.gltf" id="1_mfvwh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kxgpu"]
-size = Vector3(0.2924366, 0.23751831, 0.21675491)
+size = Vector3(0.48071983, 0.19550896, 0.15916601)
 
 [node name="lantern" type="Node3D"]
+transform = Transform3D(-0.34251213, 0, 0.9395136, -0.3341489, -0.9346148, -0.121818416, 0.8780833, -0.3556616, 0.3201169, 0, 0, 0)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." groups=["lantern"]]
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0010844916, 0.10335562, 0.008745253)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.009536177, 0.027425021, 0.0005912334)
 shape = SubResource("BoxShape3D_kxgpu")
 
-[node name="Lantern_01_4k" parent="RigidBody3D" instance=ExtResource("1_kxgpu")]
+[node name="Sketchfab_Scene" parent="RigidBody3D" instance=ExtResource("1_mfvwh")]
+transform = Transform3D(0.19245566, 3.109004e-05, 0.0007043539, -3.1976728e-05, 0.22494347, 0.0013867472, -0.00072483916, -0.0016686423, 0.1869553, 0.0012064278, 0.032535978, -0.0025431663)
