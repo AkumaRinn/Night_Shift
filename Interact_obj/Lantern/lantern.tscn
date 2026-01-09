@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqyfcb344ldx2"]
+[gd_scene load_steps=3 format=3 uid="uid://cqyfcb344ldx2"]
+
+[ext_resource type="PackedScene" uid="uid://lmaxbprqub0f" path="res://Interact_obj/Lantern/scene.gltf" id="1_5nu2l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kxgpu"]
 size = Vector3(0.48071983, 0.19550896, 0.15916601)
@@ -11,3 +13,6 @@ collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("BoxShape3D_kxgpu")
+
+[node name="Sketchfab_Scene" parent="RigidBody3D" instance=ExtResource("1_5nu2l")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
