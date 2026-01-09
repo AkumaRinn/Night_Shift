@@ -1,15 +1,16 @@
-[gd_scene load_steps=55 format=3 uid="uid://b4c2pxeob6wi4"]
+[gd_scene load_steps=56 format=3 uid="uid://b4c2pxeob6wi4"]
 
 [ext_resource type="PackedScene" uid="uid://c6ccpe8oqxaq3" path="res://Player/player.tscn" id="1_p1oqu"]
 [ext_resource type="Script" uid="uid://2o168nn1txj3" path="res://Player/PlayerMovement.gd" id="2_7plxk"]
 [ext_resource type="PackedScene" uid="uid://cp2efuucpuwyg" path="res://Level_n_props/Station/Base_station.glb" id="3_1aab7"]
 [ext_resource type="PackedScene" uid="uid://c3dxj4ftggn1" path="res://UI/pause_menu.tscn" id="3_hykmj"]
 [ext_resource type="PackedScene" uid="uid://bqyqxwmlvgoq8" path="res://Interact_obj/door.tscn" id="4_1aab7"]
+[ext_resource type="PackedScene" uid="uid://b3dt8f8bywpyw" path="res://UI/settings_menu.tscn" id="4_nqovv"]
 [ext_resource type="PackedScene" uid="uid://cqyfcb344ldx2" path="res://Interact_obj/lantern.tscn" id="6_yucxg"]
 [ext_resource type="Script" uid="uid://duyuel17y6s2o" path="res://UI/Settings.gd" id="11_nqovv"]
-[ext_resource type="PackedScene" path="res://car_fill_place.tscn" id="12_j2llm"]
+[ext_resource type="PackedScene" uid="uid://sq2rtimcakll" path="res://car_fill_place.tscn" id="12_j2llm"]
 [ext_resource type="PackedScene" uid="uid://dcgffnxylpqmg" path="res://Level_n_props/utility_box_02_4k.gltf" id="13_4kdk2"]
-[ext_resource type="PackedScene" path="res://car.tscn" id="13_agx0f"]
+[ext_resource type="PackedScene" uid="uid://b22hrmbiec36h" path="res://Interact_obj/car.tscn" id="13_agx0f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hykmj"]
 sky_top_color = Color(0.21753925, 0.21753505, 0.19927138, 1)
@@ -171,6 +172,7 @@ script = ExtResource("2_7plxk")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("3_hykmj")]
+settings_scene = ExtResource("4_nqovv")
 
 [node name="Base_station" parent="." instance=ExtResource("3_1aab7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009320974, 0.015978813, -0.0048692226)
@@ -571,6 +573,6 @@ spot_angle = 88.8914
 curve = SubResource("Curve3D_4kdk2")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="CarPath"]
-transform = Transform3D(-0.022344315, 0.0002625298, 0.99969625, -1.4551212e-11, 0.9999548, -0.00026259304, -0.999702, -5.867812e-06, -0.022344187, 66.63042, 0, 21.001255)
+transform = Transform3D(-0.022344293, 0.00026252947, 0.999695, -1.4551197e-11, 0.99995357, -0.0002625927, -0.99970096, -5.8678047e-06, -0.022344159, 66.63042, 0, 21.001255)
 
 [node name="Car_Node" parent="CarPath/PathFollow3D" instance=ExtResource("13_agx0f")]

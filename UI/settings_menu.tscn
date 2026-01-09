@@ -1,0 +1,106 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3dt8f8bywpyw"]
+
+[ext_resource type="Script" uid="uid://0l3u6j552rtw" path="res://UI/settings_menu.gd" id="1_77no7"]
+[ext_resource type="PackedScene" uid="uid://cxyt3pua3wrn4" path="res://UI/Settings.tscn" id="2_jkv84"]
+
+[node name="SettingsMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.5
+offset_top = -93.5
+offset_right = 189.5
+offset_bottom = 93.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_77no7")
+
+[node name="SettingsPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 0.5
+offset_top = 0.5
+offset_right = 378.5
+offset_bottom = 190.5
+
+[node name="back" type="Button" parent="SettingsPanel"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 160.0
+offset_right = 47.0
+offset_bottom = 191.0
+text = "Back"
+
+[node name="Sensitivity" type="HSlider" parent="SettingsPanel"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 7.0
+offset_right = 362.0
+offset_bottom = 34.0
+min_value = 0.05
+max_value = 1.0
+step = 0.01
+value = 0.05
+
+[node name="Label" type="Label" parent="SettingsPanel"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 8.0
+offset_right = 87.0
+offset_bottom = 31.0
+text = "Sensitivity"
+
+[node name="InvertY" type="CheckBox" parent="SettingsPanel"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 39.0
+offset_right = 224.0
+offset_bottom = 63.0
+
+[node name="Invert Y Panel" type="Label" parent="SettingsPanel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 39.0
+offset_right = 70.0
+offset_bottom = 62.0
+text = "Invert Y"
+
+[node name="resolutions" type="OptionButton" parent="SettingsPanel"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 77.0
+offset_right = 232.0
+offset_bottom = 97.0
+selected = 1
+item_count = 6
+popup/item_0/text = "1920x1080"
+popup/item_0/id = 0
+popup/item_1/text = "1280x720"
+popup/item_1/id = 5
+popup/item_2/text = "1366x768"
+popup/item_2/id = 2
+popup/item_3/text = "1440x900"
+popup/item_3/id = 1
+popup/item_4/text = "2560x1440"
+popup/item_4/id = 3
+popup/item_5/text = "3840x2160"
+popup/item_5/id = 4
+
+[node name="res_label" type="Label" parent="SettingsPanel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 77.0
+offset_right = 93.0
+offset_bottom = 100.0
+text = "Resolution"
+
+[node name="Settings" parent="." instance=ExtResource("2_jkv84")]
+layout_mode = 0
+
+[connection signal="pressed" from="SettingsPanel/back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="SettingsPanel/Sensitivity" to="." method="_on_sensitivity_value_changed"]
+[connection signal="toggled" from="SettingsPanel/InvertY" to="." method="_on_invert_y_toggled"]
+[connection signal="item_selected" from="SettingsPanel/resolutions" to="." method="_on_resolutions_item_selected"]

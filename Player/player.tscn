@@ -7,6 +7,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
 radius = 0.41796875
+height = 2.3945313
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4flbx"]
 
@@ -51,6 +52,7 @@ grow_vertical = 2
 texture = ExtResource("2_4ntmi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.13808593, 0)
 shape = SubResource("CapsuleShape3D_sh265")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

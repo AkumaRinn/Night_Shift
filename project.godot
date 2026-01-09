@@ -20,8 +20,9 @@ Settings="*res://UI/Settings.gd"
 
 [display]
 
-window/size/viewport_width=1600
-window/size/viewport_height=1050
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="viewport"
 
 [filesystem]
 
