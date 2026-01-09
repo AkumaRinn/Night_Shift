@@ -23,6 +23,8 @@ func pause():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func escape():
+	if settings_instance:
+		return
 	if Input.is_action_just_pressed("escape"):
 		if get_tree().paused:
 			resume()
