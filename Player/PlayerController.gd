@@ -60,6 +60,10 @@ func _process(_delta):
 			var distance = camera.global_position.distance_to(obj.global_position)
 			if distance <= pickup_distance and Input.is_action_just_pressed("interact"):
 				obj.interact(self)
+		elif obj and obj.is_in_group("gas_pump"):
+			var distance = camera.global_position.distance_to(obj.global_position)
+			if distance <= pickup_distance and Input.is_action_just_pressed("interact"):
+				obj.interact(self)
 			
 
 # --- Inventory / flashlight functions ---
@@ -75,6 +79,15 @@ func add_to_inventory(item: Node3D):
 	inventory.append(item)
 	if inv_index == -1:
 		equip_item(0)
+
+
+func drop_item():
+	if Input.is_action_just_pressed("drop_item"):
+		var item = hand.get_child(0)
+		if item and item.is_in_group("gas_pump"):
+			item.drop_pump()
+	
+
 
 func equip_item(index: int):
 	if index == -1:
