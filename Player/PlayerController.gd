@@ -14,12 +14,14 @@ extends Node
 
 
 
+
 # --- Inventory ---
 var inventory: Array[Node3D] = []
 var inv_index: int = -1
 var equipped_item: Node3D = null
 var object = null #For pump check
 var obj = null
+var equipped_pump: Node3D = null
 
 # --- Pickup settings ---
 @export var interact_distance := 3.0
@@ -81,8 +83,7 @@ func _process(_delta):
 	
 	# Use the pump
 	if Input.is_action_pressed("use_item"):
-		var item = hand.get_child(1)
-		if item and item.is_in_group("gas_pump"):
+		if equipped_pump:
 			gas_particles.emitting = true
 			gas_particles.rotation = camera.rotation
 			if obj and obj.is_in_group("car") and !obj.is_activated: #indent it under the first if after fixed
@@ -115,10 +116,8 @@ func add_to_inventory(item: Node3D):
 
 
 func drop_gas_pump():
-	if Input.is_action_just_pressed("drop_item"):
-		var item = hand.get_child(1)
-		if item and item.is_in_group("gas_pump"):
-			item.drop_pump(self)
+	if Input.is_action_just_pressed("drop_item") and equipped_pump:
+		equipped_pump.drop_pump(self)
 	
 
 

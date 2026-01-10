@@ -14,6 +14,7 @@ func interact(player):
 	self.set_collision_layer(0)
 	self.set_collision_mask(0)
 	self.is_equiped = true
+	player.equipped_pump = self
 
 func drop_pump(player):
 	self.visible = false
@@ -22,6 +23,7 @@ func drop_pump(player):
 	self.set_collision_layer(2)
 	self.set_collision_mask(1)
 	self.is_equiped = false
+	player.equipped_pump = null
 	player.gas_particles.emitting = false
 	
 	
