@@ -28,3 +28,15 @@ shape = SubResource("BoxShape3D_24jkt")
 [node name="top_collision" type="CollisionShape3D" parent="Car" groups=["car"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.052642822, 0.9672917, -0.30334473)
 shape = SubResource("BoxShape3D_k61xc")
+
+[node name="headlight" type="SpotLight3D" parent="."]
+transform = Transform3D(-1, -2.262668e-08, -9.0401635e-08, -4.525336e-08, 0.9659258, 0.25881904, 8.146506e-08, 0.25881904, -0.9659258, -0.5157061, 0.66203094, 2.0521183)
+light_color = Color(0.99416655, 0.96763223, 0, 1)
+light_energy = 2.0
+spot_angle = 30.0
+
+[node name="headlight2" type="SpotLight3D" parent="."]
+transform = Transform3D(-1, -2.2626683e-08, -9.0401635e-08, -4.525336e-08, 0.9659259, 0.25881907, 8.146506e-08, 0.25881907, -0.9659258, 0.6335854, 0.66203094, 2.0521183)
+light_color = Color(0.99607843, 0.96862745, 0, 1)
+light_energy = 2.0
+spot_angle = 30.0
