@@ -7,7 +7,7 @@ extends Node
 
 var stamina := max_stamina
 var can_sprint := true
-@onready var progressbar = $"../CanvasLayer/ProgressBar"
+@onready var progressbar = $"../PlayerCanvas/ProgressBar"
 
 func _ready():
 	progressbar.value = max_stamina

@@ -9,13 +9,13 @@ size = Vector3(2.1330261, 1.7696533, 1.6113892)
 [node name="GasPump" type="Node3D" groups=["gas_pump"]]
 visible = false
 
-[node name="Area3D" type="Area3D" parent="." groups=["gas_pump"]]
+[node name="GasPumpBody" type="Area3D" parent="." groups=["gas_pump"]]
 collision_layer = 2
 script = ExtResource("1_1h504")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" groups=["gas_pump"]]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GasPumpBody" groups=["gas_pump"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15048301, 0.014977753, -0.124035835)
 shape = SubResource("BoxShape3D_1h504")
 
-[node name="pump" parent="Area3D" groups=["gas_pump"] instance=ExtResource("1_xlwx1")]
+[node name="pump" parent="GasPumpBody" groups=["gas_pump"] instance=ExtResource("1_xlwx1")]
 transform = Transform3D(-3.059797e-09, 0.07, 0, -0.07, -3.059797e-09, 0, 0, 0, 0.07, -0.130613, 0, -0.018661201)

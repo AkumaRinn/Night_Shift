@@ -2,22 +2,31 @@
 extends Node
 
 # --- Node references ---
-@onready var camera = get_parent().get_node_or_null("Camera3D")
+@onready var camera = get_parent().get_node_or_null("Camera3D") 
 @onready var reach = camera.get_node_or_null("RayCast3D")
 @onready var hand = camera.get_node_or_null("hand")
 @onready var light = camera.get_node_or_null("light")
+@onready var gas_particles = hand.get_node_or_null("gas_particles")
+@onready var canvas = get_parent().get_node_or_null("CanvasLayer")
+#@onready var fill_progress = canvas.get_node_or_null("fill_progress_bar")
+@onready var fill_progress = $"../PlayerCanvas/fill_progress_bar"
+
+
 
 # --- Inventory ---
 var inventory: Array[Node3D] = []
 var inv_index: int = -1
 var equipped_item: Node3D = null
+var object = null #For pump check
+var obj = null
 
 # --- Pickup settings ---
-@export var pickup_distance := 3.0
+@export var interact_distance := 3.0
 
 func _ready():
 	if light:
 		light.visible = false
+	
 
 # --- Input handling ---
 func _unhandled_input(event):
@@ -38,35 +47,53 @@ func _unhandled_input(event):
 		toggle_light()
 
 # --- Pickup interaction ---
-func _process(_delta):
+func _process(_delta): # CLEAR THE CODE IN THIS FUNCTION. IT GOT TOO MUCH
 	if not reach or not reach.is_enabled():
 		return
 
 	reach.force_raycast_update()
-
+	if reach.is_colliding():
+		obj = reach.get_collider()
+	else:
+		obj = null
+	
 	drop_gas_pump()
 	
-	# Adding interacting object to inventory
-	if reach.is_colliding():
-		var obj = reach.get_collider()
-		if obj and obj.is_in_group("lantern"):
-			#add popup text for lanter
-			var distance = camera.global_position.distance_to(obj.global_position)
-			if distance <= pickup_distance and Input.is_action_just_pressed("interact"):
-				add_to_inventory(obj)
-		elif obj and obj.is_in_group("car"): # if object is a CAR
-			var distance = camera.global_position.distance_to(obj.global_position)
-			if distance <= pickup_distance and Input.is_action_just_pressed("interact"):
+	# Handle Interaction
+	if obj and obj.is_in_group("lantern"):
+		#add popup text for lanter
+		var distance = camera.global_position.distance_to(obj.global_position)
+		if distance <= interact_distance and Input.is_action_just_pressed("interact"):
+			add_to_inventory(obj)
+	elif obj and obj.is_in_group("door"):
+		var distance = camera.global_position.distance_to(obj.global_position)
+		if distance <= interact_distance and Input.is_action_just_pressed("interact"):
+			obj.interact(self)
+	elif obj and obj.is_in_group("gas_pump"):
+		var distance = camera.global_position.distance_to(obj.global_position)
+		if distance <= interact_distance and Input.is_action_just_pressed("interact"):
+			obj.interact(self)
+	
+	
+	# Use the pump
+	if Input.is_action_pressed("use_item"):
+		var item = hand.get_child(1)
+		if item and item.is_in_group("gas_pump"):
+			gas_particles.emitting = true
+			gas_particles.rotation = camera.rotation
+			if obj and obj.is_in_group("car") and !obj.is_activated: #indent it under the first if after fixed
+				fill_progress.visible = true
+				fill_progress.value += fill_progress.step
 				obj.interact(self)
-		elif obj and obj.is_in_group("door"):
-			var distance = camera.global_position.distance_to(obj.global_position)
-			if distance <= pickup_distance and Input.is_action_just_pressed("interact"):
-				obj.interact(self)
-		elif obj and obj.is_in_group("gas_pump"):
-			var distance = camera.global_position.distance_to(obj.global_position)
-			if distance <= pickup_distance and Input.is_action_just_pressed("interact"):
-				obj.interact(self)
+	
 			
+	# Stop the pump
+	if Input.is_action_just_released("use_item"):
+		fill_progress.visible = false
+		gas_particles.emitting = false
+		
+
+# END OF _process FUBCTION
 
 # --- Inventory / flashlight functions ---
 func add_to_inventory(item: Node3D):
@@ -85,9 +112,9 @@ func add_to_inventory(item: Node3D):
 
 func drop_gas_pump():
 	if Input.is_action_just_pressed("drop_item"):
-		var item = hand.get_child(0)
+		var item = hand.get_child(1)
 		if item and item.is_in_group("gas_pump"):
-			item.drop_pump()
+			item.drop_pump(self)
 	
 
 

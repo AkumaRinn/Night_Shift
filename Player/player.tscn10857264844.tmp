@@ -1,12 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://c6ccpe8oqxaq3"]
+[gd_scene load_steps=13 format=3 uid="uid://c6ccpe8oqxaq3"]
 
 [ext_resource type="Script" uid="uid://ct7wc7pmarf35" path="res://Player/PlayerController.gd" id="1_tok1r"]
 [ext_resource type="Texture2D" uid="uid://cxj3xrf7056c0" path="res://Player/cross.png" id="2_4ntmi"]
 [ext_resource type="Script" uid="uid://bvshplcj4be85" path="res://Player/Stamina.gd" id="3_btcbx"]
 [ext_resource type="Script" uid="uid://b76rbvxqt18g8" path="res://Player/PlayerCamera.gd" id="3_ddoul"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gwnis"]
-bg_color = Color(0.26591694, 0.5369091, 0.41706842, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
 radius = 0.41796875
@@ -50,9 +47,9 @@ material = SubResource("StandardMaterial3D_n6pxt")
 collision_layer = 4
 script = ExtResource("1_tok1r")
 
-[node name="PlayerCanvas" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ProgressBar" type="ProgressBar" parent="PlayerCanvas"]
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -67,18 +64,16 @@ grow_vertical = 0
 size_flags_vertical = 8
 show_percentage = false
 
-[node name="crosshair" type="Control" parent="PlayerCanvas"]
+[node name="crosshair" type="Control" parent="CanvasLayer"]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="crosspng" type="TextureRect" parent="PlayerCanvas/crosshair"]
+[node name="crosspng" type="TextureRect" parent="CanvasLayer/crosshair"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -93,22 +88,12 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_4ntmi")
 
-[node name="fill_progress_bar" type="ProgressBar" parent="PlayerCanvas"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 59.0
-offset_top = 61.0
-offset_right = 209.9253
-offset_bottom = 88.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -1.5707964
-scale = Vector2(0.84001124, 0.4400039)
-theme_override_styles/fill = SubResource("StyleBoxFlat_gwnis")
+[node name="fill_progress" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 1019.0
+offset_top = 496.0
+offset_right = 1023.0
+offset_bottom = 523.0
+scale = Vector2(1.1600025, 2.4400012)
 step = 1.0
 show_percentage = false
 

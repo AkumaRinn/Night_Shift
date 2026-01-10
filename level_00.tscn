@@ -175,9 +175,9 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3254194, 0.9593967, -0.92472506)
 script = ExtResource("2_7plxk")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="LevelCanvas" type="CanvasLayer" parent="."]
 
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("3_hykmj")]
+[node name="PauseMenu" parent="LevelCanvas" instance=ExtResource("3_hykmj")]
 settings_scene = ExtResource("4_nqovv")
 
 [node name="Base_station" parent="." instance=ExtResource("3_1aab7")]
@@ -579,7 +579,7 @@ spot_angle = 88.8914
 curve = SubResource("Curve3D_4kdk2")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="CarPath"]
-transform = Transform3D(-0.022344293, 0.00026252915, 0.9996938, -1.4551197e-11, 0.9999524, -0.0002625924, -0.99970096, -5.8677974e-06, -0.022344133, 66.63042, 0, 21.001255)
+transform = Transform3D(-0.022344293, 0.0002625288, 0.9996925, -1.4551197e-11, 0.99995106, -0.00026259205, -0.99970096, -5.8677897e-06, -0.022344103, 66.63042, 0, 21.001255)
 
 [node name="Car_Node" parent="CarPath/PathFollow3D" instance=ExtResource("13_agx0f")]
 
