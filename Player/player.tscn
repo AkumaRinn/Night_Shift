@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c6ccpe8oqxaq3"]
+[gd_scene load_steps=16 format=3 uid="uid://c6ccpe8oqxaq3"]
 
 [ext_resource type="Script" uid="uid://ct7wc7pmarf35" path="res://Player/PlayerController.gd" id="1_tok1r"]
 [ext_resource type="Texture2D" uid="uid://cxj3xrf7056c0" path="res://Player/cross.png" id="2_4ntmi"]
@@ -7,6 +7,12 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gwnis"]
 bg_color = Color(0.26591694, 0.5369091, 0.41706842, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gwnis"]
+frequency = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k53q1"]
+noise = SubResource("FastNoiseLite_gwnis")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
 radius = 0.41796875
@@ -111,6 +117,15 @@ scale = Vector2(0.84001124, 0.4400039)
 theme_override_styles/fill = SubResource("StyleBoxFlat_gwnis")
 step = 1.0
 show_percentage = false
+
+[node name="grain_effect" type="TextureRect" parent="PlayerCanvas"]
+modulate = Color(1, 1, 1, 0.039215688)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_k53q1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.13808593, 0)

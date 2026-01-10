@@ -2,14 +2,15 @@
 extends Node
 
 # --- Node references ---
+@onready var rand_gen = RandomNumberGenerator.new()
 @onready var camera = get_parent().get_node_or_null("Camera3D") 
 @onready var reach = camera.get_node_or_null("RayCast3D")
 @onready var hand = camera.get_node_or_null("hand")
 @onready var light = camera.get_node_or_null("light")
 @onready var gas_particles = hand.get_node_or_null("gas_particles")
 @onready var canvas = get_parent().get_node_or_null("CanvasLayer")
-#@onready var fill_progress = canvas.get_node_or_null("fill_progress_bar")
 @onready var fill_progress = $"../PlayerCanvas/fill_progress_bar"
+@onready var grain_eff = $"../PlayerCanvas/grain_effect"
 
 
 
@@ -47,7 +48,10 @@ func _unhandled_input(event):
 		toggle_light()
 
 # --- Pickup interaction ---
-func _process(_delta): # CLEAR THE CODE IN THIS FUNCTION. IT GOT TOO MUCH
+func _process(_delta):
+	#Apply grain effect
+	grain_eff.texture.noise.seed = rand_gen.randi()
+	
 	if not reach or not reach.is_enabled():
 		return
 
