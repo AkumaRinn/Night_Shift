@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://b4c2pxeob6wi4"]
+[gd_scene load_steps=57 format=3 uid="uid://b4c2pxeob6wi4"]
 
 [ext_resource type="PackedScene" uid="uid://c6ccpe8oqxaq3" path="res://Player/player.tscn" id="1_p1oqu"]
 [ext_resource type="Script" uid="uid://2o168nn1txj3" path="res://Player/PlayerMovement.gd" id="2_7plxk"]
@@ -8,9 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://b3dt8f8bywpyw" path="res://UI/settings_menu.tscn" id="4_nqovv"]
 [ext_resource type="PackedScene" uid="uid://cqyfcb344ldx2" path="res://Interact_obj/Lantern/lantern.tscn" id="6_yucxg"]
 [ext_resource type="Script" uid="uid://duyuel17y6s2o" path="res://UI/Settings.gd" id="11_nqovv"]
-[ext_resource type="PackedScene" uid="uid://sq2rtimcakll" path="res://Interact_obj/car_fill_place.tscn" id="12_j2llm"]
+[ext_resource type="PackedScene" uid="uid://cxmm2dkck8ge4" path="res://Interact_obj/GasPump/gas_pump.tscn" id="12_4kdk2"]
+[ext_resource type="PackedScene" uid="uid://sq2rtimcakll" path="res://Interact_obj/Car/car_fill_place.tscn" id="12_j2llm"]
 [ext_resource type="PackedScene" uid="uid://dcgffnxylpqmg" path="res://Level_n_props/utility_box_02_4k.gltf" id="13_4kdk2"]
-[ext_resource type="PackedScene" uid="uid://b22hrmbiec36h" path="res://Interact_obj/car.tscn" id="13_agx0f"]
+[ext_resource type="PackedScene" uid="uid://b22hrmbiec36h" path="res://Interact_obj/Car/car.tscn" id="13_agx0f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hykmj"]
 sky_top_color = Color(0.21753925, 0.21753505, 0.19927138, 1)
@@ -573,6 +574,20 @@ spot_angle = 88.8914
 curve = SubResource("Curve3D_4kdk2")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="CarPath"]
-transform = Transform3D(-0.022344293, 0.00026252936, 0.9996946, -1.4551197e-11, 0.99995315, -0.0002625926, -0.99970096, -5.867802e-06, -0.02234415, 66.63042, 0, 21.001255)
+transform = Transform3D(-0.022344293, 0.00026252915, 0.9996938, -1.4551197e-11, 0.9999524, -0.0002625924, -0.99970096, -5.8677974e-06, -0.022344133, 66.63042, 0, 21.001255)
 
 [node name="Car_Node" parent="CarPath/PathFollow3D" instance=ExtResource("13_agx0f")]
+
+[node name="GasPumps" type="Node3D" parent="."]
+
+[node name="GasPump" parent="GasPumps" instance=ExtResource("12_4kdk2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.803766, 1.4079826, 1.3873248)
+
+[node name="GasPump2" parent="GasPumps" instance=ExtResource("12_4kdk2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.803766, 1.4079826, 6.567443)
+
+[node name="GasPump3" parent="GasPumps" instance=ExtResource("12_4kdk2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.2855139, 1.4079826, 6.567443)
+
+[node name="GasPump4" parent="GasPumps" instance=ExtResource("12_4kdk2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.2855139, 1.4079826, 0.7155671)

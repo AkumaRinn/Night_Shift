@@ -44,6 +44,8 @@ func _process(_delta):
 
 	reach.force_raycast_update()
 
+	drop_gas_pump()
+	
 	# Adding interacting object to inventory
 	if reach.is_colliding():
 		var obj = reach.get_collider()
@@ -81,7 +83,7 @@ func add_to_inventory(item: Node3D):
 		equip_item(0)
 
 
-func drop_item():
+func drop_gas_pump():
 	if Input.is_action_just_pressed("drop_item"):
 		var item = hand.get_child(0)
 		if item and item.is_in_group("gas_pump"):
