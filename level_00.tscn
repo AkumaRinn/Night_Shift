@@ -28,6 +28,11 @@ background_mode = 2
 sky = SubResource("Sky_1aab7")
 tonemap_mode = 2
 glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.28957707, 0.31662858, 0.35871798, 1)
+fog_height_density = -0.1
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.1548
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_efb6n"]
 size = Vector3(1.4822998, 0.50006104, 0.51490784)
