@@ -90,3 +90,4 @@ func _on_resolutions_item_selected(index):
 	
 	if settings_node.has_method("save_settings"):
 		settings_node.save_settings()
+		
