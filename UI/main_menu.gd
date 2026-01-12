@@ -1,7 +1,7 @@
 extends Control
 
 
-@onready var settings_instance: Control = null
+@onready var main_settings_instance: Control = null
 @export var settings_scene: PackedScene
 
 
@@ -19,14 +19,14 @@ func _on_load_button_pressed():
 
 
 func _on_settings_button_pressed():
-	if settings_instance:
+	if main_settings_instance:
 		return  # already open
-	settings_instance = settings_scene.instantiate()
-	settings_instance.connect("closed", Callable(self, "_on_settings_closed"))
-	get_tree().root.add_child(settings_instance)
+	main_settings_instance = settings_scene.instantiate()
+	main_settings_instance.connect("closed", Callable(self, "_on_settings_closed"))
+	get_tree().root.add_child(main_settings_instance)
 	
 func _on_settings_closed():
-	settings_instance = null
+	main_settings_instance = null
 
 func _on_exit_button_pressed():
 	get_tree().quit()

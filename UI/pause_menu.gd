@@ -39,8 +39,7 @@ func _on_options_button_pressed():
 		return  # already open
 	settings_instance = settings_scene.instantiate()
 	settings_instance.connect("closed", Callable(self, "_on_settings_closed"))
-	get_tree().root.add_child(settings_instance)
-	hide()
+	add_child(settings_instance)
 	main_menu.hide()
 	
 func _on_settings_closed():
