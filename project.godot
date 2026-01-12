@@ -36,6 +36,7 @@ lantern=""
 car=""
 door=""
 gas_pump=""
+car_stop=""
 
 [input]
 

@@ -3,6 +3,7 @@ extends RigidBody3D
 const CAR_SPEED := 10
 
 @onready var path_follow: PathFollow3D = null
+@onready var stop_sensor: Area3D = $StopSensor
 
 var is_moving := true
 var is_waiting_for_player := false
@@ -11,9 +12,8 @@ var stop_point = 93.5 #change later with collision detection on destination poin
 
 
 
-
 func _ready():
-	pass # Replace with function body.
+	pass
 
 func interact(player):
 	if not is_waiting_for_player:
@@ -34,7 +34,7 @@ func _physics_process(delta):
 	if is_moving:
 		path_follow.progress += CAR_SPEED * delta
 		global_transform = path_follow.global_transform
-		if (path_follow.progress >= stop_point) && !is_activated:
+		if (path_follow.progress >= stop_point) && !is_activated: # change it so it stops if it hits a stop collider
 			is_moving = false
 			is_waiting_for_player = true
 			

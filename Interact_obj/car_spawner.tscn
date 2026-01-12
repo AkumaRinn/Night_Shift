@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b1g461752vamq"]
 
-[ext_resource type="Script" uid="uid://dlylpiju5qgij" path="res://car_spawner.gd" id="1_1hsvv"]
+[ext_resource type="Script" uid="uid://dlylpiju5qgij" path="res://Interact_obj/car_spawner.gd" id="1_1hsvv"]
 
 [node name="CarSpawner" type="Node3D"]
 script = ExtResource("1_1hsvv")
