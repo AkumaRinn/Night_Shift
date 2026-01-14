@@ -16,7 +16,7 @@ func _ready():
 	car_path = car_path1 #if this shit is initialized with car_path1, everything works fine.
 	#if it is initialized with car_path5, the car that spawns in is not moving at all
 	#change the way it is "called" maybe. with the await setting it off course maybe.
-	paths = [car_path1, car_path5]
+	paths = [car_path1, car_path5, car_path6]
 	spawn_loop()
 
 func spawn_loop():

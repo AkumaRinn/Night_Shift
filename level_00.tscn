@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://b4c2pxeob6wi4"]
+[gd_scene load_steps=60 format=3 uid="uid://b4c2pxeob6wi4"]
 
 [ext_resource type="PackedScene" uid="uid://c6ccpe8oqxaq3" path="res://Player/player.tscn" id="1_p1oqu"]
 [ext_resource type="Script" uid="uid://2o168nn1txj3" path="res://Player/PlayerMovement.gd" id="2_7plxk"]
@@ -165,6 +165,13 @@ point_count = 16
 [sub_resource type="Curve3D" id="Curve3D_itu3g"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, -55.920464, 0.22411186, 27.16333, 0, 0, 0, 0, 0, 0, -34.33999, 0.03194511, 27.370358, 0, 0, 0, 0, 0, 0, -11.335579, 0.02879119, 27.082458, 0, 0, 0, 0, 0, 0, 9.645442, 0.016057491, 27.053392, 0, 0, 0, 0, 0, 0, 26.676651, 0.021003366, 27.480267, 0, 0, 0, 0, 0, 0, 43.451485, 0.026282787, 27.274096, 0, 0, 0, 0, 0, 0, 67.03553, 0.032556176, 27.071627),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+
+[sub_resource type="Curve3D" id="Curve3D_agx0f"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 60.167732, 0.035308957, 21.739174, 0, 0, 0, 0, 0, 0, 38.252464, 0.03564763, 22.182528, 0, 0, 0, 0, 0, 0, 18.731598, 0.023233771, 22.43254, 0, 0, 0, 0, 0, 0, -5.6725388, 0.03140199, 22.006958, 0, 0, 0, 0, 0, 0, -32.150055, 0.03991425, 22.038967, 0, 0, 0, 0, 0, 0, -66.47986, 0.03425634, 22.184324, 0, 0, 0, 0, 0, 0, -86.8748, 0.052634716, 22.380733),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 7
@@ -571,9 +578,6 @@ light_energy = 5.0
 spot_range = 5.7452445
 spot_angle = 88.8914
 
-[node name="CarPath" type="Path3D" parent="."]
-curve = SubResource("Curve3D_4kdk2")
-
 [node name="GasPumps" type="Node3D" parent="."]
 
 [node name="GasPump" parent="GasPumps" instance=ExtResource("12_4kdk2")]
@@ -588,14 +592,12 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.2
 [node name="GasPump4" parent="GasPumps" instance=ExtResource("12_4kdk2")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.2855139, 1.4079826, 0.7155671)
 
-[node name="CarSpawner" parent="." node_paths=PackedStringArray("car_path1", "car_path5") instance=ExtResource("12_itu3g")]
+[node name="CarSpawner" parent="." node_paths=PackedStringArray("car_path1", "car_path5", "car_path6") instance=ExtResource("12_itu3g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.12666, 0, 20.606789)
 car_scene = ExtResource("13_agx0f")
-car_path1 = NodePath("../CarPath")
-car_path5 = NodePath("../RoadPathLeft")
-
-[node name="RoadPathLeft" type="Path3D" parent="."]
-curve = SubResource("Curve3D_itu3g")
+car_path1 = NodePath("../Car_paths/CarPath")
+car_path5 = NodePath("../Car_paths/RoadPathLeft")
+car_path6 = NodePath("../Car_paths/RoadPathRight")
 
 [node name="Car_Stops" type="Node3D" parent="."]
 
@@ -610,3 +612,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2046018, 0.5676335, 6.80693
 
 [node name="CarStop4" parent="Car_Stops" instance=ExtResource("13_itu3g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2046018, 0.5676335, 1.2994918)
+
+[node name="Car_paths" type="Node3D" parent="."]
+
+[node name="CarPath" type="Path3D" parent="Car_paths"]
+curve = SubResource("Curve3D_4kdk2")
+
+[node name="RoadPathLeft" type="Path3D" parent="Car_paths"]
+curve = SubResource("Curve3D_itu3g")
+
+[node name="RoadPathRight" type="Path3D" parent="Car_paths"]
+curve = SubResource("Curve3D_agx0f")
