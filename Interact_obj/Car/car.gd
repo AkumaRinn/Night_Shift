@@ -1,4 +1,4 @@
-extends RigidBody3D
+extends Node3D
 
 const CAR_SPEED := 10
 
@@ -31,7 +31,7 @@ func _physics_process(delta):
 	if not path_follow:
 		return
 
-	if is_moving:
+	if is_moving and !is_waiting_for_player:
 		path_follow.progress += CAR_SPEED * delta
 		global_transform = path_follow.global_transform
 		if (path_follow.progress >= stop_point) && !is_activated: # change it so it stops if it hits a stop collider

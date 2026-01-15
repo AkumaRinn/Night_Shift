@@ -13,7 +13,7 @@ extends Node3D
 var paths: Array[Path3D]
 
 func _ready():
-	car_path = car_path1 #if this shit is initialized with car_path1, everything works fine.
+	car_path = car_path5 #if this shit is initialized with car_path1, everything works fine[not anymore].
 	#if it is initialized with car_path5, the car that spawns in is not moving at all
 	#change the way it is "called" maybe. with the await setting it off course maybe.
 	paths = [car_path1, car_path5, car_path6]
@@ -40,5 +40,5 @@ func spawn_car():
 	# Spawn car UNDER the PathFollow
 	var car = car_scene.instantiate()
 	path_follow.add_child(car)
-	var car_body = car.get_node("Car")
+	var car_body = car.get_node("Car_Node")
 	car_body.path_follow = path_follow
