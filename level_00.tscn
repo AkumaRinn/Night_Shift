@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://b4c2pxeob6wi4"]
+[gd_scene load_steps=61 format=3 uid="uid://b4c2pxeob6wi4"]
 
 [ext_resource type="PackedScene" uid="uid://c6ccpe8oqxaq3" path="res://Player/player.tscn" id="1_p1oqu"]
 [ext_resource type="Script" uid="uid://2o168nn1txj3" path="res://Player/PlayerMovement.gd" id="2_7plxk"]
@@ -9,10 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://cqyfcb344ldx2" path="res://Interact_obj/Lantern/lantern.tscn" id="6_yucxg"]
 [ext_resource type="Script" uid="uid://duyuel17y6s2o" path="res://UI/Settings.gd" id="11_nqovv"]
 [ext_resource type="PackedScene" uid="uid://cxmm2dkck8ge4" path="res://Interact_obj/GasPump/gas_pump.tscn" id="12_4kdk2"]
-[ext_resource type="PackedScene" path="res://Interact_obj/Car/car_spawner.tscn" id="12_itu3g"]
+[ext_resource type="PackedScene" uid="uid://b1g461752vamq" path="res://Interact_obj/Car/car_spawner.tscn" id="12_itu3g"]
 [ext_resource type="PackedScene" uid="uid://dcgffnxylpqmg" path="res://Level_n_props/utility_box_02_4k.gltf" id="13_4kdk2"]
 [ext_resource type="PackedScene" uid="uid://b22hrmbiec36h" path="res://Interact_obj/Car/car.tscn" id="13_agx0f"]
-[ext_resource type="PackedScene" path="res://Interact_obj/Car/car_stop.tscn" id="13_itu3g"]
+[ext_resource type="PackedScene" uid="uid://sjml3qrx2ua8" path="res://Interact_obj/Car/car_stop.tscn" id="13_itu3g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hykmj"]
 sky_top_color = Color(0.21753925, 0.21753505, 0.19927138, 1)
@@ -175,6 +175,13 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 7
+
+[sub_resource type="Curve3D" id="Curve3D_jkr46"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -55.867676, 0.02302599, 27.658785, 0, 0, 0, 0, 0, 0, -31.37592, 0.016234517, 27.951931, 0, 0, 0, 0, 0, 0, -6.4853096, 0.031297445, 27.973516, 0, 0, 0, 0, 0, 0, 7.4250937, 0.028480947, 28.34116, -2.5283642, -7.212162e-05, 1.4185543, 2.5283642, 7.212162e-05, -1.4185543, 19.698278, 0.032764792, 28.264496, 0, 0, 0, 0, 0, 0, 19.54639, 0.020938098, 15.7324295, 0, 0, 0, 0, 0, 0, 19.886143, 0.038128972, 3.58204, 2.175333, 2.1457672e-05, 1.8313231, -2.175333, -2.1457672e-05, -1.8313231, 17.344393, 0.027688503, -6.320089, 1.064395, -4.4226646e-05, -2.4318428, -1.064395, 4.4226646e-05, 2.4318428, 1.4786396, 0.035078406, -4.6015167, 0, 0, 0, 0, 0, 0, 2.3740458, 0.05892551, 5.3639793, 0, 0, 0, 0, 0, 0, 2.733111, 0.0336442, 12.823365, -1.9509234, -1.6212463e-05, -2.1019077, 1.9509234, 1.6212463e-05, 2.1019077, 3.7908092, 0.05824375, 24.119406, 0, 0, 0, 0, 0, 0, 14.688335, 0.04469514, 28.679602, 0, 0, 0, 0, 0, 0, 48.753525, 0.04116726, 27.811237, 0, 0, 0, 0, 0, 0, 66.748955, 0.061458826, 28.091759),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 15
 
 [node name="level" type="Node3D"]
 
@@ -592,17 +599,18 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.2
 [node name="GasPump4" parent="GasPumps" instance=ExtResource("12_4kdk2")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.2855139, 1.4079826, 0.7155671)
 
-[node name="CarSpawner" parent="." node_paths=PackedStringArray("car_path1", "car_path5", "car_path6") instance=ExtResource("12_itu3g")]
+[node name="CarSpawner" parent="." node_paths=PackedStringArray("car_path1", "car_path3", "car_path5", "car_path6") instance=ExtResource("12_itu3g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.12666, 0, 20.606789)
 car_scene = ExtResource("13_agx0f")
 car_path1 = NodePath("../Car_paths/CarPath")
+car_path3 = NodePath("../Car_paths/Car_Path_Pump3")
 car_path5 = NodePath("../Car_paths/RoadPathLeft")
 car_path6 = NodePath("../Car_paths/RoadPathRight")
 
 [node name="Car_Stops" type="Node3D" parent="."]
 
 [node name="CarStop" parent="Car_Stops" instance=ExtResource("13_itu3g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.476074, 0.90052927, 2.556009)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.092742, 0.52641034, 2.556009)
 
 [node name="CarStop2" parent="Car_Stops" instance=ExtResource("13_itu3g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.476074, 0.5676335, 8.705401)
@@ -623,3 +631,6 @@ curve = SubResource("Curve3D_itu3g")
 
 [node name="RoadPathRight" type="Path3D" parent="Car_paths"]
 curve = SubResource("Curve3D_agx0f")
+
+[node name="Car_Path_Pump3" type="Path3D" parent="Car_paths"]
+curve = SubResource("Curve3D_jkr46")
