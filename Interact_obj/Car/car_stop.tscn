@@ -1,15 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://sjml3qrx2ua8"]
-
-[ext_resource type="Script" uid="uid://coa5hjt38yg2r" path="res://Interact_obj/car_stop_area.gd" id="1_i8irq"]
+[gd_scene load_steps=2 format=3 uid="uid://sjml3qrx2ua8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_88och"]
 
 [node name="CarStop" type="Node3D" groups=["car_stop"]]
 
 [node name="Car_stop_area" type="Area3D" parent="." groups=["car_stop"]]
-script = ExtResource("1_i8irq")
 
 [node name="Car_stop_collider" type="CollisionShape3D" parent="Car_stop_area"]
 shape = SubResource("BoxShape3D_88och")
-
-[connection signal="body_entered" from="Car_stop_area" to="Car_stop_area" method="_on_body_entered"]

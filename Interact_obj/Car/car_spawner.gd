@@ -40,5 +40,4 @@ func spawn_car():
 	# Spawn car UNDER the PathFollow
 	var car = car_scene.instantiate()
 	path_follow.add_child(car)
-	var car_body = car.get_node("Car_Node")
-	car_body.path_follow = path_follow
+	car.path_follow = path_follow
