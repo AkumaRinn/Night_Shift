@@ -2,7 +2,7 @@ extends Node3D
 
 const CAR_SPEED := 10
 
-@onready var path_follow: PathFollow3D = null
+@onready var path_follow := get_parent() as PathFollow3D
 @onready var stop_sensor: Area3D = $StopSensor
 
 var is_moving := true
