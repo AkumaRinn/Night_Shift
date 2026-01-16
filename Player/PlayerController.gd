@@ -86,10 +86,13 @@ func _process(_delta):
 		if equipped_pump:
 			gas_particles.emitting = true
 			gas_particles.rotation = camera.rotation
-			if obj and obj.is_in_group("car") and !obj.is_activated:
-				fill_progress.visible = true
-				fill_progress.value += fill_progress.step
-				obj.interact(self)
+			print(obj)
+			if obj and obj.is_in_group("car"):
+				var car_node = obj.get_parent()
+				if not car_node.is_activated:
+					fill_progress.visible = true
+					fill_progress.value += fill_progress.step
+					car_node.interact(self)
 	
 			
 	# Stop the pump

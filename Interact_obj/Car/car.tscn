@@ -1,43 +1,34 @@
-[gd_scene load_steps=6 format=3 uid="uid://b22hrmbiec36h"]
+[gd_scene load_steps=4 format=3 uid="uid://b22hrmbiec36h"]
 
 [ext_resource type="PackedScene" uid="uid://c8yphy4pw7l5p" path="res://Level_n_props/covered_car_4k.gltf" id="1_7822p"]
 [ext_resource type="Script" uid="uid://bnuuyfu2bo61e" path="res://Interact_obj/Car/car.gd" id="1_uoj53"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uoj53"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_7mmmx"]
 size = Vector3(1.7124939, 1, 4.3304596)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_xn7qp"]
-
-[node name="Car_Node" type="Node3D"]
+[node name="Car_Node" type="Node3D" groups=["car"]]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
-
-[node name="Car" type="RigidBody3D" parent="." groups=["car"]]
-collision_layer = 2
-physics_material_override = SubResource("PhysicsMaterial_uoj53")
 script = ExtResource("1_uoj53")
 
-[node name="covered_car_4k" parent="Car" instance=ExtResource("1_7822p")]
+[node name="covered_car_4k" parent="." instance=ExtResource("1_7822p")]
 
-[node name="headlight" type="SpotLight3D" parent="Car"]
-transform = Transform3D(-1, -2.2626683e-08, -9.0401635e-08, -4.525336e-08, 0.9659259, 0.25881907, 8.146506e-08, 0.25881907, -0.9659258, -0.5157061, 0.66203094, 2.0521183)
+[node name="headlight" type="SpotLight3D" parent="."]
+transform = Transform3D(-1, -2.262668e-08, -9.0401635e-08, -4.525336e-08, 0.9659259, 0.25881907, 8.146506e-08, 0.25881907, -0.9659258, -0.5157061, 0.66203094, 2.0521183)
 light_color = Color(0.99416655, 0.96763223, 0, 1)
 light_energy = 2.0
 spot_angle = 30.0
 
-[node name="headlight2" type="SpotLight3D" parent="Car"]
+[node name="headlight2" type="SpotLight3D" parent="."]
 transform = Transform3D(-1, -2.262668e-08, -9.0401635e-08, -4.525336e-08, 0.9659259, 0.25881907, 8.146506e-08, 0.25881907, -0.9659258, 0.6335854, 0.66203094, 2.0521183)
 light_color = Color(0.99607843, 0.96862745, 0, 1)
 light_energy = 2.0
 spot_angle = 30.0
 
-[node name="StopSensor" type="Area3D" parent="Car"]
+[node name="StopSensor" type="Area3D" parent="." groups=["car"]]
+collision_layer = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Car/StopSensor"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StopSensor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1273346, 0.55607384, -0.00061797537)
 shape = SubResource("BoxShape3D_7mmmx")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Car"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6366004, 0)
-shape = SubResource("BoxShape3D_xn7qp")
+[connection signal="area_entered" from="StopSensor" to="." method="_on_stop_sensor_area_entered"]
