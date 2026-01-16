@@ -86,7 +86,6 @@ func _process(_delta):
 		if equipped_pump:
 			gas_particles.emitting = true
 			gas_particles.rotation = camera.rotation
-			print(obj)
 			if obj and obj.is_in_group("car"):
 				var car_node = obj.get_parent()
 				if not car_node.is_activated:

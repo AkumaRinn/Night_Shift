@@ -9,10 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://cqyfcb344ldx2" path="res://Interact_obj/Lantern/lantern.tscn" id="6_yucxg"]
 [ext_resource type="Script" uid="uid://duyuel17y6s2o" path="res://UI/Settings.gd" id="11_nqovv"]
 [ext_resource type="PackedScene" uid="uid://cxmm2dkck8ge4" path="res://Interact_obj/GasPump/gas_pump.tscn" id="12_4kdk2"]
-[ext_resource type="PackedScene" uid="uid://b1g461752vamq" path="res://Interact_obj/Car/car_spawner.tscn" id="12_itu3g"]
+[ext_resource type="PackedScene" path="res://Interact_obj/Car/car_spawner.tscn" id="12_itu3g"]
 [ext_resource type="PackedScene" uid="uid://dcgffnxylpqmg" path="res://Level_n_props/utility_box_02_4k.gltf" id="13_4kdk2"]
 [ext_resource type="PackedScene" uid="uid://b22hrmbiec36h" path="res://Interact_obj/Car/car.tscn" id="13_agx0f"]
-[ext_resource type="PackedScene" uid="uid://sjml3qrx2ua8" path="res://Interact_obj/Car/car_stop.tscn" id="13_itu3g"]
+[ext_resource type="PackedScene" path="res://Interact_obj/Car/car_stop.tscn" id="13_itu3g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hykmj"]
 sky_top_color = Color(0.21753925, 0.21753505, 0.19927138, 1)
@@ -602,16 +602,16 @@ car_path6 = NodePath("../Car_paths/RoadPathRight")
 [node name="Car_Stops" type="Node3D" parent="."]
 
 [node name="CarStop" parent="Car_Stops" instance=ExtResource("13_itu3g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.476074, 0.90052927, 1.2286928)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.476074, 0.90052927, 2.556009)
 
 [node name="CarStop2" parent="Car_Stops" instance=ExtResource("13_itu3g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.476074, 0.5676335, 6.806935)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.476074, 0.5676335, 8.705401)
 
 [node name="CarStop3" parent="Car_Stops" instance=ExtResource("13_itu3g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2046018, 0.5676335, 6.806935)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2046018, 0.5676335, 8.952457)
 
 [node name="CarStop4" parent="Car_Stops" instance=ExtResource("13_itu3g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2046018, 0.5676335, 1.2994918)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2046018, 0.5676335, 3.5329638)
 
 [node name="Car_paths" type="Node3D" parent="."]
 
