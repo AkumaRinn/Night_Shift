@@ -22,7 +22,7 @@ func _ready():
 func spawn_loop():
 	while true:
 		spawn_car()
-		await get_tree().create_timer(spawn_interval).timeout # change this shit.
+		await get_tree().create_timer(spawn_interval).timeout # change this shit.it goes brrr
 		#see _ready()
 
 func spawn_car():
