@@ -3,11 +3,13 @@ extends Area3D
 @onready var is_equiped = false
 @onready var GasPumpNode = $".."
 @onready var gas_pump_body = $"."
+@onready var interact_label = $"../interact_label"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 func interact(player):
+	self.interact_label.visible = false
 	self.visible = true
 	self.reparent(player.hand)
 	self.transform = Transform3D.IDENTITY

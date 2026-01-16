@@ -1,12 +1,13 @@
-extends Node3D
+extends RigidBody3D
 
-@onready var light = $light
-# Called when the node enters the scene tree for the first time.
+@onready var interact_label = $"../interact_label"
+
 func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if Input.is_action_pressed("flashlight"):
-		light.visible =  not light.visible
+		pass
+		
+func interact():
+	interact_label.visible = false

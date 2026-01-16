@@ -67,20 +67,21 @@ func _process(_delta):
 	
 	# Handle Interaction
 	if obj and obj.is_in_group("lantern"):
-		#add popup text for lanter
+		obj.interact_label.visible = true
 		var distance = camera.global_position.distance_to(obj.global_position)
 		if distance <= interact_distance and Input.is_action_just_pressed("interact"):
+			obj.interact()
 			add_to_inventory(obj)
 	elif obj and obj.is_in_group("door"):
 		var distance = camera.global_position.distance_to(obj.global_position)
 		if distance <= interact_distance and Input.is_action_just_pressed("interact"):
 			obj.interact(self)
 	elif obj and obj.is_in_group("gas_pump"):
+		obj.interact_label.visible = true
 		var distance = camera.global_position.distance_to(obj.global_position)
 		if distance <= interact_distance and Input.is_action_just_pressed("interact"):
 			obj.interact(self)
-	
-	
+
 	# Use the pump
 	if Input.is_action_pressed("use_item"):
 		if equipped_pump:
