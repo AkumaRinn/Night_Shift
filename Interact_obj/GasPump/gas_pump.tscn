@@ -7,9 +7,9 @@
 size = Vector3(2.1330261, 1.7696533, 1.6113892)
 
 [node name="GasPump" type="Node3D" groups=["gas_pump"]]
-visible = false
 
 [node name="GasPumpBody" type="Area3D" parent="." groups=["gas_pump"]]
+visible = false
 collision_layer = 2
 script = ExtResource("1_1h504")
 
