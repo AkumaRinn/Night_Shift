@@ -11,6 +11,7 @@ extends Node
 @onready var canvas = get_parent().get_node_or_null("CanvasLayer")
 @onready var fill_progress = $"../PlayerCanvas/fill_progress_bar"
 @onready var grain_eff = $"../PlayerCanvas/grain_effect"
+@onready var interact_hint = $"../PlayerCanvas/interactable_label"
 
 
 
@@ -62,25 +63,33 @@ func _process(_delta):
 		obj = reach.get_collider()
 	else:
 		obj = null
+		interact_hint.text = ""
+		interact_hint.visible = false
 	
 	drop_gas_pump()
 	
 	# Handle Interaction
 	if obj and obj.is_in_group("lantern"):
-		obj.interact_label.visible = true
 		var distance = camera.global_position.distance_to(obj.global_position)
-		if distance <= interact_distance and Input.is_action_just_pressed("interact"):
-			obj.interact()
-			add_to_inventory(obj)
+		if distance <= interact_distance:
+			interact_hint.text = "Flashlight [E]"
+			interact_hint.visible = true
+			if Input.is_action_just_pressed("interact"):
+				add_to_inventory(obj)
 	elif obj and obj.is_in_group("door"):
 		var distance = camera.global_position.distance_to(obj.global_position)
-		if distance <= interact_distance and Input.is_action_just_pressed("interact"):
-			obj.interact(self)
+		if distance <= interact_distance:
+			interact_hint.text = "Door [E]"
+			interact_hint.visible = true
+			if Input.is_action_just_pressed("interact"):
+				obj.interact(self)
 	elif obj and obj.is_in_group("gas_pump"):
-		obj.interact_label.visible = true
 		var distance = camera.global_position.distance_to(obj.global_position)
-		if distance <= interact_distance and Input.is_action_just_pressed("interact"):
-			obj.interact(self)
+		if distance <= interact_distance:
+			interact_hint.text = "Gas Pump [E]"
+			interact_hint.visible = true
+			if Input.is_action_just_pressed("interact"):
+				obj.interact(self)
 
 	# Use the pump
 	if Input.is_action_pressed("use_item"):

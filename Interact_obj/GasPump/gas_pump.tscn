@@ -19,9 +19,3 @@ shape = SubResource("BoxShape3D_1h504")
 
 [node name="pump" parent="GasPumpBody" groups=["gas_pump"] instance=ExtResource("1_xlwx1")]
 transform = Transform3D(-3.059797e-09, 0.07, 0, -0.07, -3.059797e-09, 0, 0, 0, 0.07, -0.130613, 0, -0.018661201)
-
-[node name="interact_label" type="Label3D" parent="."]
-visible = false
-billboard = 1
-text = "Gas pump
-[E]"

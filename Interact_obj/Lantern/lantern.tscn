@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqyfcb344ldx2"]
+[gd_scene load_steps=3 format=3 uid="uid://cqyfcb344ldx2"]
 
-[ext_resource type="Script" uid="uid://brw4862c52tu3" path="res://Interact_obj/Lantern/lantern.gd" id="1_4bt14"]
 [ext_resource type="PackedScene" uid="uid://lmaxbprqub0f" path="res://Interact_obj/Lantern/scene.gltf" id="1_5nu2l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kxgpu"]
@@ -11,17 +10,9 @@ transform = Transform3D(1.0000001, 0, 0, 0, 0.99999994, 0, 0, 0, 1.0000001, 0, 0
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." groups=["lantern"]]
 collision_layer = 2
-script = ExtResource("1_4bt14")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("BoxShape3D_kxgpu")
 
 [node name="Sketchfab_Scene" parent="RigidBody3D" instance=ExtResource("1_5nu2l")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
-
-[node name="interact_label" type="Label3D" parent="."]
-visible = false
-billboard = 1
-text = "Flashlight
-[E]"
-font_size = 27
