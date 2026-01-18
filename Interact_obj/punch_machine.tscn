@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8qf58djx6of"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lda3m"]
+
+[node name="PunchMachine" type="Node3D"]
+
+[node name="punch_machine_body" type="Area3D" parent="."]
+collision_layer = 2
+
+[node name="punch_machine_collider" type="CollisionShape3D" parent="punch_machine_body"]
+shape = SubResource("BoxShape3D_lda3m")

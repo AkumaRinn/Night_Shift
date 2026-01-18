@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 [autoload]
 
 Settings="*res://UI/Settings.gd"
+MissionControl="*res://Autoloads/mission_control.tscn"
 
 [display]
 

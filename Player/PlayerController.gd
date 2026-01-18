@@ -15,7 +15,6 @@ extends Node
 
 
 
-
 # --- Inventory ---
 var inventory: Array[Node3D] = []
 var inv_index: int = -1
