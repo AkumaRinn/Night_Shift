@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bcgak3n17rsv1"
-path="res://.godot/imported/main_door.glb-98d7f5ef53a8cf99784708b9fc22c616.scn"
+path="res://.godot/imported/main_door.glb-4015411280dcee41aed3166a6827ce1a.scn"
 
 [deps]
 
-source_file="res://Interact_obj/main_door.glb"
-dest_files=["res://.godot/imported/main_door.glb-98d7f5ef53a8cf99784708b9fc22c616.scn"]
+source_file="res://Interact_obj/Doors/main_door.glb"
+dest_files=["res://.godot/imported/main_door.glb-4015411280dcee41aed3166a6827ce1a.scn"]
 
 [params]
 

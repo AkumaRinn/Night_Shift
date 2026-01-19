@@ -1,16 +1,14 @@
 extends Node
-# Keep until absolete
-# Central placeholder for the Player
-# Only put logic here that is NOT handled by Movement, Controller, or Stamina
+
+@export var mission: PunchMission
 
 func _ready():
-	# Initialize anything global for the player
-	pass
+	mission.mission_status = mission.MissionStatus.available
+	if mission.mission_status == mission.MissionStatus.available:
+		mission.start_mission()
 
 func _process(_delta):
-	# Optional per-frame logic unrelated to movement or camera
-	pass
-
+	print(mission.mission_status)
+	print("jytdfjhty")
 func _unhandled_input(_event):
-	# Optional global input not handled elsewhere
 	pass
