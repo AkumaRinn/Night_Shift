@@ -96,6 +96,8 @@ func _process(_delta):
 		var punch_machine = obj.get_parent()
 		var distance = camera.global_position.distance_to(obj.global_position)
 		if distance <= interact_distance:
+			interact_hint.text = "Punch In/Out [E]"
+			interact_hint.visible = true
 			if Input.is_action_just_pressed("interact"):
 				punch_machine.interact(self)
 	
