@@ -2,7 +2,7 @@ extends Node
 
 
 @onready var mission_label: RichTextLabel = $Mission_Canvas/mission_label
-@onready var current_mission: RichTextLabel = $Mission_Canvas/current_mission_label
+@onready var current_mission: RichTextLabel = $Mission_Canvas/current_mission
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

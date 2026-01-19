@@ -7,7 +7,7 @@ script = ExtResource("1_1vak3")
 
 [node name="Mission_Canvas" type="CanvasLayer" parent="."]
 
-[node name="current_mission_label" type="RichTextLabel" parent="Mission_Canvas"]
+[node name="mission_label" type="RichTextLabel" parent="Mission_Canvas"]
 visible = false
 offset_left = 43.0
 offset_top = 34.0
@@ -15,7 +15,7 @@ offset_right = 113.0
 offset_bottom = 62.0
 text = "Mission: "
 
-[node name="mission_label" type="RichTextLabel" parent="Mission_Canvas"]
+[node name="current_mission" type="RichTextLabel" parent="Mission_Canvas"]
 visible = false
 offset_left = 116.0
 offset_top = 34.0
