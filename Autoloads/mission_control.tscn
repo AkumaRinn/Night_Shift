@@ -1,19 +1,25 @@
-[gd_scene format=3 uid="uid://b07hq838xgqje"]
+[gd_scene load_steps=2 format=3 uid="uid://b07hq838xgqje"]
+
+[ext_resource type="Script" uid="uid://ckjy0f6uib7le" path="res://Autoloads/mission_control.gd" id="1_1vak3"]
 
 [node name="Mission_Control" type="Node"]
+script = ExtResource("1_1vak3")
 
 [node name="Mission_Canvas" type="CanvasLayer" parent="."]
 
 [node name="current_mission_label" type="RichTextLabel" parent="Mission_Canvas"]
+visible = false
 offset_left = 43.0
 offset_top = 34.0
-offset_right = 252.0
-offset_bottom = 74.0
+offset_right = 113.0
+offset_bottom = 62.0
+text = "Mission: "
 
 [node name="mission_label" type="RichTextLabel" parent="Mission_Canvas"]
-offset_left = 188.0
+visible = false
+offset_left = 116.0
 offset_top = 34.0
-offset_right = 376.0
-offset_bottom = 74.0
+offset_right = 536.0
+offset_bottom = 62.0
 text = "
 "

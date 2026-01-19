@@ -1,9 +1,8 @@
 class_name MissionManager extends Node
 
-@onready var canvas_layer: CanvasLayer = MissionControl.get_node("Mission_Canvas")
-@onready var mission_label: RichTextLabel = canvas_layer.get_node("mission_label")
 
-
+var mission_lbl = MissionControl.mission_label
+var curr_mission = MissionControl.current_mission
 enum MissionStatus
 {
 	available,

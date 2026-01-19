@@ -38,6 +38,7 @@ car=""
 door=""
 gas_pump=""
 car_stop=""
+punch_machine=""
 
 [input]
 

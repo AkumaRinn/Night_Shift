@@ -13,6 +13,7 @@ extends Node
 @onready var grain_eff = $"../PlayerCanvas/grain_effect"
 @onready var interact_hint = $"../PlayerCanvas/interactable_label"
 
+@onready var mission: PunchMission = get_parent().get_node_or_null("PunchMission")
 
 
 # --- Inventory ---
@@ -27,6 +28,8 @@ var equipped_pump: Node3D = null
 @export var interact_distance := 3.0
 
 func _ready():
+	if mission.mission_status == mission.MissionStatus.available:
+		mission.start_mission()
 	if light:
 		light.visible = false
 	
@@ -89,7 +92,14 @@ func _process(_delta):
 			interact_hint.visible = true
 			if Input.is_action_just_pressed("interact"):
 				obj.interact(self)
-
+	elif obj and obj.get_parent().is_in_group("punch_machine"):
+		var punch_machine = obj.get_parent()
+		var distance = camera.global_position.distance_to(obj.global_position)
+		if distance <= interact_distance:
+			if Input.is_action_just_pressed("interact"):
+				punch_machine.interact(self)
+	
+	
 	# Use the pump
 	if Input.is_action_pressed("use_item"):
 		if equipped_pump:
