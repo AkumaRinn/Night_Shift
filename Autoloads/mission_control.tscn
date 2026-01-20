@@ -23,3 +23,15 @@ offset_right = 536.0
 offset_bottom = 62.0
 text = "
 "
+
+[node name="cars_filled" type="RichTextLabel" parent="Mission_Canvas"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -108.0
+offset_top = 34.0
+offset_right = -53.0
+offset_bottom = 62.0
+grow_horizontal = 0
+text = "0/5"

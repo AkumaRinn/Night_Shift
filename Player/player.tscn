@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cxj3xrf7056c0" path="res://Player/cross.png" id="2_4ntmi"]
 [ext_resource type="Script" uid="uid://bvshplcj4be85" path="res://Player/Stamina.gd" id="3_btcbx"]
 [ext_resource type="Script" uid="uid://b76rbvxqt18g8" path="res://Player/PlayerCamera.gd" id="3_ddoul"]
-[ext_resource type="Script" uid="uid://cei3y4h4k0mur" path="res://Missions/punch_mission.gd" id="6_fhl08"]
+[ext_resource type="PackedScene" uid="uid://bqi6e84o6cv1k" path="res://Missions/mission_manager_scene.tscn" id="5_k53q1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gwnis"]
 bg_color = Color(0.26591694, 0.5369091, 0.41706842, 1)
@@ -55,6 +55,7 @@ material = SubResource("StandardMaterial3D_n6pxt")
 
 [node name="player" type="CharacterBody3D" groups=["player"]]
 collision_layer = 4
+script = ExtResource("1_tok1r")
 
 [node name="PlayerCanvas" type="CanvasLayer" parent="."]
 
@@ -188,6 +189,4 @@ script = ExtResource("1_tok1r")
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.22460139, -0.019991398, -0.6186275)
 shape = SubResource("SphereShape3D_gwnis")
 
-[node name="PunchMission" type="Node" parent="."]
-script = ExtResource("6_fhl08")
-metadata/_custom_type_script = "uid://cei3y4h4k0mur"
+[node name="MissionManagerScene" parent="." instance=ExtResource("5_k53q1")]
