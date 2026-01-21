@@ -30,8 +30,6 @@ var equipped_pump: Node3D = null
 func _ready():
 	await player_mission_manager.ready
 	player_mission = player_mission_manager.current_mission
-	if player_mission.punch_mission_status == player_mission.MissionStatus.available:
-		player_mission.start_mission()
 	if light:
 		light.visible = false
 	

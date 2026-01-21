@@ -1,9 +1,9 @@
 class_name MissionManager extends Node
 
 # --- Access to MissionControl nodes ---
-var mission_lbl = MissionControl.mission_label
-var current_mission_text = MissionControl.current_mission
-var cars_filled_count = MissionControl.cars_filled
+#@onready var mission_lbl = MissionControl.mission_label
+#@onready var current_mission_text = MissionControl.current_mission
+#@onready var cars_filled_count = MissionControl.cars_filled
 
 
 # --- Self missions init ---
@@ -16,9 +16,10 @@ var cars_filled_count = MissionControl.cars_filled
 var mission_index = 0
 var day_1_missions: Array
 var current_mission
+var previous_mission
+var wait_interval := 2.0
 
-enum MissionStatus
-{
+enum MissionStatus {
 	blocked,
 	available,
 	started,
@@ -26,10 +27,31 @@ enum MissionStatus
 	finished,
 }
 
-# --- Missions status init---
-var punch_mission_status: MissionStatus = MissionStatus.available
-var fill_car_mission_status: MissionStatus = MissionStatus.blocked
-
 func _ready():
+	
 	day_1_missions = [punch_in_mission,fill_car_mission]
 	current_mission = day_1_missions[mission_index]
+	for m in day_1_missions:
+		m.mission_manager = self
+		m.mission_started_signal.connect(_on_mission_started)
+		m.mission_finished_signal.connect(_on_mission_finished)
+
+	current_mission.start_mission()
+
+func _on_mission_started(text):
+	MissionControl.mission_label.visible = true
+	MissionControl.current_mission.visible = true
+	MissionControl.current_mission.text = text
+
+func _on_mission_finished(text):
+	MissionControl.current_mission.text = text
+	await get_tree().create_timer(wait_interval).timeout
+	start_next_mission()
+	
+func start_next_mission():
+	previous_mission = current_mission
+	previous_mission.mission_status = MissionStatus.blocked
+	mission_index += 1
+	current_mission = day_1_missions[mission_index]
+	if current_mission.mission_status == MissionStatus.available:
+		current_mission.start_mission()
