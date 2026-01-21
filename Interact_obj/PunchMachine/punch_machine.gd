@@ -1,7 +1,7 @@
 extends Node3D
 
-@onready var mission: PunchMission
+var mission
 
 func interact(player):
-	mission = player.mission
+	mission = player.player_mission
 	mission.mission_finished()

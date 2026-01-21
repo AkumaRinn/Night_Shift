@@ -13,8 +13,8 @@ extends Node
 @onready var grain_eff = $"../PlayerCanvas/grain_effect"
 @onready var interact_hint = $"../PlayerCanvas/interactable_label"
 
-@onready var mission: PunchMission = get_parent().get_node_or_null("PunchMission")
-
+@onready var player_mission_manager =$"../MissionManagerScene"
+@onready var player_mission
 
 # --- Inventory ---
 var inventory: Array[Node3D] = []
@@ -28,8 +28,8 @@ var equipped_pump: Node3D = null
 @export var interact_distance := 3.0
 
 func _ready():
-	if mission.mission_status == mission.MissionStatus.available:
-		mission.start_mission()
+	await player_mission_manager.ready
+	player_mission = player_mission_manager.current_mission
 	if light:
 		light.visible = false
 	

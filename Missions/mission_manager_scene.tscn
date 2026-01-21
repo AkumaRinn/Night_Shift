@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqi6e84o6cv1k"]
+
+[ext_resource type="Script" uid="uid://cei3y4h4k0mur" path="res://Missions/punch_mission.gd" id="1_2d37x"]
+[ext_resource type="Script" uid="uid://cvpdxognj3au2" path="res://Missions/mission_manager.gd" id="1_ufyfu"]
+[ext_resource type="Script" uid="uid://f4tw5m1ptv2y" path="res://Missions/fill_car_mission.gd" id="2_ufyfu"]
+
+[node name="MissionManagerScene" type="Node"]
+script = ExtResource("1_ufyfu")
+
+[node name="PunchMission" type="Node" parent="."]
+script = ExtResource("1_2d37x")
+metadata/_custom_type_script = "uid://cei3y4h4k0mur"
+
+[node name="FillCar" type="Node" parent="."]
+script = ExtResource("2_ufyfu")
+metadata/_custom_type_script = "uid://f4tw5m1ptv2y"
