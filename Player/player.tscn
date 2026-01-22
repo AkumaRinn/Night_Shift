@@ -142,6 +142,36 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "[E]"
 
+[node name="drop_label" type="Label" parent="PlayerCanvas"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -178.0
+offset_top = -110.0
+offset_right = -108.0
+offset_bottom = -87.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Drop [Q]"
+
+[node name="use_label" type="Label" parent="PlayerCanvas"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 110.0
+offset_top = -110.0
+offset_right = 190.0
+offset_bottom = -87.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Use [Click]"
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.13808593, 0)
 shape = SubResource("CapsuleShape3D_sh265")

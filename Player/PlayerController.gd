@@ -8,10 +8,12 @@ extends Node
 @onready var hand = camera.get_node_or_null("hand")
 @onready var light = camera.get_node_or_null("light")
 @onready var gas_particles = hand.get_node_or_null("gas_particles")
-@onready var canvas = get_parent().get_node_or_null("CanvasLayer")
+@onready var canvas = get_parent().get_node_or_null("PlayerCanvas")
 @onready var fill_progress = $"../PlayerCanvas/fill_progress_bar"
 @onready var grain_eff = $"../PlayerCanvas/grain_effect"
 @onready var interact_hint = $"../PlayerCanvas/interactable_label"
+@onready var item_drop = canvas.get_node("drop_label")#$"../PlayerCanvas/drop_label"
+@onready var item_use = canvas.get_node("use_label")#$"../$PlayerCanvas/use_label"
 
 @onready var player_mission_manager =$"../MissionManagerScene"
 @onready var player_mission
@@ -33,7 +35,9 @@ func _ready():
 	if light:
 		light.visible = false
 	
-
+func item_dropped():
+	item_drop.visible = false
+	item_use.visible = false
 # --- Input handling ---
 func _unhandled_input(event):
 	# Inventory cycling
@@ -92,6 +96,8 @@ func _process(_delta):
 			interact_hint.text = "Gas Pump [E]"
 			interact_hint.visible = true
 			if Input.is_action_just_pressed("interact"):
+				item_drop.visible = true
+				item_use.visible = true
 				obj.interact(self)
 	elif obj and obj.get_parent().is_in_group("punch_machine"):
 		var punch_machine = obj.get_parent()
@@ -141,6 +147,7 @@ func add_to_inventory(item: Node3D):
 
 func drop_gas_pump():
 	if Input.is_action_just_pressed("drop_item") and equipped_pump:
+		item_dropped()
 		equipped_pump.drop_pump(self)
 	
 
