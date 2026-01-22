@@ -8,5 +8,5 @@ func start_mission() -> void:
 func mission_finished() -> void:
 	if mission_status == MissionStatus.started:
 		mission_status = MissionStatus.finished
-		emit_signal("mission_finished_signal", "You are done for today")
+		emit_signal("mission_finished_signal", "I wish you'll have an easy shift!")
 		

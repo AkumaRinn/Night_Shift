@@ -10,3 +10,6 @@ func mission_finished() -> void:
 	if mission_status == MissionStatus.started:
 		mission_status = MissionStatus.finished
 		emit_signal("mission_finished_signal", "You are done for today")
+
+func increment_count() -> void:
+	mission_manager.increment_fill_count()

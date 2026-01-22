@@ -54,6 +54,7 @@ func _unhandled_input(event):
 
 # --- Pickup interaction ---
 func _process(_delta):
+	player_mission = player_mission_manager.current_mission
 	#Apply grain effect
 	grain_eff.texture.noise.seed = rand_gen.randi()
 	

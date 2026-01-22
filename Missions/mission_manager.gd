@@ -18,6 +18,7 @@ var day_1_missions: Array
 var current_mission
 var previous_mission
 var wait_interval := 2.0
+var filled_cars = 0
 
 enum MissionStatus {
 	blocked,
@@ -52,6 +53,17 @@ func start_next_mission():
 	previous_mission = current_mission
 	previous_mission.mission_status = MissionStatus.blocked
 	mission_index += 1
+	if mission_index >= day_1_missions.size():
+		return
 	current_mission = day_1_missions[mission_index]
 	if current_mission.mission_status == MissionStatus.available:
 		current_mission.start_mission()
+
+func increment_fill_count():
+	filled_cars += 1
+	MissionControl.cars_filled.visible = true
+	MissionControl.cars_filled.text = str(filled_cars) + "/5"
+	if filled_cars == 5:
+		await get_tree().create_timer(wait_interval).timeout
+		MissionControl.cars_filled.visible = false
+		current_mission.mission_finished()

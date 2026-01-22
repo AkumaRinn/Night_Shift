@@ -23,6 +23,9 @@ func interact(player):
 		is_waiting_for_player = false
 		is_moving = true
 		player.fill_progress.value = 0
+		if player.player_mission.mission_status == player.player_mission.MissionStatus.started:
+			player.player_mission.increment_count()
+		#make cars not spawn once the target was reached ? let the player focus on other missions?
 	
 
 func _physics_process(delta):
