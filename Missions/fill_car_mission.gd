@@ -9,7 +9,7 @@ func start_mission() -> void:
 func mission_finished() -> void:
 	if mission_status == MissionStatus.started:
 		mission_status = MissionStatus.finished
-		emit_signal("mission_finished_signal", "You are done for today")
+		emit_signal("mission_finished_signal", "Well done. The customers are happy")
 
 func increment_count() -> void:
 	mission_manager.increment_fill_count()

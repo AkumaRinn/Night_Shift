@@ -9,6 +9,7 @@ class_name MissionManager extends Node
 # --- Self missions init ---
 @onready var punch_in_mission: PunchMission = $PunchMission
 @onready var fill_car_mission: FillCar = $FillCar
+@onready var punch_out_mission: PunchOutMission = $PunchOutMission
 
 # --- Mission split on days ---    
 #Set a variable in the save Autoload or whatever that holds the current day 
@@ -30,7 +31,7 @@ enum MissionStatus {
 
 func _ready():
 	
-	day_1_missions = [punch_in_mission,fill_car_mission]
+	day_1_missions = [punch_in_mission,fill_car_mission, punch_out_mission]
 	current_mission = day_1_missions[mission_index]
 	for m in day_1_missions:
 		m.mission_manager = self

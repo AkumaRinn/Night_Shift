@@ -1,5 +1,6 @@
 class_name Mission extends Node
 
+var punch_mission_flag = 0
 
 
 enum MissionStatus {

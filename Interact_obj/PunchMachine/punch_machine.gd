@@ -4,4 +4,5 @@ var mission
 
 func interact(player):
 	mission = player.player_mission
-	mission.mission_finished()
+	if mission.punch_mission_flag == 1:
+		mission.mission_finished()

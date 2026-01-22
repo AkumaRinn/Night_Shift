@@ -32,7 +32,6 @@ var equipped_pump: Node3D = null
 func _ready():
 	await player_mission_manager.ready
 	player_mission = player_mission_manager.current_mission
-	print(player_mission)
 	if light:
 		light.visible = false
 	
