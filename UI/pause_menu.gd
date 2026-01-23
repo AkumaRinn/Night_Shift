@@ -52,3 +52,7 @@ func _on_exit_button_pressed():
 
 func _process(_delta):
 	escape()
+
+
+func _on_save_button_pressed():
+	pass

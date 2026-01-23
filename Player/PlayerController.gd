@@ -149,8 +149,6 @@ func drop_gas_pump():
 	if Input.is_action_just_pressed("drop_item") and equipped_pump:
 		item_dropped()
 		equipped_pump.drop_pump(self)
-	
-
 
 func equip_item(index: int):
 	if index == -1:

@@ -65,6 +65,10 @@ layout_mode = 2
 size_flags_vertical = 8
 text = "Options"
 
+[node name="Save_button" type="Button" parent="PausePanel/VBoxContainer"]
+layout_mode = 2
+text = "Save Game"
+
 [node name="Exit_button" type="Button" parent="PausePanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
@@ -72,4 +76,5 @@ text = "Exit"
 
 [connection signal="pressed" from="PausePanel/VBoxContainer/Resume_button" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PausePanel/VBoxContainer/Options_button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="PausePanel/VBoxContainer/Save_button" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="PausePanel/VBoxContainer/Exit_button" to="." method="_on_exit_button_pressed"]
