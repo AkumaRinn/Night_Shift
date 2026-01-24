@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c6ccpe8oqxaq3"]
+[gd_scene load_steps=16 format=3 uid="uid://c6ccpe8oqxaq3"]
 
 [ext_resource type="Script" uid="uid://ct7wc7pmarf35" path="res://Player/PlayerController.gd" id="1_tok1r"]
 [ext_resource type="Texture2D" uid="uid://cxj3xrf7056c0" path="res://Player/cross.png" id="2_4ntmi"]
@@ -50,8 +50,6 @@ albedo_color = Color(0.96828836, 0.9462082, 1.540184e-06, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_fhl08"]
 material = SubResource("StandardMaterial3D_n6pxt")
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_gwnis"]
 
 [node name="player" type="CharacterBody3D" groups=["player"]]
 collision_layer = 4
@@ -214,9 +212,5 @@ script = ExtResource("3_btcbx")
 
 [node name="PlayerController" type="Node" parent="."]
 script = ExtResource("1_tok1r")
-
-[node name="objects_clipping" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.22460139, -0.019991398, -0.6186275)
-shape = SubResource("SphereShape3D_gwnis")
 
 [node name="MissionManagerScene" parent="." instance=ExtResource("5_k53q1")]
