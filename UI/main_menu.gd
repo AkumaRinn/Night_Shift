@@ -5,7 +5,6 @@ extends Control
 @export var settings_scene: PackedScene
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
 
@@ -15,7 +14,12 @@ func _on_play_button_pressed():
 
 
 func _on_load_button_pressed():
-	get_tree().change_scene_to_file("res://level_00.tscn")
+	if FileAccess.file_exists("user://gamesave.tres"):
+		SaveLoadAutoload.should_load_on_ready = true
+		get_tree().change_scene_to_file("res://level_00.tscn")
+	else:
+		pass
+		#give the user feedback that there is no saved game yet
 
 
 func _on_settings_button_pressed():

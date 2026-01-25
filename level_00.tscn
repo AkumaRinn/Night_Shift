@@ -1,6 +1,5 @@
-[gd_scene load_steps=64 format=3 uid="uid://b4c2pxeob6wi4"]
+[gd_scene load_steps=62 format=3 uid="uid://b4c2pxeob6wi4"]
 
-[ext_resource type="Script" uid="uid://bfii771u7wgjr" path="res://level_00.gd" id="1_jkr46"]
 [ext_resource type="PackedScene" uid="uid://c6ccpe8oqxaq3" path="res://Player/player.tscn" id="1_p1oqu"]
 [ext_resource type="Script" uid="uid://2o168nn1txj3" path="res://Player/PlayerMovement.gd" id="2_7plxk"]
 [ext_resource type="PackedScene" uid="uid://cp2efuucpuwyg" path="res://Level_n_props/Station/Base_station.glb" id="3_1aab7"]
@@ -15,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://b22hrmbiec36h" path="res://Interact_obj/Car/car.tscn" id="13_agx0f"]
 [ext_resource type="PackedScene" uid="uid://sjml3qrx2ua8" path="res://Interact_obj/Car/car_stop.tscn" id="13_itu3g"]
 [ext_resource type="PackedScene" uid="uid://c8qf58djx6of" path="res://Interact_obj/PunchMachine/punch_machine.tscn" id="14_itu3g"]
-[ext_resource type="Script" uid="uid://cmf82iwl2fg0i" path="res://save_load.gd" id="15_agx0f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hykmj"]
 sky_top_color = Color(0.21753925, 0.21753505, 0.19927138, 1)
@@ -187,7 +185,6 @@ _data = {
 point_count = 15
 
 [node name="level" type="Node3D"]
-script = ExtResource("1_jkr46")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_efb6n")
@@ -198,7 +195,6 @@ visible = false
 shadow_enabled = true
 
 [node name="player" parent="." instance=ExtResource("1_p1oqu")]
-unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3254194, 0.9593967, -0.92472506)
 script = ExtResource("2_7plxk")
 
@@ -642,7 +638,3 @@ curve = SubResource("Curve3D_jkr46")
 
 [node name="PunchMachine" parent="." instance=ExtResource("14_itu3g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.42346, 1.6906856, -24.965483)
-
-[node name="SaveLoad" type="Node" parent="."]
-script = ExtResource("15_agx0f")
-metadata/_custom_type_script = "uid://cmf82iwl2fg0i"

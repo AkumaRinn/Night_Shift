@@ -6,7 +6,7 @@ extends Control
 @export var settings_scene: PackedScene
 var settings_instance: Control = null
 var mouse_sensitivity: float = 0.08
-
+var wait_saved: int = 2
 func _ready():
 	hide()
 	main_menu.show()
@@ -55,4 +55,7 @@ func _process(_delta):
 
 
 func _on_save_button_pressed():
-	pass
+	SaveLoadAutoload.save_game()
+	#await get_tree().create_timer(wait_saved).timeout
+	#Give the player feedback on save action done
+	

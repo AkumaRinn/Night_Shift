@@ -30,6 +30,8 @@ var equipped_pump: Node3D = null
 @export var interact_distance := 3.0
 
 func _ready():
+	var player_node = get_parent()
+	SaveLoadAutoload.register_player(player_node)
 	await player_mission_manager.ready
 	player_mission = player_mission_manager.current_mission
 	if light:
