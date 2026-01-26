@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://b22hrmbiec36h"]
+[gd_scene load_steps=5 format=3 uid="uid://b22hrmbiec36h"]
 
 [ext_resource type="PackedScene" uid="uid://c8yphy4pw7l5p" path="res://Level_n_props/covered_car_4k.gltf" id="1_7822p"]
 [ext_resource type="Script" uid="uid://bnuuyfu2bo61e" path="res://Interact_obj/Car/car.gd" id="1_uoj53"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7mmmx"]
 size = Vector3(1.7124939, 1, 4.3304596)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xn7qp"]
+size = Vector3(1.7473145, 1, 4.368225)
 
 [node name="Car_Node" type="Node3D" groups=["car"]]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
@@ -30,5 +33,11 @@ collision_layer = 3
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StopSensor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1273346, 0.55607384, -0.00061797537)
 shape = SubResource("BoxShape3D_7mmmx")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14440918, 0.61874163, -0.019012451)
+shape = SubResource("BoxShape3D_xn7qp")
 
 [connection signal="area_entered" from="StopSensor" to="." method="_on_stop_sensor_area_entered"]
