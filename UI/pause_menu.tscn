@@ -74,7 +74,11 @@ layout_mode = 2
 size_flags_vertical = 8
 text = "Exit"
 
+[connection signal="mouse_entered" from="PausePanel/VBoxContainer/Resume_button" to="." method="_on_resume_button_mouse_entered"]
 [connection signal="pressed" from="PausePanel/VBoxContainer/Resume_button" to="." method="_on_resume_button_pressed"]
+[connection signal="mouse_entered" from="PausePanel/VBoxContainer/Options_button" to="." method="_on_options_button_mouse_entered"]
 [connection signal="pressed" from="PausePanel/VBoxContainer/Options_button" to="." method="_on_options_button_pressed"]
+[connection signal="mouse_entered" from="PausePanel/VBoxContainer/Save_button" to="." method="_on_save_button_mouse_entered"]
 [connection signal="pressed" from="PausePanel/VBoxContainer/Save_button" to="." method="_on_save_button_pressed"]
+[connection signal="mouse_entered" from="PausePanel/VBoxContainer/Exit_button" to="." method="_on_exit_button_mouse_entered"]
 [connection signal="pressed" from="PausePanel/VBoxContainer/Exit_button" to="." method="_on_exit_button_pressed"]

@@ -12,6 +12,7 @@ func _ready():
 	main_menu.show()
 
 func resume():
+	AudioManager.button_press_sound.play()
 	get_tree().paused = false
 	hide()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -37,6 +38,7 @@ func _on_resume_button_pressed():
 func _on_options_button_pressed():
 	if settings_instance:
 		return  # already open
+	AudioManager.button_press_sound.play()
 	settings_instance = settings_scene.instantiate()
 	settings_instance.connect("closed", Callable(self, "_on_settings_closed"))
 	add_child(settings_instance)
@@ -55,7 +57,24 @@ func _process(_delta):
 
 
 func _on_save_button_pressed():
+	AudioManager.button_press_sound.play()
 	SaveLoadAutoload.save_game()
 	#await get_tree().create_timer(wait_saved).timeout
 	#Give the player feedback on save action done
 	
+
+
+func _on_resume_button_mouse_entered():
+	AudioManager.button_hover_sound.play()
+
+
+func _on_options_button_mouse_entered():
+	AudioManager.button_hover_sound.play()
+
+
+func _on_save_button_mouse_entered():
+	AudioManager.button_hover_sound.play()
+
+
+func _on_exit_button_mouse_entered():
+	AudioManager.button_hover_sound.play()

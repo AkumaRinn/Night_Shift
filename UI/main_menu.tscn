@@ -79,7 +79,11 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 38
 text = "Exit"
 
+[connection signal="mouse_entered" from="play_button" to="." method="_on_play_button_mouse_entered"]
 [connection signal="pressed" from="play_button" to="." method="_on_play_button_pressed"]
+[connection signal="mouse_entered" from="load_button" to="." method="_on_load_button_mouse_entered"]
 [connection signal="pressed" from="load_button" to="." method="_on_load_button_pressed"]
+[connection signal="mouse_entered" from="settings_button" to="." method="_on_settings_button_mouse_entered"]
 [connection signal="pressed" from="settings_button" to="." method="_on_settings_button_pressed"]
+[connection signal="mouse_entered" from="exit_button" to="." method="_on_exit_button_mouse_entered"]
 [connection signal="pressed" from="exit_button" to="." method="_on_exit_button_pressed"]

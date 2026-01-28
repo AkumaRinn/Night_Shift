@@ -10,10 +10,12 @@ func _process(_delta):
 
 
 func _on_play_button_pressed():
+	AudioManager.button_press_sound.play()
 	get_tree().change_scene_to_file("res://level_00.tscn")
 
 
 func _on_load_button_pressed():
+	AudioManager.button_press_sound.play()
 	if FileAccess.file_exists("user://gamesave.tres"):
 		SaveLoadAutoload.should_load_on_ready = true
 		get_tree().change_scene_to_file("res://level_00.tscn")
@@ -23,6 +25,7 @@ func _on_load_button_pressed():
 
 
 func _on_settings_button_pressed():
+	AudioManager.button_press_sound.play()
 	if main_settings_instance:
 		return  # already open
 	main_settings_instance = settings_scene.instantiate()
@@ -34,3 +37,19 @@ func _on_settings_closed():
 
 func _on_exit_button_pressed():
 	get_tree().quit()
+
+
+func _on_play_button_mouse_entered():
+	AudioManager.button_hover_sound.play()
+
+
+func _on_load_button_mouse_entered():
+	AudioManager.button_hover_sound.play()
+
+
+func _on_settings_button_mouse_entered():
+	AudioManager.button_hover_sound.play()
+
+
+func _on_exit_button_mouse_entered():
+	AudioManager.button_hover_sound.play()
