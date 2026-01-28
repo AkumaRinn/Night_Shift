@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtnbn8oev44mu"]
+
+[ext_resource type="Script" uid="uid://di242l3osa6ld" path="res://Autoloads/audio_manager.gd" id="1_5psad"]
+[ext_resource type="AudioStream" uid="uid://dxi70e6duasmw" path="res://SFX/lantern sound.mp3" id="2_apnpw"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_5psad")
+
+[node name="LanternSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_apnpw")

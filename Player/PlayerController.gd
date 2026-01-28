@@ -185,4 +185,5 @@ func equip_item(index: int):
 
 func toggle_light():
 	if equipped_item and equipped_item.is_in_group("lantern") and light:
+		AudioManager.lantern_sound.play()
 		light.visible = not light.visible
