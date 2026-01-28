@@ -8,6 +8,7 @@ func _ready():
 	pass # Replace with function body.
 
 func interact(player):
+	AudioManager.pick_pump_sound.play()
 	self.visible = true
 	self.reparent(player.hand)
 	self.transform = Transform3D.IDENTITY
