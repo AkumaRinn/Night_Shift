@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dt0iv43cdc3j0"
+path="res://.godot/imported/clock in sound.mp3-3422374e1996e6174ecd1ef1a44facc6.mp3str"
+
+[deps]
+
+source_file="res://SFX/clock in sound.mp3"
+dest_files=["res://.godot/imported/clock in sound.mp3-3422374e1996e6174ecd1ef1a44facc6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
