@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://b4c2pxeob6wi4"]
+[gd_scene load_steps=64 format=3 uid="uid://b4c2pxeob6wi4"]
 
 [ext_resource type="PackedScene" uid="uid://c6ccpe8oqxaq3" path="res://Player/player.tscn" id="1_p1oqu"]
 [ext_resource type="Script" uid="uid://2o168nn1txj3" path="res://Player/PlayerMovement.gd" id="2_7plxk"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://b22hrmbiec36h" path="res://Interact_obj/Car/car.tscn" id="13_agx0f"]
 [ext_resource type="PackedScene" uid="uid://sjml3qrx2ua8" path="res://Interact_obj/Car/car_stop.tscn" id="13_itu3g"]
 [ext_resource type="PackedScene" uid="uid://c8qf58djx6of" path="res://Interact_obj/PunchMachine/punch_machine.tscn" id="14_itu3g"]
+[ext_resource type="PackedScene" uid="uid://cyaw5rf6cip3n" path="res://SFX/spacial_audio_player_3d.tscn" id="15_jkr46"]
+[ext_resource type="AudioStream" uid="uid://dw2m0gknw5jkt" path="res://SFX/fridge hum.mp3" id="16_hj6re"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hykmj"]
 sky_top_color = Color(0.21753925, 0.21753505, 0.19927138, 1)
@@ -208,6 +210,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009320974, 0.015978813, -0.
 
 [node name="StationBody" type="StaticBody3D" parent="Base_station"]
 transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, 0, 0, 0)
+collision_layer = 17
 
 [node name="StationCollider" type="CollisionShape3D" parent="Base_station/StationBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2354126, -0.24996948, -0.012275696)
@@ -638,3 +641,9 @@ curve = SubResource("Curve3D_jkr46")
 
 [node name="PunchMachine" parent="." instance=ExtResource("14_itu3g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.42346, 1.6906856, -24.965483)
+
+[node name="SpacialAudioPlayer3D" parent="." instance=ExtResource("15_jkr46")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.48412704, 1.2563454, -18.381258)
+stream = ExtResource("16_hj6re")
+autoplay = true
+parameters/looping = true
