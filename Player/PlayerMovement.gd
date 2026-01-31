@@ -96,10 +96,15 @@ func _physics_process(delta):
 	if direction.length() > 0:
 		velocity.x = direction.x * final_speed
 		velocity.z = direction.z * final_speed
+		if AudioManager.steps_sound.is_playing():
+			pass
+		else:
+			AudioManager.steps_sound.play()
 	else:
 		var decel = SPEED * 10 * delta
 		velocity.x = move_toward(velocity.x, 0, decel)
 		velocity.z = move_toward(velocity.z, 0, decel)
+		AudioManager.steps_sound.stop()
 
 	move_and_slide()
 
