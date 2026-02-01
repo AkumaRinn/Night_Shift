@@ -2,6 +2,9 @@ class_name SaveLoad extends Node
 
 @onready var player
 @onready var controller
+
+signal day_changed
+
 var should_load_on_ready := false
 func register_player(p, c):
 	player = p
@@ -59,3 +62,13 @@ func load_game():
 		#Let the object set its own parameters
 		if restored_node.has_method("on_load_game"):
 			restored_node.on_load_game(item)
+			
+
+func day_pass():
+	save_game()
+	var saved_game:SavedGame = SavedGame.new()
+	saved_game.current_day += 1
+	ResourceSaver.save(saved_game, "user://gamesave.tres")
+	emit_signal("day_changed")
+
+	

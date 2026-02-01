@@ -10,4 +10,4 @@ func mission_finished() -> void:
 	if mission_status == MissionStatus.started:
 		mission_status = MissionStatus.finished
 		emit_signal("mission_finished_signal", "Head to the bus")
-		
+		SaveLoadAutoload.day_pass()
