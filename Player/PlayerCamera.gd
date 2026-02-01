@@ -21,6 +21,7 @@ var bob_offset := 0.0
 var vertical_rotation := 0.0
 var target_crouch_height := 0.0
 
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	current_height = camera_height

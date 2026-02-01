@@ -77,7 +77,7 @@ func _on_update_spacial_audio(player: Node3D):
 	_on_update_reverb(player)
 	_on_update_lowpass_filter(player)
 	
-func _on_update_reverb(player: Node3D):
+func _on_update_reverb(_player: Node3D):
 	if _reverb_effect != null:
 		var room_size = 0.0
 		var wetness = 1.0

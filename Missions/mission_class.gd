@@ -13,5 +13,7 @@ enum MissionStatus {
 
 var mission_status: MissionStatus = MissionStatus.available
 var mission_manager: MissionManager
+@warning_ignore("unused_signal")
 signal mission_started_signal(text)
+@warning_ignore("unused_signal")
 signal mission_finished_signal(text)

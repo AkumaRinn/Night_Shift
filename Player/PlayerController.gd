@@ -12,11 +12,12 @@ extends Node
 @onready var fill_progress = $"../PlayerCanvas/fill_progress_bar"
 @onready var grain_eff = $"../PlayerCanvas/grain_effect"
 @onready var interact_hint = $"../PlayerCanvas/interactable_label"
-@onready var item_drop = canvas.get_node("drop_label")#$"../PlayerCanvas/drop_label"
-@onready var item_use = canvas.get_node("use_label")#$"../$PlayerCanvas/use_label"
+@onready var item_drop = canvas.get_node("drop_label")
+@onready var item_use = canvas.get_node("use_label")
 
 @onready var player_mission_manager =$"../MissionManagerScene"
 @onready var player_mission
+
 
 # --- Inventory ---
 var inventory: Array[Node3D] = []
@@ -31,7 +32,8 @@ var equipped_pump: Node3D = null
 
 func _ready():
 	var player_node = get_parent()
-	SaveLoadAutoload.register_player(player_node)
+	var player_controller = self
+	SaveLoadAutoload.register_player(player_node, player_controller)
 	await player_mission_manager.ready
 	player_mission = player_mission_manager.current_mission
 	if light:
@@ -80,11 +82,12 @@ func _process(_delta):
 	# Handle Interaction
 	if obj and obj.is_in_group("lantern"):
 		var distance = camera.global_position.distance_to(obj.global_position)
+		var lantern_body = obj.get_parent()
 		if distance <= interact_distance:
 			interact_hint.text = "Flashlight [E]"
 			interact_hint.visible = true
 			if Input.is_action_just_pressed("interact"):
-				add_to_inventory(obj)
+				add_to_inventory(lantern_body)
 	elif obj and obj.is_in_group("door"):
 		var distance = camera.global_position.distance_to(obj.global_position)
 		if distance <= interact_distance:
@@ -129,19 +132,22 @@ func _process(_delta):
 		fill_progress.visible = false
 		gas_particles.emitting = false
 		
-
-# END OF _process FUBCTION
+# END OF _process FUNCTION
 
 # --- Inventory / flashlight functions ---
-func add_to_inventory(item: Node3D):
+func add_to_inventory(item: Node3D): 
+	#Object needs to have a var for its collision body named 'object_body'
 	if not hand or not item:
 		return
-	item.freeze = true
+	var item_body = item.object_body
+	item_body.freeze = true
+	item_body.set_collision_layer(0)
+	item_body.set_collision_mask(0)
+	item.is_picked_up = true
 	item.reparent(hand)
 	item.transform = Transform3D.IDENTITY
 	item.visible = false
-	item.set_collision_layer(0)
-	item.set_collision_mask(0)
+
 	inventory.append(item)
 	if inv_index == -1:
 		equip_item(0)
