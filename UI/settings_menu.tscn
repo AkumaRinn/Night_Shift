@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b3dt8f8bywpyw"]
 
 [ext_resource type="Script" uid="uid://0l3u6j552rtw" path="res://UI/settings_menu.gd" id="1_77no7"]
-[ext_resource type="PackedScene" uid="uid://cxyt3pua3wrn4" path="res://UI/Settings.tscn" id="2_jkv84"]
+[ext_resource type="PackedScene" uid="uid://cxyt3pua3wrn4" path="res://Autoloads/Settings.tscn" id="2_jkv84"]
 
 [node name="SettingsMenu" type="Control"]
 process_mode = 3

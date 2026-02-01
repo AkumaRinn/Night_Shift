@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bqyqxwmlvgoq8" path="res://Interact_obj/Doors/door.tscn" id="4_1aab7"]
 [ext_resource type="PackedScene" uid="uid://b3dt8f8bywpyw" path="res://UI/settings_menu.tscn" id="4_nqovv"]
 [ext_resource type="PackedScene" uid="uid://cqyfcb344ldx2" path="res://Interact_obj/Lantern/lantern.tscn" id="6_yucxg"]
-[ext_resource type="Script" uid="uid://duyuel17y6s2o" path="res://UI/Settings.gd" id="11_nqovv"]
+[ext_resource type="Script" uid="uid://duyuel17y6s2o" path="res://Autoloads/Settings.gd" id="11_nqovv"]
 [ext_resource type="PackedScene" uid="uid://cxmm2dkck8ge4" path="res://Interact_obj/GasPump/gas_pump.tscn" id="12_4kdk2"]
 [ext_resource type="PackedScene" uid="uid://b1g461752vamq" path="res://Interact_obj/Car/car_spawner.tscn" id="12_itu3g"]
 [ext_resource type="PackedScene" uid="uid://dcgffnxylpqmg" path="res://Level_n_props/utility_box_02_4k.gltf" id="13_4kdk2"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bqi6e84o6cv1k"]
 
 [ext_resource type="Script" uid="uid://cei3y4h4k0mur" path="res://Missions/punch_mission.gd" id="1_2d37x"]
-[ext_resource type="Script" uid="uid://cvpdxognj3au2" path="res://Missions/mission_manager.gd" id="1_ufyfu"]
+[ext_resource type="Script" uid="uid://cvpdxognj3au2" path="res://System/mission_manager.gd" id="1_ufyfu"]
 [ext_resource type="Script" uid="uid://f4tw5m1ptv2y" path="res://Missions/fill_car_mission.gd" id="2_ufyfu"]
 [ext_resource type="Script" uid="uid://kvt4si8gwsvl" path="res://Missions/punch_out_mission.gd" id="4_oq0gs"]
 

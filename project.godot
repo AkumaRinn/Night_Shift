@@ -16,9 +16,9 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 
 [autoload]
 
-Settings="*res://UI/Settings.gd"
+Settings="*res://Autoloads/Settings.gd"
 MissionControl="*res://Autoloads/mission_control.tscn"
-SaveLoadAutoload="*res://save_load.gd"
+SaveLoadAutoload="*res://Autoloads/save_load.gd"
 AudioManager="*res://Autoloads/audio_manager.tscn"
 
 [display]
