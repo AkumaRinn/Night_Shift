@@ -36,7 +36,10 @@ enum MissionStatus {
 
 func _ready():
 	SaveLoadAutoload.day_changed.connect(get_the_next_day)
-	what_is_today = saved_game.current_day
+	#If the game was saved at least once,
+	#Load the day from the save file
+	if FileAccess.file_exists("user://gamesave.tres"):
+		what_is_today = saved_game.current_day
 	#Init all possible missions and split them by days
 	day_1_missions = [punch_in_mission,fill_car_mission, punch_out_mission]
 	day_2_missions = [punch_in_mission,]
