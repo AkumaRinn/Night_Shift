@@ -1,6 +1,6 @@
 extends Control
 
-
+var saved_game:SavedGame = SavedGame.new()
 @onready var main_settings_instance: Control = null
 @export var settings_scene: PackedScene
 
@@ -10,8 +10,12 @@ func _process(_delta):
 
 
 func _on_play_button_pressed():
+	#overwrite the current saved file ( to reset the day counter XD - 
+	# - should do it in a better way)
+	ResourceSaver.save(saved_game, "user://gamesave.tres")
 	AudioManager.button_press_sound.play()
 	get_tree().change_scene_to_file("res://level_00.tscn")
+	SaveLoadAutoload.save_game()
 
 
 func _on_load_button_pressed():

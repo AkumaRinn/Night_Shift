@@ -2,6 +2,10 @@ class_name SaveLoad extends Node
 
 @onready var player
 @onready var controller
+
+@onready var game_day = 0
+signal day_changed
+
 var should_load_on_ready := false
 func register_player(p, c):
 	player = p
@@ -23,6 +27,7 @@ func save_game():
 	get_tree().call_group("game_event", "on_save_game", saved_data)
 	
 	#Save the data inside the game save file
+	saved_game.current_day = game_day
 	saved_game.player_position = player.position
 	saved_game.player_rotation = player.rotation
 	saved_game.camera_rotation = controller.camera.rotation
@@ -40,9 +45,11 @@ func load_game():
 	if not FileAccess.file_exists("user://gamesave.tres"):
 		return
 	
+	
 	get_tree().call_group("game_event", "on_before_load_game")
 	player.global_position = saved_game.player_position
 	player.rotation = saved_game.player_rotation
+	game_day = saved_game.current_day
 	controller.camera.rotation = saved_game.camera_rotation
 	
 	for item in saved_game.saved_data:
@@ -59,3 +66,11 @@ func load_game():
 		#Let the object set its own parameters
 		if restored_node.has_method("on_load_game"):
 			restored_node.on_load_game(item)
+			
+
+func day_pass():
+	game_day += 1
+	save_game()
+	emit_signal("day_changed")
+
+	
