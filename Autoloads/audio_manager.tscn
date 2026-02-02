@@ -28,3 +28,4 @@ stream = ExtResource("6_jpqn3")
 
 [node name="StepsSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_filgv")
+volume_db = -20.0
