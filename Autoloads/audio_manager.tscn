@@ -25,6 +25,7 @@ stream = ExtResource("5_amsdr")
 
 [node name="PickPumpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_jpqn3")
+volume_db = -10.0
 
 [node name="StepsSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_filgv")

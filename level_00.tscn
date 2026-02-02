@@ -645,5 +645,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.42346, 1.6906856, -24.96548
 [node name="SpacialAudioPlayer3D" parent="." instance=ExtResource("15_jkr46")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.48412704, 1.2563454, -18.381258)
 stream = ExtResource("16_hj6re")
+volume_db = -10.0
+max_db = 2.0
 autoplay = true
 parameters/looping = true
