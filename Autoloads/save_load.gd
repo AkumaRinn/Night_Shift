@@ -4,6 +4,7 @@ class_name SaveLoad extends Node
 @onready var controller
 
 @onready var game_day = 0
+@onready var mission_index_save
 signal day_changed
 
 var should_load_on_ready := false
@@ -25,9 +26,10 @@ func save_game():
 	
 	#Call the save_game function for all the objects that are supposed to be saved
 	get_tree().call_group("game_event", "on_save_game", saved_data)
-	
+	get_tree().call_group("game_event", "on_save_game_no_arg")
 	#Save the data inside the game save file
 	saved_game.current_day = game_day
+	saved_game.mission_index_saved = mission_index_save
 	saved_game.player_position = player.position
 	saved_game.player_rotation = player.rotation
 	saved_game.camera_rotation = controller.camera.rotation
@@ -70,7 +72,9 @@ func load_game():
 
 func day_pass():
 	game_day += 1
-	save_game()
+	mission_index_save = 0
 	emit_signal("day_changed")
+	save_game()
+
 
 	

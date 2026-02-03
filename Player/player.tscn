@@ -212,4 +212,4 @@ script = ExtResource("3_btcbx")
 [node name="PlayerController" type="Node" parent="."]
 script = ExtResource("1_tok1r")
 
-[node name="MissionManagerScene" parent="." instance=ExtResource("5_k53q1")]
+[node name="MissionManagerScene" parent="." groups=["game_event"] instance=ExtResource("5_k53q1")]

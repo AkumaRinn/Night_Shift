@@ -14,7 +14,7 @@ class_name MissionManager extends Node
 # --- Mission split on days ---    
 #Set a variable in the save Autoload or whatever that holds the current day 
 #and enable the said mission set
-var mission_index = 0
+var mission_index
 var day_1_missions: Array
 var day_2_missions: Array
 var all_missions: Array
@@ -40,6 +40,9 @@ func _ready():
 	#Load the day from the save file
 	if FileAccess.file_exists("user://gamesave.tres"):
 		what_is_today = saved_game.current_day
+		mission_index = saved_game.mission_index_saved
+	else:
+		mission_index = 0
 	#Init all possible missions and split them by days
 	day_1_missions = [punch_in_mission,fill_car_mission, punch_out_mission]
 	day_2_missions = [punch_in_mission,]
@@ -101,3 +104,6 @@ func get_the_next_day():
 		m.mission_finished_signal.connect(_on_mission_finished)
 
 	current_mission.start_mission()
+
+func on_save_game_no_arg():
+	SaveLoadAutoload.mission_index_save = mission_index
