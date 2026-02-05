@@ -40,10 +40,11 @@ func _process(delta):
 		States.waiting:
 			pass
 
-func patrol(speed: int, _delta):
+func patrol(speed: int, delta):
 	var targetPos = navigation_agent.get_next_path_position()
 	var direction = global_position.direction_to(targetPos)
 	velocity = direction * speed
+	face_direction(delta, direction)
 	move_and_slide()
 
 func chase():
@@ -61,7 +62,9 @@ func wait():
 func _on_patrol_timer_timeout():
 	currentState = States.patrol
 	waypointIndex += 1
-	print(waypoints.size())
 	if waypointIndex >= waypoints.size():
 		waypointIndex = 0
 	navigation_agent.target_position = waypoints[waypointIndex].global_position
+
+func face_direction(delta,direction : Vector3):
+	rotation.y = lerp_angle(rotation.y, atan2(-velocity.x, -velocity.z), delta * 10)

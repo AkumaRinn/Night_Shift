@@ -24,6 +24,7 @@ mesh = SubResource("BoxMesh_1tq3e")
 [node name="SalteNavigationAgent" type="NavigationAgent3D" parent="." unique_id=1429153532]
 
 [node name="PatrolTimer" type="Timer" parent="." unique_id=1759735319]
+wait_time = 3.0
 one_shot = true
 
 [connection signal="timeout" from="PatrolTimer" to="." method="_on_patrol_timer_timeout"]
