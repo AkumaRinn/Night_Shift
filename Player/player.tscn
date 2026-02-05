@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c6ccpe8oqxaq3"]
+[gd_scene format=3 uid="uid://c6ccpe8oqxaq3"]
 
 [ext_resource type="Script" uid="uid://ct7wc7pmarf35" path="res://Player/PlayerController.gd" id="1_tok1r"]
 [ext_resource type="Texture2D" uid="uid://cxj3xrf7056c0" path="res://Player/cross.png" id="2_4ntmi"]
@@ -51,12 +51,12 @@ albedo_color = Color(0.96828836, 0.9462082, 1.540184e-06, 1)
 [sub_resource type="SphereMesh" id="SphereMesh_fhl08"]
 material = SubResource("StandardMaterial3D_n6pxt")
 
-[node name="player" type="CharacterBody3D" groups=["player"]]
+[node name="player" type="CharacterBody3D" unique_id=1776729673 groups=["player"]]
 collision_layer = 4
 
-[node name="PlayerCanvas" type="CanvasLayer" parent="."]
+[node name="PlayerCanvas" type="CanvasLayer" parent="." unique_id=61186531]
 
-[node name="ProgressBar" type="ProgressBar" parent="PlayerCanvas"]
+[node name="ProgressBar" type="ProgressBar" parent="PlayerCanvas" unique_id=553524951]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -71,7 +71,7 @@ grow_vertical = 0
 size_flags_vertical = 8
 show_percentage = false
 
-[node name="crosshair" type="Control" parent="PlayerCanvas"]
+[node name="crosshair" type="Control" parent="PlayerCanvas" unique_id=1690930998]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -82,7 +82,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="crosspng" type="TextureRect" parent="PlayerCanvas/crosshair"]
+[node name="crosspng" type="TextureRect" parent="PlayerCanvas/crosshair" unique_id=1880042157]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -97,7 +97,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_4ntmi")
 
-[node name="fill_progress_bar" type="ProgressBar" parent="PlayerCanvas"]
+[node name="fill_progress_bar" type="ProgressBar" parent="PlayerCanvas" unique_id=1799205694]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -116,7 +116,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_gwnis")
 step = 1.0
 show_percentage = false
 
-[node name="grain_effect" type="TextureRect" parent="PlayerCanvas"]
+[node name="grain_effect" type="TextureRect" parent="PlayerCanvas" unique_id=1808383727]
 modulate = Color(1, 1, 1, 0.039215688)
 anchors_preset = 15
 anchor_right = 1.0
@@ -125,7 +125,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("NoiseTexture2D_k53q1")
 
-[node name="interactable_label" type="Label" parent="PlayerCanvas"]
+[node name="interactable_label" type="Label" parent="PlayerCanvas" unique_id=1636871979]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -139,7 +139,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "[E]"
 
-[node name="drop_label" type="Label" parent="PlayerCanvas"]
+[node name="drop_label" type="Label" parent="PlayerCanvas" unique_id=1232190053]
 visible = false
 anchors_preset = 7
 anchor_left = 0.5
@@ -154,7 +154,7 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Drop [Q]"
 
-[node name="use_label" type="Label" parent="PlayerCanvas"]
+[node name="use_label" type="Label" parent="PlayerCanvas" unique_id=2077022856]
 visible = false
 anchors_preset = 7
 anchor_left = 0.5
@@ -169,34 +169,34 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Use [Click]"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=967057533]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.13808593, 0)
 shape = SubResource("CapsuleShape3D_sh265")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=899120909]
 mesh = SubResource("CapsuleMesh_4flbx")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1442406566]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4111585, 0)
 script = ExtResource("3_ddoul")
 
-[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=1939091426]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06573194, 0)
 target_position = Vector3(0, 0, -5)
 collision_mask = 2
 hit_from_inside = true
 collide_with_areas = true
 
-[node name="light" type="SpotLight3D" parent="Camera3D"]
+[node name="light" type="SpotLight3D" parent="Camera3D" unique_id=2002250285]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020264745, 0.081270576, -0.43702412)
 light_energy = 5.0
 spot_range = 12.467312
 spot_angle = 26.718748
 
-[node name="hand" type="Node3D" parent="Camera3D"]
+[node name="hand" type="Node3D" parent="Camera3D" unique_id=599199143]
 transform = Transform3D(-0.08715576, 0, 0.99619466, 0, 1, 0, -0.99619466, 0, -0.08715576, 0.38827258, -0.32993436, -0.42683923)
 
-[node name="gas_particles" type="GPUParticles3D" parent="Camera3D/hand"]
+[node name="gas_particles" type="GPUParticles3D" parent="Camera3D/hand" unique_id=669371046]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.70233095, -0.3125468, -0.12417269)
 emitting = false
 amount = 50
@@ -206,10 +206,10 @@ trail_lifetime = 0.01
 process_material = SubResource("ParticleProcessMaterial_k53q1")
 draw_pass_1 = SubResource("SphereMesh_fhl08")
 
-[node name="Stamina" type="CharacterBody3D" parent="."]
+[node name="Stamina" type="CharacterBody3D" parent="." unique_id=1422866574]
 script = ExtResource("3_btcbx")
 
-[node name="PlayerController" type="Node" parent="."]
+[node name="PlayerController" type="Node" parent="." unique_id=1826779596]
 script = ExtResource("1_tok1r")
 
-[node name="MissionManagerScene" parent="." groups=["game_event"] instance=ExtResource("5_k53q1")]
+[node name="MissionManagerScene" parent="." unique_id=1712250519 groups=["game_event"] instance=ExtResource("5_k53q1")]

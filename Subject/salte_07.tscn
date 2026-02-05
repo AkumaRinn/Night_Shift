@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dku5268ogqgij"]
+
+[ext_resource type="Script" uid="uid://0qow8l2qr0i5" path="res://Subject/salte_07.gd" id="1_o1i4q"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m3aye"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_gygx5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1tq3e"]
+
+[node name="Salte_07" type="CharacterBody3D" unique_id=1493763854]
+script = ExtResource("1_o1i4q")
+
+[node name="SalteCollision" type="CollisionShape3D" parent="." unique_id=205993229]
+shape = SubResource("CapsuleShape3D_m3aye")
+
+[node name="SalteMesh" type="MeshInstance3D" parent="." unique_id=480528266]
+mesh = SubResource("CapsuleMesh_gygx5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1523330128]
+transform = Transform3D(-4.371139e-08, 0, 0.33064055, 0, 0.19189799, 0, -1, 0, -1.4452758e-08, 0, 0.31957328, -0.23790789)
+mesh = SubResource("BoxMesh_1tq3e")
+
+[node name="SalteNavigationAgent" type="NavigationAgent3D" parent="." unique_id=1429153532]
+
+[node name="PatrolTimer" type="Timer" parent="." unique_id=1759735319]
+one_shot = true
+
+[connection signal="timeout" from="PatrolTimer" to="." method="_on_patrol_timer_timeout"]

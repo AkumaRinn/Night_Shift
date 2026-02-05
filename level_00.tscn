@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://b4c2pxeob6wi4"]
+[gd_scene format=3 uid="uid://b4c2pxeob6wi4"]
 
 [ext_resource type="PackedScene" uid="uid://c6ccpe8oqxaq3" path="res://Player/player.tscn" id="1_p1oqu"]
 [ext_resource type="Script" uid="uid://2o168nn1txj3" path="res://Player/PlayerMovement.gd" id="2_7plxk"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c8qf58djx6of" path="res://Interact_obj/PunchMachine/punch_machine.tscn" id="14_itu3g"]
 [ext_resource type="PackedScene" uid="uid://cyaw5rf6cip3n" path="res://SFX/spacial_audio_player_3d.tscn" id="15_jkr46"]
 [ext_resource type="AudioStream" uid="uid://dw2m0gknw5jkt" path="res://SFX/fridge hum.mp3" id="16_hj6re"]
+[ext_resource type="PackedScene" uid="uid://dku5268ogqgij" path="res://Subject/salte_07.tscn" id="17_hj6re"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hykmj"]
 sky_top_color = Color(0.21753925, 0.21753505, 0.19927138, 1)
@@ -37,9 +38,6 @@ fog_light_color = Color(0.0890689, 0.10117159, 0.11845914, 1)
 fog_density = 0.03
 fog_height_density = -0.1
 volumetric_fog_density = 0.1548
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_efb6n"]
-size = Vector3(1.4822998, 0.50006104, 0.51490784)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ulbx6"]
 size = Vector3(3.7573547, 3.9256287, 0.26811218)
@@ -186,424 +184,395 @@ _data = {
 }
 point_count = 15
 
-[node name="level" type="Node3D"]
+[sub_resource type="NavigationMesh" id="NavigationMesh_jkr46"]
+vertices = PackedVector3Array(-28.909378, 0.51597595, 1.7992096, -26.909378, 0.51597595, -52.20079, -27.409378, 0.51597595, -53.45079, -194.90938, 0.51597595, -53.45079, -194.90938, 0.51597595, 2.2992096, -72.15938, 0.51597595, 2.2992096, -26.659378, 0.51597595, -52.70079, -16.909378, 0.51597595, -52.70079, 25.090622, 0.51597595, -53.45079, -10.159378, 0.51597595, -51.45079, 25.090622, 0.51597595, -51.45079, 27.090622, 0.51597595, -51.45079, 38.340622, 0.51597595, -47.70079, 100.59062, 0.51597595, -53.45079, 39.340622, 0.51597595, -46.95079, 40.340622, 0.51597595, 6.2992096, 100.59062, 0.51597595, 6.0492096, -2.409378, 0.51597595, -29.20079, -0.90937805, 0.51597595, -29.20079, -1.159378, 2.265976, -51.95079, -2.096878, 0.51597595, -34.88829, -0.97187805, 0.51597595, -34.88829, -2.659378, 0.51597595, -28.70079, -25.909378, 2.015976, -51.70079, -26.659378, 2.015976, -28.70079, -11.129959, 0.51597595, -28.70079, -13.137848, 0.76597595, -38.930428, 9.340622, 0.51597595, -29.20079, 9.590622, 2.265976, -51.95079, 9.403122, 0.51597595, -34.88829, 11.090622, 0.51597595, -21.70079, 20.090622, 0.51597595, -21.70079, 21.590622, 0.51597595, -23.95079, 11.090622, 0.51597595, -28.95079, 10.715622, 0.51597595, -34.70079, 23.090622, 0.51597595, -23.45079, 23.340622, 2.265976, -51.95079, 23.190628, 0.51597595, -34.850792, 25.340622, 0.51597595, -23.45079, 25.840622, 0.51597595, -21.70079, 44.340622, 2.765976, -21.95079, 43.840622, 2.765976, -51.70079, 24.540619, 0.51597595, -34.850792, 31.821625, 1.265976, -40.46386, 27.347168, 0.51597595, -34.469444, -2.159378, 5.515976, -28.95079, -2.159378, 5.515976, -13.95079, 10.590622, 5.515976, -13.95079, 10.590622, 5.515976, -28.95079, -2.659378, 0.51597595, -16.20079, -27.159378, 2.015976, -16.20079, -11.306442, 0.51597595, -16.20079, -0.40937805, 0.51597595, -27.70079, -0.40937805, 0.51597595, -26.95079, 0.09062195, 0.51597595, -26.95079, 7.840622, 0.51597595, -26.70079, 8.340622, 0.51597595, -25.20079, 9.590622, 0.51597595, -25.70079, 9.590622, 0.51597595, -27.70079, 0.84062195, 0.51597595, -26.95079, 1.090622, 0.51597595, -26.45079, 2.840622, 0.51597595, -26.20079, 7.090622, 0.51597595, -26.95079, 7.340622, 0.51597595, -27.70079, 4.590622, 0.51597595, -23.20079, 4.340622, 0.51597595, -22.20079, 5.590622, 0.51597595, -21.95079, 7.590622, 0.51597595, -22.95079, 8.590622, 0.51597595, -24.20079, 7.840622, 0.51597595, -23.95079, 8.590622, 0.51597595, -21.20079, 9.340622, 0.51597595, -20.20079, 9.090622, 0.51597595, -15.20079, 9.590622, 0.51597595, -15.20079, 9.590622, 0.51597595, -20.95079, 7.340622, 0.51597595, -20.45079, 5.840622, 0.51597595, -20.70079, 6.840622, 0.51597595, -20.20079, 5.590622, 0.51597595, -19.70079, 5.590622, 0.51597595, -18.70079, 5.840622, 0.51597595, -16.70079, 5.590622, 0.51597595, -15.70079, 5.840622, 0.51597595, -14.95079, 7.090622, 0.51597595, -15.20079, 0.09062195, 0.51597595, -23.20079, 0.09062195, 0.51597595, -21.95079, 0.09062195, 0.51597595, -16.45079, -0.15937805, 0.51597595, -18.45079, -0.65937805, 0.51597595, -15.45079, -0.40937805, 0.51597595, -23.95079, -0.15937805, 0.51597595, -19.95079, 25.840622, 0.51597595, -15.20079, 44.590622, 2.765976, -14.95079, 11.090622, 0.51597595, -13.95079, 20.090622, 0.51597595, -13.95079, 21.090622, 4.015976, -21.45079, 21.090622, 4.015976, -14.20079, 24.840622, 4.015976, -14.20079, 24.840622, 4.015976, -21.45079, 22.340622, 0.51597595, -15.20079, 21.590622, 0.51597595, -14.70079, 22.840622, 0.51597595, -14.70079, 21.340622, 0.51597595, -20.70079, 21.590622, 0.51597595, -19.70079, 22.340622, 0.51597595, -19.45079, 22.840622, 0.51597595, -20.95079, -2.159378, 0.51597595, 0.2992096, -1.659378, 0.51597595, 0.049209595, -1.909378, 0.51597595, -1.9507904, -0.90937805, 0.51597595, -2.2007904, -0.90937805, 0.51597595, -12.70079, -2.659378, 0.51597595, -12.95079, -27.909378, 2.015976, 0.2992096, -11.306442, 0.51597595, -14.097851, -10.742706, 0.51597595, 0.2992096, 45.340622, 2.765976, 2.5492096, 45.340622, 2.765976, 2.2992096, 44.840622, 2.765976, 2.0492096, 14.090622, 0.51597595, -0.2007904, 13.590622, 0.51597595, 0.049209595, 13.840622, 0.51597595, 2.2992096, 12.840622, 0.51597595, 2.5492096, 12.840622, 0.51597595, 5.2992096, 13.590622, 0.51597595, 5.2992096, 25.840622, 0.51597595, -13.70079, 13.840622, 0.51597595, 5.7992096, 25.340622, 0.51597595, -12.95079, 27.634735, 0.51597595, -11.186085, 20.590622, 0.51597595, -13.45079, 14.090622, 0.51597595, -1.7007904, 26.72699, 0.51597595, 4.4696655, 10.590622, 0.51597595, -13.45079, 13.840622, 0.51597595, -2.2007904, 12.340622, 0.51597595, -2.2007904, 0.59062195, 0.51597595, -13.45079, 0.34062195, 0.51597595, -12.70079, -0.15937805, 0.51597595, -2.2007904, 0.09062195, 0.51597595, -1.7007904, 12.090622, 0.51597595, -1.7007904, -4.659378, 8.015976, -4.2007904, -4.659378, 8.015976, 11.79921, 16.090622, 8.015976, 11.79921, 16.090622, 8.015976, -4.2007904, 11.840622, 0.51597595, 0.2992096, 12.340622, 0.51597595, 0.049209595, 0.09062195, 0.51597595, -0.2007904, -0.40937805, 0.51597595, 0.049209595, -0.15937805, 0.51597595, 2.0492096, 11.840622, 0.51597595, 2.0492096, -1.909378, 0.51597595, 9.79921, -1.659378, 0.51597595, 7.7992096, -2.159378, 0.51597595, 7.5492096, -10.409378, 0.51597595, 14.29921, -9.159378, 0.51597595, 14.29921, -2.159378, 0.51597595, 5.5492096, -1.159378, 0.51597595, 5.2992096, -1.159378, 0.51597595, 2.5492096, -2.159378, 0.51597595, 2.2992096, -8.909378, 0.51597595, 14.79921, -1.409378, 0.51597595, 10.04921, -27.909378, 2.015976, 2.5492096, -28.409378, 2.015976, 2.7992096, -10.659378, 0.51597595, 14.79921, 100.59062, 2.765976, 1.7992096, 45.340622, 2.515976, 48.29921, 100.59062, 2.515976, 48.29921, 45.340622, 0.51597595, 17.307274, 45.340622, 0.51597595, 32.06534, 100.59062, 0.51597595, 31.79921, 100.59062, 0.51597595, 18.29921, -0.40937805, 0.51597595, 5.2992096, -0.40937805, 0.51597595, 2.5492096, -0.15937805, 0.51597595, 5.7992096, 11.840622, 0.51597595, 5.7992096, 12.090622, 0.51597595, 2.5492096, 12.090622, 0.51597595, 5.2992096, 13.590622, 0.51597595, 7.7992096, 14.090622, 0.51597595, 8.04921, 26.87471, 0.51597595, 5.7992096, 14.090622, 0.51597595, 9.79921, 13.090622, 0.51597595, 10.04921, 13.090622, 2.515976, 48.29921, 26.87471, 0.51597595, 6.8333015, 13.090622, 0.51597595, 32.116516, 33.332657, 0.51597595, 19.531029, 30.361908, 1.015976, 15.049828, 27.342133, 0.51597595, 16.5476, -10.659378, 0.51597595, 17.29921, -9.909378, 0.51597595, 17.04921, -9.909378, 0.51597595, 15.79921, -10.659378, 0.51597595, 15.54921, -71.65938, 2.015976, 3.2992096, -195.65938, 2.015976, 3.2992096, -195.65938, 2.515976, 48.29921, -9.909378, 2.515976, 48.29921, -33.812607, 0.51597595, 30.879852, -51.74002, 0.51597595, 17.815338, -195.65938, 0.51597595, 17.815338, -195.65938, 0.26597595, 29.428238, -149.64853, 0.51597595, 31.570892, -122.65423, 0.51597595, 18.025337, -170.67462, 0.51597595, 18.073753, -181.18379, 0.51597595, 31.540161, -10.659378, 0.51597595, 18.29921, -9.909378, 0.51597595, 18.54921, -10.337952, 0.51597595, 31.156357, -9.909378, 0.51597595, 31.936707, -17.669357, 0.51597595, 30.044838, -31.156662, 0.51597595, 16.546303, 12.090622, 0.51597595, 9.54921, 12.340622, 0.51597595, 7.7992096, 11.840622, 0.51597595, 7.5492096, 0.09062195, 0.51597595, 8.04921, 0.09062195, 0.51597595, 9.54921, -0.40937805, 0.51597595, 7.7992096, -9.159378, 0.51597595, 15.79921, -8.909378, 0.51597595, 17.29921, 12.340622, 0.51597595, 10.04921, -0.15937805, 0.51597595, 10.04921, -8.909378, 0.51597595, 18.29921, -9.337952, 0.51597595, 31.15635, -194.90938, 0.51597595, 46.29921, -194.90938, 0.51597595, 48.54921, 100.59062, 0.51597595, 48.54921, 100.59062, 0.51597595, 46.29921)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 5), PackedInt32Array(2, 5, 4), PackedInt32Array(2, 4, 3), PackedInt32Array(6, 1, 2), PackedInt32Array(6, 2, 7), PackedInt32Array(7, 2, 8), PackedInt32Array(10, 9, 8), PackedInt32Array(8, 9, 7), PackedInt32Array(11, 10, 8), PackedInt32Array(11, 8, 12), PackedInt32Array(12, 8, 13), PackedInt32Array(15, 14, 16), PackedInt32Array(16, 14, 13), PackedInt32Array(14, 12, 13), PackedInt32Array(17, 20, 18), PackedInt32Array(18, 20, 21), PackedInt32Array(21, 20, 19), PackedInt32Array(23, 26, 24), PackedInt32Array(24, 26, 25), PackedInt32Array(25, 17, 22), PackedInt32Array(17, 25, 20), PackedInt32Array(20, 26, 19), PackedInt32Array(19, 26, 23), PackedInt32Array(26, 20, 25), PackedInt32Array(18, 21, 27), PackedInt32Array(27, 21, 29), PackedInt32Array(29, 21, 19), PackedInt32Array(29, 19, 28), PackedInt32Array(31, 30, 32), PackedInt32Array(32, 30, 33), PackedInt32Array(33, 27, 34), PackedInt32Array(34, 27, 29), PackedInt32Array(34, 29, 28), PackedInt32Array(35, 32, 37), PackedInt32Array(37, 32, 33), PackedInt32Array(37, 33, 34), PackedInt32Array(37, 34, 36), PackedInt32Array(36, 34, 28), PackedInt32Array(41, 43, 36), PackedInt32Array(36, 43, 42), PackedInt32Array(42, 44, 38), PackedInt32Array(38, 40, 39), PackedInt32Array(40, 43, 41), PackedInt32Array(43, 44, 42), PackedInt32Array(44, 40, 38), PackedInt32Array(40, 44, 43), PackedInt32Array(38, 35, 42), PackedInt32Array(42, 35, 37), PackedInt32Array(42, 37, 36), PackedInt32Array(48, 47, 45), PackedInt32Array(45, 47, 46), PackedInt32Array(22, 49, 25), PackedInt32Array(25, 49, 51), PackedInt32Array(25, 51, 24), PackedInt32Array(24, 51, 50), PackedInt32Array(54, 53, 52), PackedInt32Array(56, 55, 57), PackedInt32Array(57, 55, 58), PackedInt32Array(60, 59, 61), PackedInt32Array(61, 59, 62), PackedInt32Array(61, 62, 55), PackedInt32Array(62, 63, 55), PackedInt32Array(55, 63, 58), PackedInt32Array(65, 64, 66), PackedInt32Array(66, 64, 67), PackedInt32Array(69, 68, 67), PackedInt32Array(67, 68, 70), PackedInt32Array(72, 71, 73), PackedInt32Array(73, 71, 74), PackedInt32Array(74, 71, 70), PackedInt32Array(70, 71, 75), PackedInt32Array(76, 66, 75), PackedInt32Array(75, 66, 70), PackedInt32Array(70, 66, 67), PackedInt32Array(75, 77, 76), PackedInt32Array(76, 77, 78), PackedInt32Array(78, 77, 79), PackedInt32Array(79, 77, 80), PackedInt32Array(81, 80, 82), PackedInt32Array(82, 80, 83), PackedInt32Array(83, 80, 77), PackedInt32Array(85, 84, 65), PackedInt32Array(65, 84, 64), PackedInt32Array(88, 87, 86), PackedInt32Array(84, 85, 89), PackedInt32Array(89, 85, 90), PackedInt32Array(79, 87, 78), PackedInt32Array(78, 87, 90), PackedInt32Array(87, 88, 90), PackedInt32Array(90, 88, 89), PackedInt32Array(80, 81, 86), PackedInt32Array(86, 81, 88), PackedInt32Array(39, 40, 91), PackedInt32Array(91, 40, 92), PackedInt32Array(30, 31, 93), PackedInt32Array(93, 31, 94), PackedInt32Array(98, 97, 95), PackedInt32Array(95, 97, 96), PackedInt32Array(99, 101, 100), PackedInt32Array(103, 102, 104), PackedInt32Array(104, 102, 105), PackedInt32Array(99, 104, 101), PackedInt32Array(101, 104, 105), PackedInt32Array(106, 108, 107), PackedInt32Array(108, 110, 109), PackedInt32Array(106, 114, 108), PackedInt32Array(108, 114, 110), PackedInt32Array(110, 114, 111), PackedInt32Array(111, 114, 113), PackedInt32Array(113, 114, 112), PackedInt32Array(113, 112, 50), PackedInt32Array(111, 113, 49), PackedInt32Array(49, 113, 51), PackedInt32Array(51, 113, 50), PackedInt32Array(117, 116, 115), PackedInt32Array(118, 120, 119), PackedInt32Array(122, 121, 123), PackedInt32Array(123, 121, 120), PackedInt32Array(124, 91, 92), PackedInt32Array(123, 120, 125), PackedInt32Array(125, 120, 118), PackedInt32Array(126, 124, 127), PackedInt32Array(127, 124, 92), PackedInt32Array(127, 92, 117), PackedInt32Array(118, 129, 128), PackedInt32Array(126, 127, 128), PackedInt32Array(128, 127, 118), PackedInt32Array(118, 127, 125), PackedInt32Array(125, 127, 130), PackedInt32Array(130, 127, 117), PackedInt32Array(130, 117, 115), PackedInt32Array(94, 128, 93), PackedInt32Array(93, 128, 131), PackedInt32Array(131, 128, 132), PackedInt32Array(132, 128, 129), PackedInt32Array(132, 133, 131), PackedInt32Array(135, 134, 131), PackedInt32Array(109, 110, 136), PackedInt32Array(136, 110, 135), PackedInt32Array(136, 135, 137), PackedInt32Array(137, 135, 131), PackedInt32Array(137, 131, 133), PackedInt32Array(137, 133, 138), PackedInt32Array(142, 141, 139), PackedInt32Array(139, 141, 140), PackedInt32Array(144, 143, 138), PackedInt32Array(138, 143, 145), PackedInt32Array(138, 145, 137), PackedInt32Array(146, 145, 147), PackedInt32Array(147, 145, 143), PackedInt32Array(147, 143, 148), PackedInt32Array(150, 149, 151), PackedInt32Array(151, 149, 153), PackedInt32Array(151, 153, 152), PackedInt32Array(156, 155, 154), PackedInt32Array(156, 154, 157), PackedInt32Array(157, 154, 152), PackedInt32Array(153, 149, 158), PackedInt32Array(158, 149, 159), PackedInt32Array(106, 157, 114), PackedInt32Array(114, 157, 152), PackedInt32Array(114, 152, 160), PackedInt32Array(114, 160, 112), PackedInt32Array(154, 151, 152), PackedInt32Array(152, 162, 160), PackedInt32Array(160, 162, 161), PackedInt32Array(115, 116, 163), PackedInt32Array(115, 163, 166), PackedInt32Array(166, 163, 169), PackedInt32Array(166, 169, 168), PackedInt32Array(166, 168, 167), PackedInt32Array(167, 168, 164), PackedInt32Array(164, 168, 165), PackedInt32Array(171, 170, 156), PackedInt32Array(156, 170, 155), PackedInt32Array(170, 147, 172), PackedInt32Array(172, 147, 148), PackedInt32Array(172, 148, 174), PackedInt32Array(172, 174, 173), PackedInt32Array(174, 121, 175), PackedInt32Array(175, 121, 122), PackedInt32Array(147, 170, 171), PackedInt32Array(173, 174, 175), PackedInt32Array(176, 125, 177), PackedInt32Array(177, 125, 178), PackedInt32Array(178, 125, 130), PackedInt32Array(178, 130, 115), PackedInt32Array(181, 183, 164), PackedInt32Array(164, 183, 167), PackedInt32Array(167, 184, 166), PackedInt32Array(166, 185, 115), PackedInt32Array(115, 185, 182), PackedInt32Array(182, 186, 179), PackedInt32Array(179, 183, 180), PackedInt32Array(183, 184, 167), PackedInt32Array(184, 185, 166), PackedInt32Array(185, 186, 182), PackedInt32Array(186, 183, 179), PackedInt32Array(183, 186, 184), PackedInt32Array(184, 186, 185), PackedInt32Array(179, 177, 182), PackedInt32Array(182, 177, 178), PackedInt32Array(182, 178, 115), PackedInt32Array(188, 187, 189), PackedInt32Array(189, 187, 190), PackedInt32Array(193, 199, 194), PackedInt32Array(194, 199, 195), PackedInt32Array(195, 200, 196), PackedInt32Array(196, 200, 191), PackedInt32Array(191, 200, 192), PackedInt32Array(192, 201, 197), PackedInt32Array(197, 202, 198), PackedInt32Array(198, 202, 193), PackedInt32Array(193, 202, 199), PackedInt32Array(199, 200, 195), PackedInt32Array(200, 201, 192), PackedInt32Array(201, 202, 197), PackedInt32Array(202, 201, 199), PackedInt32Array(199, 201, 200), PackedInt32Array(161, 162, 190), PackedInt32Array(161, 190, 187), PackedInt32Array(161, 187, 203), PackedInt32Array(203, 204, 205), PackedInt32Array(205, 204, 206), PackedInt32Array(205, 206, 194), PackedInt32Array(161, 196, 191), PackedInt32Array(196, 208, 195), PackedInt32Array(195, 207, 194), PackedInt32Array(194, 207, 205), PackedInt32Array(205, 207, 203), PackedInt32Array(203, 208, 161), PackedInt32Array(161, 208, 196), PackedInt32Array(208, 207, 195), PackedInt32Array(207, 208, 203), PackedInt32Array(210, 209, 211), PackedInt32Array(211, 209, 212), PackedInt32Array(212, 209, 213), PackedInt32Array(214, 172, 212), PackedInt32Array(212, 172, 211), PackedInt32Array(211, 172, 173), PackedInt32Array(189, 215, 188), PackedInt32Array(188, 215, 216), PackedInt32Array(209, 217, 213), PackedInt32Array(213, 217, 218), PackedInt32Array(215, 158, 216), PackedInt32Array(216, 158, 159), PackedInt32Array(216, 159, 218), PackedInt32Array(219, 220, 204), PackedInt32Array(204, 220, 206), PackedInt32Array(206, 220, 194), PackedInt32Array(180, 183, 217), PackedInt32Array(217, 183, 219), PackedInt32Array(219, 183, 220), PackedInt32Array(220, 183, 181), PackedInt32Array(220, 181, 194), PackedInt32Array(216, 218, 219), PackedInt32Array(219, 218, 217), PackedInt32Array(224, 223, 221), PackedInt32Array(221, 223, 222)]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[sub_resource type="BoxShape3D" id="BoxShape3D_efb6n"]
+size = Vector3(1.4822998, 0.50006104, 0.51490784)
+
+[node name="level" type="Node3D" unique_id=1903324472]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1091112738]
 environment = SubResource("Environment_efb6n")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1042035749]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 visible = false
 shadow_enabled = true
 
-[node name="player" parent="." instance=ExtResource("1_p1oqu")]
+[node name="player" parent="." unique_id=1976774538 instance=ExtResource("1_p1oqu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3254194, 0.9593967, -0.92472506)
 script = ExtResource("2_7plxk")
 
-[node name="LevelCanvas" type="CanvasLayer" parent="."]
+[node name="LevelCanvas" type="CanvasLayer" parent="." unique_id=1984471315]
 
-[node name="PauseMenu" parent="LevelCanvas" instance=ExtResource("3_hykmj")]
+[node name="PauseMenu" parent="LevelCanvas" unique_id=314728926 instance=ExtResource("3_hykmj")]
 settings_scene = ExtResource("4_nqovv")
 
-[node name="Base_station" parent="." instance=ExtResource("3_1aab7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009320974, 0.015978813, -0.0048692226)
+[node name="Colliders" type="Node3D" parent="." unique_id=2130668564]
 
-[node name="StationBody" type="StaticBody3D" parent="Base_station"]
-transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, 0, 0, 0)
-collision_layer = 17
-
-[node name="StationCollider" type="CollisionShape3D" parent="Base_station/StationBody"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2354126, -0.24996948, -0.012275696)
-shape = SubResource("BoxShape3D_efb6n")
-
-[node name="Colliders" type="Node3D" parent="."]
-
-[node name="Station" type="StaticBody3D" parent="Colliders"]
+[node name="Station" type="StaticBody3D" parent="Colliders" unique_id=1174699782]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.313775, 1.0470307, -14.270394)
 
-[node name="wall1" type="CollisionShape3D" parent="Colliders/Station"]
+[node name="wall1" type="CollisionShape3D" parent="Colliders/Station" unique_id=173812120]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.336298, 1.0362098, -0.05019188)
 shape = SubResource("BoxShape3D_ulbx6")
 
-[node name="wall2" type="CollisionShape3D" parent="Colliders/Station"]
+[node name="wall2" type="CollisionShape3D" parent="Colliders/Station" unique_id=486819809]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5284891, 1.006105, -0.024139404)
 shape = SubResource("BoxShape3D_yucxg")
 
-[node name="wall3" type="CollisionShape3D" parent="Colliders/Station"]
+[node name="wall3" type="CollisionShape3D" parent="Colliders/Station" unique_id=1966278488]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.100464, 1.0333252, -6.4314184)
 shape = SubResource("BoxShape3D_f8xqr")
 
-[node name="wall4" type="CollisionShape3D" parent="Colliders/Station"]
+[node name="wall4" type="CollisionShape3D" parent="Colliders/Station" unique_id=1733934363]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.097321, 1.0150757, -14.045089)
 shape = SubResource("BoxShape3D_ijamo")
 
-[node name="wall5" type="CollisionShape3D" parent="Colliders/Station"]
+[node name="wall5" type="CollisionShape3D" parent="Colliders/Station" unique_id=1167278412]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7776227, 1.043457, -14.287105)
 shape = SubResource("BoxShape3D_7plxk")
 
-[node name="wall6" type="CollisionShape3D" parent="Colliders/Station"]
+[node name="wall6" type="CollisionShape3D" parent="Colliders/Station" unique_id=1159803675]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8842084, 1.0733948, -7.311904)
 shape = SubResource("BoxShape3D_nqovv")
 
-[node name="ins_wall1" type="CollisionShape3D" parent="Colliders/Station"]
+[node name="ins_wall1" type="CollisionShape3D" parent="Colliders/Station" unique_id=831013051]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1322784, 1.0343628, -10.356778)
 shape = SubResource("BoxShape3D_j2llm")
 
-[node name="ins_wall2" type="CollisionShape3D" parent="Colliders/Station"]
+[node name="ins_wall2" type="CollisionShape3D" parent="Colliders/Station" unique_id=1185852948]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.290354, 0.9831543, -10.354018)
 shape = SubResource("BoxShape3D_4kdk2")
 
-[node name="ins_wall3" type="CollisionShape3D" parent="Colliders/Station"]
+[node name="ins_wall3" type="CollisionShape3D" parent="Colliders/Station" unique_id=1938750006]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7851896, 1.0196533, -5.0093393)
 shape = SubResource("BoxShape3D_itu3g")
 
-[node name="ins_wall4" type="CollisionShape3D" parent="Colliders/Station"]
+[node name="ins_wall4" type="CollisionShape3D" parent="Colliders/Station" unique_id=54466802]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7284107, -0.21398926, -2.3649015)
 shape = SubResource("BoxShape3D_agx0f")
 
-[node name="ins_wall5" type="CollisionShape3D" parent="Colliders/Station"]
+[node name="ins_wall5" type="CollisionShape3D" parent="Colliders/Station" unique_id=39645605]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48390436, -0.25463867, -0.56133556)
 shape = SubResource("BoxShape3D_jkr46")
 
-[node name="ins_wall6" type="CollisionShape3D" parent="Colliders/Station"]
+[node name="ins_wall6" type="CollisionShape3D" parent="Colliders/Station" unique_id=1505872852]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.52421165, -0.09866333, -3.395976)
 shape = SubResource("BoxShape3D_hj6re")
 
-[node name="ins_wall7" type="CollisionShape3D" parent="Colliders/Station"]
+[node name="ins_wall7" type="CollisionShape3D" parent="Colliders/Station" unique_id=1319994812]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5364685, -0.1184082, -6.5857134)
 shape = SubResource("BoxShape3D_bqybp")
 
-[node name="ins_wall8" type="CollisionShape3D" parent="Colliders/Station"]
+[node name="ins_wall8" type="CollisionShape3D" parent="Colliders/Station" unique_id=1795818896]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51284957, -0.19213867, -9.95057)
 shape = SubResource("BoxShape3D_5g8rr")
 
-[node name="ins_wall9" type="CollisionShape3D" parent="Colliders/Station"]
+[node name="ins_wall9" type="CollisionShape3D" parent="Colliders/Station" unique_id=1027271118]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9998527, -0.39074707, -9.692801)
 shape = SubResource("BoxShape3D_qn2ik")
 
-[node name="ins_wall10" type="CollisionShape3D" parent="Colliders/Station"]
+[node name="ins_wall10" type="CollisionShape3D" parent="Colliders/Station" unique_id=1970848852]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4912252, 0.12619019, -8.735675)
 shape = SubResource("BoxShape3D_a50bj")
 
-[node name="ins_boxes01" type="CollisionShape3D" parent="Colliders/Station"]
+[node name="ins_boxes01" type="CollisionShape3D" parent="Colliders/Station" unique_id=1437754002]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0983868, 0.88016796, -11.009774)
 shape = SubResource("BoxShape3D_vvkb8")
 
-[node name="ins_boxes02" type="CollisionShape3D" parent="Colliders/Station"]
+[node name="ins_boxes02" type="CollisionShape3D" parent="Colliders/Station" unique_id=2067666891]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9267385, 1.0376434, -11.048923)
 shape = SubResource("BoxShape3D_eg13t")
 
-[node name="ins_boxes03" type="CollisionShape3D" parent="Colliders/Station"]
+[node name="ins_boxes03" type="CollisionShape3D" parent="Colliders/Station" unique_id=68466423]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6666203, 1.062151, -11.703176)
 shape = SubResource("BoxShape3D_geuvn")
 
-[node name="ins_boxes4" type="CollisionShape3D" parent="Colliders/Station"]
+[node name="ins_boxes4" type="CollisionShape3D" parent="Colliders/Station" unique_id=705717065]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8711319, 1.0516591, -13.782304)
 shape = SubResource("BoxShape3D_yarvo")
 
-[node name="ins_boxes5" type="CollisionShape3D" parent="Colliders/Station"]
+[node name="ins_boxes5" type="CollisionShape3D" parent="Colliders/Station" unique_id=866072900]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2214289, 1.0303636, -13.765504)
 shape = SubResource("BoxShape3D_tpp2v")
 
-[node name="ins_table" type="CollisionShape3D" parent="Colliders/Station"]
+[node name="ins_table" type="CollisionShape3D" parent="Colliders/Station" unique_id=261278513]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8117304, -0.45323205, -10.887147)
 shape = SubResource("BoxShape3D_ud3na")
 
-[node name="ins_chair" type="CollisionShape3D" parent="Colliders/Station"]
+[node name="ins_chair" type="CollisionShape3D" parent="Colliders/Station" unique_id=1696248113]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.740558, -0.31410325, -11.555057)
 shape = SubResource("BoxShape3D_ubg0j")
 
-[node name="ice_machine" type="CollisionShape3D" parent="Colliders/Station"]
+[node name="ice_machine" type="CollisionShape3D" parent="Colliders/Station" unique_id=975836795]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3528216, 0.18286133, 0.6416168)
 shape = SubResource("BoxShape3D_xx3a3")
 
-[node name="Bathroom" type="StaticBody3D" parent="Colliders"]
+[node name="Bathroom" type="StaticBody3D" parent="Colliders" unique_id=300086786]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.365978, 0.20024091, -21.35231)
 
-[node name="wall1" type="CollisionShape3D" parent="Colliders/Bathroom"]
+[node name="wall1" type="CollisionShape3D" parent="Colliders/Bathroom" unique_id=304047129]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44396973, 1.5340514, 4.3425465)
 shape = SubResource("BoxShape3D_5wgt5")
 
-[node name="wall2" type="CollisionShape3D" parent="Colliders/Bathroom"]
+[node name="wall2" type="CollisionShape3D" parent="Colliders/Bathroom" unique_id=575352620]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7129917, 1.540802, 7.2816906)
 shape = SubResource("BoxShape3D_iumk0")
 
-[node name="wall3" type="CollisionShape3D" parent="Colliders/Bathroom"]
+[node name="wall3" type="CollisionShape3D" parent="Colliders/Bathroom" unique_id=2075231132]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76009, 1.3916016, 3.4292068)
 shape = SubResource("BoxShape3D_7itvb")
 
-[node name="wall4" type="CollisionShape3D" parent="Colliders/Bathroom"]
+[node name="wall4" type="CollisionShape3D" parent="Colliders/Bathroom" unique_id=1886572193]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5947323, 1.3848267, -0.24695778)
 shape = SubResource("BoxShape3D_x3wla")
 
-[node name="wall5" type="CollisionShape3D" parent="Colliders/Bathroom"]
+[node name="wall5" type="CollisionShape3D" parent="Colliders/Bathroom" unique_id=1652803695]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42868805, 1.3864746, 0.07119751)
 shape = SubResource("BoxShape3D_iq3tr")
 
-[node name="ins_stall_wall1" type="CollisionShape3D" parent="Colliders/Bathroom"]
+[node name="ins_stall_wall1" type="CollisionShape3D" parent="Colliders/Bathroom" unique_id=1725207370]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.793953, 1.2045734, 1.0361385)
 shape = SubResource("BoxShape3D_ba5ki")
 
-[node name="ins_stall_wall2" type="CollisionShape3D" parent="Colliders/Bathroom"]
+[node name="ins_stall_wall2" type="CollisionShape3D" parent="Colliders/Bathroom" unique_id=1515510763]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7759323, 1.2045734, 2.2622566)
 shape = SubResource("BoxShape3D_ba5ki")
 
-[node name="ins_stall_wall3" type="CollisionShape3D" parent="Colliders/Bathroom"]
+[node name="ins_stall_wall3" type="CollisionShape3D" parent="Colliders/Bathroom" unique_id=1169638179]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7759323, 1.2045734, 3.4732895)
 shape = SubResource("BoxShape3D_ba5ki")
 
-[node name="ins_stall_wall4" type="CollisionShape3D" parent="Colliders/Bathroom"]
+[node name="ins_stall_wall4" type="CollisionShape3D" parent="Colliders/Bathroom" unique_id=2025064747]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7759323, 1.2045734, 4.6919994)
 shape = SubResource("BoxShape3D_ba5ki")
 
-[node name="ins_stall_wall5" type="CollisionShape3D" parent="Colliders/Bathroom"]
+[node name="ins_stall_wall5" type="CollisionShape3D" parent="Colliders/Bathroom" unique_id=742812933]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7759323, 1.2045734, 5.905343)
 shape = SubResource("BoxShape3D_ba5ki")
 
-[node name="ins_stall_door1" type="CollisionShape3D" parent="Colliders/Bathroom"]
+[node name="ins_stall_door1" type="CollisionShape3D" parent="Colliders/Bathroom" unique_id=987010205]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68404, 1.1180098, 1.6328373)
 shape = SubResource("BoxShape3D_mry0r")
 
-[node name="ins_stall_door2" type="CollisionShape3D" parent="Colliders/Bathroom"]
+[node name="ins_stall_door2" type="CollisionShape3D" parent="Colliders/Bathroom" unique_id=1346630027]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68404, 1.1180098, 4.07473)
 shape = SubResource("BoxShape3D_mry0r")
 
-[node name="ins_stall_door3" type="CollisionShape3D" parent="Colliders/Bathroom"]
+[node name="ins_stall_door3" type="CollisionShape3D" parent="Colliders/Bathroom" unique_id=1001635472]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68404, 1.1180098, 5.2808266)
 shape = SubResource("BoxShape3D_mry0r")
 
-[node name="ins_sinks" type="CollisionShape3D" parent="Colliders/Bathroom"]
+[node name="ins_sinks" type="CollisionShape3D" parent="Colliders/Bathroom" unique_id=1599299631]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9213066, 0.66218567, 4.0620174)
 shape = SubResource("BoxShape3D_ejd1j")
 
-[node name="dumpster" type="CollisionShape3D" parent="Colliders/Bathroom"]
+[node name="dumpster" type="CollisionShape3D" parent="Colliders/Bathroom" unique_id=935044789]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6407623, 0.2673645, -1.0141754)
 shape = SubResource("BoxShape3D_y71he")
 
-[node name="garbage_bag1" type="CollisionShape3D" parent="Colliders/Bathroom"]
+[node name="garbage_bag1" type="CollisionShape3D" parent="Colliders/Bathroom" unique_id=1929242282]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2398586, -0.01928711, -0.82339287)
 shape = SubResource("BoxShape3D_vf43v")
 
-[node name="garbage_bag2" type="CollisionShape3D" parent="Colliders/Bathroom"]
+[node name="garbage_bag2" type="CollisionShape3D" parent="Colliders/Bathroom" unique_id=77417879]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6500301, 0.094940186, -1.5042381)
 shape = SubResource("BoxShape3D_fdc86")
 
-[node name="garbage_bag3" type="CollisionShape3D" parent="Colliders/Bathroom"]
+[node name="garbage_bag3" type="CollisionShape3D" parent="Colliders/Bathroom" unique_id=1611115108]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2463627, 0.094940186, -0.8688011)
 shape = SubResource("BoxShape3D_fdc86")
 
-[node name="electrical_box" type="CollisionShape3D" parent="Colliders/Bathroom"]
+[node name="electrical_box" type="CollisionShape3D" parent="Colliders/Bathroom" unique_id=2138504966]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1290226, 0.21679688, 7.581952)
 shape = SubResource("BoxShape3D_tdont")
 
-[node name="Gas Station" type="StaticBody3D" parent="Colliders"]
+[node name="Gas Station" type="StaticBody3D" parent="Colliders" unique_id=90236949]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.8175309)
 
-[node name="pillar1" type="CollisionShape3D" parent="Colliders/Gas Station"]
+[node name="pillar1" type="CollisionShape3D" parent="Colliders/Gas Station" unique_id=678536211]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9656596, 3.1512604, 2.6845877)
 shape = SubResource("BoxShape3D_gob4m")
 
-[node name="pillar2" type="CollisionShape3D" parent="Colliders/Gas Station"]
+[node name="pillar2" type="CollisionShape3D" parent="Colliders/Gas Station" unique_id=1490519976]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9656596, 3.1512604, 12.677438)
 shape = SubResource("BoxShape3D_gob4m")
 
-[node name="pillar3" type="CollisionShape3D" parent="Colliders/Gas Station"]
+[node name="pillar3" type="CollisionShape3D" parent="Colliders/Gas Station" unique_id=1990015331]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.054039, 3.1512604, 12.677438)
 shape = SubResource("BoxShape3D_gob4m")
 
-[node name="pillar4" type="CollisionShape3D" parent="Colliders/Gas Station"]
+[node name="pillar4" type="CollisionShape3D" parent="Colliders/Gas Station" unique_id=1141250060]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.054039, 3.1512604, 2.6869073)
 shape = SubResource("BoxShape3D_gob4m")
 
-[node name="gas_pump1" type="CollisionShape3D" parent="Colliders/Gas Station"]
+[node name="gas_pump1" type="CollisionShape3D" parent="Colliders/Gas Station" unique_id=592562765]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1876107, 1.561283, 5.025216)
 shape = SubResource("BoxShape3D_8x7bx")
 
-[node name="gas_pump2" type="CollisionShape3D" parent="Colliders/Gas Station"]
+[node name="gas_pump2" type="CollisionShape3D" parent="Colliders/Gas Station" unique_id=1336775016]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1876107, 1.561283, 10.426571)
 shape = SubResource("BoxShape3D_8x7bx")
 
-[node name="gas_pump3" type="CollisionShape3D" parent="Colliders/Gas Station"]
+[node name="gas_pump3" type="CollisionShape3D" parent="Colliders/Gas Station" unique_id=939965744]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.888376, 1.561283, 10.426571)
 shape = SubResource("BoxShape3D_8x7bx")
 
-[node name="gas_pump4" type="CollisionShape3D" parent="Colliders/Gas Station"]
+[node name="gas_pump4" type="CollisionShape3D" parent="Colliders/Gas Station" unique_id=1713268685]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.888376, 1.561283, 5.012743)
 shape = SubResource("BoxShape3D_8x7bx")
 
-[node name="price_pillar1" type="CollisionShape3D" parent="Colliders/Gas Station"]
+[node name="price_pillar1" type="CollisionShape3D" parent="Colliders/Gas Station" unique_id=693304038]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.8074255, 2.098392, 21.737053)
 shape = SubResource("BoxShape3D_ydf6d")
 
-[node name="price_pillar2" type="CollisionShape3D" parent="Colliders/Gas Station"]
+[node name="price_pillar2" type="CollisionShape3D" parent="Colliders/Gas Station" unique_id=780925267]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.8074255, 2.098392, 18.978882)
 shape = SubResource("BoxShape3D_ydf6d")
 
-[node name="Settings" type="Node" parent="."]
+[node name="Settings" type="Node" parent="." unique_id=1381077494]
 script = ExtResource("11_nqovv")
 
-[node name="Map_Props" type="Node3D" parent="."]
+[node name="Level_Light" type="Node3D" parent="." unique_id=618021800]
 
-[node name="main_door" parent="Map_Props" instance=ExtResource("4_1aab7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.679784, 1.4194574, -14.245346)
-
-[node name="utility_box_02_4k" parent="Map_Props" instance=ExtResource("13_4kdk2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.491304, 0.012207031, -13.758665)
-
-[node name="lantern" parent="Map_Props" instance=ExtResource("6_yucxg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.025596, 1.8262205, -17.615591)
-
-[node name="Level_Light" type="Node3D" parent="."]
-
-[node name="SpotLight3D" type="SpotLight3D" parent="Level_Light"]
+[node name="SpotLight3D" type="SpotLight3D" parent="Level_Light" unique_id=386289995]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.9494612, 6.4645824, -2.1008198)
 light_energy = 3.0
 spot_range = 9.345545
 spot_angle = 41.38615
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="Level_Light"]
+[node name="SpotLight3D2" type="SpotLight3D" parent="Level_Light" unique_id=613980058]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 9.761113, 6.4645824, -2.1008198)
 light_energy = 3.0
 spot_range = 9.345545
 spot_angle = 41.38615
 
-[node name="SpotLight3D3" type="SpotLight3D" parent="Level_Light"]
+[node name="SpotLight3D3" type="SpotLight3D" parent="Level_Light" unique_id=470905318]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 14.946758, 6.4645824, -2.1008198)
 light_energy = 3.0
 spot_range = 9.345545
 spot_angle = 41.38615
 
-[node name="SpotLight3D4" type="SpotLight3D" parent="Level_Light"]
+[node name="SpotLight3D4" type="SpotLight3D" parent="Level_Light" unique_id=1606884425]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.9494612, 6.4645824, 3.988037)
 light_energy = 3.0
 spot_range = 9.345545
 spot_angle = 41.38615
 
-[node name="SpotLight3D5" type="SpotLight3D" parent="Level_Light"]
+[node name="SpotLight3D5" type="SpotLight3D" parent="Level_Light" unique_id=781797669]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 9.761113, 6.4645824, 3.988037)
 light_energy = 3.0
 spot_range = 9.345545
 spot_angle = 41.38615
 
-[node name="SpotLight3D6" type="SpotLight3D" parent="Level_Light"]
+[node name="SpotLight3D6" type="SpotLight3D" parent="Level_Light" unique_id=739468558]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 14.946758, 6.4645824, 3.988037)
 light_energy = 3.0
 spot_range = 9.345545
 spot_angle = 41.38615
 
-[node name="SpotLight3D7" type="SpotLight3D" parent="Level_Light"]
+[node name="SpotLight3D7" type="SpotLight3D" parent="Level_Light" unique_id=1313824814]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.9494612, 6.4645824, 9.580957)
 light_energy = 3.0
 spot_range = 9.345545
 spot_angle = 41.38615
 
-[node name="SpotLight3D10" type="SpotLight3D" parent="Level_Light"]
+[node name="SpotLight3D10" type="SpotLight3D" parent="Level_Light" unique_id=874682348]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.541237, 6.4645824, -2.1008198)
 light_energy = 3.0
 spot_range = 9.345545
 spot_angle = 41.38615
 
-[node name="SpotLight3D11" type="SpotLight3D" parent="Level_Light"]
+[node name="SpotLight3D11" type="SpotLight3D" parent="Level_Light" unique_id=1900251117]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.541237, 6.4645824, 3.988037)
 light_energy = 3.0
 spot_range = 9.345545
 spot_angle = 41.38615
 
-[node name="SpotLight3D12" type="SpotLight3D" parent="Level_Light"]
+[node name="SpotLight3D12" type="SpotLight3D" parent="Level_Light" unique_id=551537756]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.541237, 6.4645824, 9.580957)
 light_energy = 3.0
 spot_range = 9.345545
 spot_angle = 41.38615
 
-[node name="SpotLight3D8" type="SpotLight3D" parent="Level_Light"]
+[node name="SpotLight3D8" type="SpotLight3D" parent="Level_Light" unique_id=2125881500]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 9.761113, 6.4645824, 9.580957)
 light_energy = 3.0
 spot_range = 9.345545
 spot_angle = 41.38615
 
-[node name="SpotLight3D9" type="SpotLight3D" parent="Level_Light"]
+[node name="SpotLight3D9" type="SpotLight3D" parent="Level_Light" unique_id=1504461730]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 14.946758, 6.4645824, 9.580957)
 light_energy = 3.0
 spot_range = 9.345545
 spot_angle = 41.38615
 
-[node name="Inside_Light" type="Node3D" parent="Level_Light"]
+[node name="Inside_Light" type="Node3D" parent="Level_Light" unique_id=1685615730]
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Level_Light/Inside_Light"]
+[node name="SpotLight3D" type="SpotLight3D" parent="Level_Light/Inside_Light" unique_id=1598918520]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.315424, 4.006493, -21.545107)
 light_energy = 5.0
 spot_range = 6.7604256
 spot_angle = 89.38978
 
-[node name="SpotLight3D9" type="SpotLight3D" parent="Level_Light/Inside_Light"]
+[node name="SpotLight3D9" type="SpotLight3D" parent="Level_Light/Inside_Light" unique_id=2002806780]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.9969904, 4.006493, -26.489773)
 light_energy = 5.0
 spot_angle = 81.67024
 
-[node name="SpotLight3D10" type="SpotLight3D" parent="Level_Light/Inside_Light"]
+[node name="SpotLight3D10" type="SpotLight3D" parent="Level_Light/Inside_Light" unique_id=988946870]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4.8210893, 4.006493, -26.489773)
 light_energy = 5.0
 spot_angle = 82.12997
 
-[node name="SpotLight3D11" type="SpotLight3D" parent="Level_Light/Inside_Light"]
+[node name="SpotLight3D11" type="SpotLight3D" parent="Level_Light/Inside_Light" unique_id=2101963063]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7.8858895, 4.006493, -26.489773)
 light_energy = 5.0
 spot_angle = 86.31326
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="Level_Light/Inside_Light"]
+[node name="SpotLight3D2" type="SpotLight3D" parent="Level_Light/Inside_Light" unique_id=1200923203]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.315424, 4.006493, -17.26786)
 light_energy = 5.0
 spot_range = 6.9738626
 spot_angle = 87.07593
 
-[node name="SpotLight3D3" type="SpotLight3D" parent="Level_Light/Inside_Light"]
+[node name="SpotLight3D3" type="SpotLight3D" parent="Level_Light/Inside_Light" unique_id=1053265372]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 3.8462067, 4.006493, -21.545107)
 light_energy = 5.0
 spot_angle = 89.0235
 
-[node name="SpotLight3D4" type="SpotLight3D" parent="Level_Light/Inside_Light"]
+[node name="SpotLight3D4" type="SpotLight3D" parent="Level_Light/Inside_Light" unique_id=802807490]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 3.8462067, 4.006493, -17.26786)
 light_energy = 5.0
 spot_angle = 83.24191
 
-[node name="SpotLight3D5" type="SpotLight3D" parent="Level_Light/Inside_Light"]
+[node name="SpotLight3D5" type="SpotLight3D" parent="Level_Light/Inside_Light" unique_id=25837558]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 6.3229737, 4.006493, -21.545107)
 light_energy = 5.0
 spot_angle = 89.39702
 
-[node name="SpotLight3D6" type="SpotLight3D" parent="Level_Light/Inside_Light"]
+[node name="SpotLight3D6" type="SpotLight3D" parent="Level_Light/Inside_Light" unique_id=1234444898]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 6.3229737, 4.006493, -17.26786)
 light_energy = 5.0
 spot_range = 5.449175
 spot_angle = 86.42718
 
-[node name="SpotLight3D7" type="SpotLight3D" parent="Level_Light/Inside_Light"]
+[node name="SpotLight3D7" type="SpotLight3D" parent="Level_Light/Inside_Light" unique_id=1263113402]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 9.551605, 4.006493, -21.545107)
 light_energy = 5.0
 spot_range = 6.3350334
 spot_angle = 84.9379
 
-[node name="SpotLight3D8" type="SpotLight3D" parent="Level_Light/Inside_Light"]
+[node name="SpotLight3D8" type="SpotLight3D" parent="Level_Light/Inside_Light" unique_id=175498019]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 9.551605, 4.006493, -17.26786)
 light_energy = 5.0
 spot_range = 5.7452445
 spot_angle = 88.8914
 
-[node name="GasPumps" type="Node3D" parent="."]
-
-[node name="GasPump" parent="GasPumps" instance=ExtResource("12_4kdk2")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.803766, 1.4079826, 1.3873248)
-
-[node name="GasPump2" parent="GasPumps" instance=ExtResource("12_4kdk2")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.803766, 1.4079826, 6.567443)
-
-[node name="GasPump3" parent="GasPumps" instance=ExtResource("12_4kdk2")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.2855139, 1.4079826, 6.567443)
-
-[node name="GasPump4" parent="GasPumps" instance=ExtResource("12_4kdk2")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.2855139, 1.4079826, 0.7155671)
-
-[node name="CarSpawner" parent="." node_paths=PackedStringArray("car_path1", "car_path3", "car_path5", "car_path6") instance=ExtResource("12_itu3g")]
+[node name="CarSpawner" parent="." unique_id=378031499 node_paths=PackedStringArray("car_path1", "car_path3", "car_path5", "car_path6") instance=ExtResource("12_itu3g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.12666, 0, 20.606789)
 car_scene = ExtResource("13_agx0f")
 car_path1 = NodePath("../Car_paths/CarPath")
@@ -611,41 +580,109 @@ car_path3 = NodePath("../Car_paths/Car_Path_Pump3")
 car_path5 = NodePath("../Car_paths/RoadPathLeft")
 car_path6 = NodePath("../Car_paths/RoadPathRight")
 
-[node name="Car_Stops" type="Node3D" parent="."]
+[node name="Car_paths" type="Node3D" parent="." unique_id=1824496218]
 
-[node name="CarStop" parent="Car_Stops" instance=ExtResource("13_itu3g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.092742, 0.52641034, 2.556009)
-
-[node name="CarStop2" parent="Car_Stops" instance=ExtResource("13_itu3g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.476074, 0.5676335, 8.705401)
-
-[node name="CarStop3" parent="Car_Stops" instance=ExtResource("13_itu3g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2046018, 0.5676335, 8.952457)
-
-[node name="CarStop4" parent="Car_Stops" instance=ExtResource("13_itu3g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2046018, 0.5676335, 3.5329638)
-
-[node name="Car_paths" type="Node3D" parent="."]
-
-[node name="CarPath" type="Path3D" parent="Car_paths"]
+[node name="CarPath" type="Path3D" parent="Car_paths" unique_id=696339632]
 curve = SubResource("Curve3D_4kdk2")
 
-[node name="RoadPathLeft" type="Path3D" parent="Car_paths"]
+[node name="RoadPathLeft" type="Path3D" parent="Car_paths" unique_id=1677145909]
 curve = SubResource("Curve3D_itu3g")
 
-[node name="RoadPathRight" type="Path3D" parent="Car_paths"]
+[node name="RoadPathRight" type="Path3D" parent="Car_paths" unique_id=1523072905]
 curve = SubResource("Curve3D_agx0f")
 
-[node name="Car_Path_Pump3" type="Path3D" parent="Car_paths"]
+[node name="Car_Path_Pump3" type="Path3D" parent="Car_paths" unique_id=324529401]
 curve = SubResource("Curve3D_jkr46")
 
-[node name="PunchMachine" parent="." instance=ExtResource("14_itu3g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.42346, 1.6906856, -24.965483)
-
-[node name="SpacialAudioPlayer3D" parent="." instance=ExtResource("15_jkr46")]
+[node name="SpacialAudioPlayer3D" parent="." unique_id=84900052 instance=ExtResource("15_jkr46")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.48412704, 1.2563454, -18.381258)
 stream = ExtResource("16_hj6re")
 volume_db = -10.0
 max_db = 2.0
 autoplay = true
 parameters/looping = true
+
+[node name="SalteNavRegion" type="NavigationRegion3D" parent="." unique_id=465245798]
+navigation_mesh = SubResource("NavigationMesh_jkr46")
+
+[node name="Base_station" parent="SalteNavRegion" unique_id=1748077650 instance=ExtResource("3_1aab7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009320974, 0.015978813, -0.0048692226)
+
+[node name="StationBody" type="StaticBody3D" parent="SalteNavRegion/Base_station" unique_id=1753874818]
+transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, 0, 0, 0)
+collision_layer = 17
+
+[node name="StationCollider" type="CollisionShape3D" parent="SalteNavRegion/Base_station/StationBody" unique_id=2058508611]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2354126, -0.24996948, -0.012275696)
+shape = SubResource("BoxShape3D_efb6n")
+
+[node name="Map_Props" type="Node3D" parent="SalteNavRegion" unique_id=935982231]
+
+[node name="main_door" parent="SalteNavRegion/Map_Props" unique_id=1140613576 instance=ExtResource("4_1aab7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.679784, 1.4194574, -14.245346)
+
+[node name="utility_box_02_4k" parent="SalteNavRegion/Map_Props" unique_id=2099282320 instance=ExtResource("13_4kdk2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.491304, 0.012207031, -13.758665)
+
+[node name="lantern" parent="SalteNavRegion/Map_Props" unique_id=1092926670 instance=ExtResource("6_yucxg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.025596, 1.8262205, -17.615591)
+
+[node name="GasPumps" type="Node3D" parent="SalteNavRegion" unique_id=126094739]
+
+[node name="GasPump" parent="SalteNavRegion/GasPumps" unique_id=1228270758 instance=ExtResource("12_4kdk2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.803766, 1.4079826, 1.3873248)
+
+[node name="GasPump2" parent="SalteNavRegion/GasPumps" unique_id=1233901696 instance=ExtResource("12_4kdk2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.803766, 1.4079826, 6.567443)
+
+[node name="GasPump3" parent="SalteNavRegion/GasPumps" unique_id=312357575 instance=ExtResource("12_4kdk2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.2855139, 1.4079826, 6.567443)
+
+[node name="GasPump4" parent="SalteNavRegion/GasPumps" unique_id=13560050 instance=ExtResource("12_4kdk2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.2855139, 1.4079826, 0.7155671)
+
+[node name="Car_Stops" type="Node3D" parent="SalteNavRegion" unique_id=1513483355]
+
+[node name="CarStop" parent="SalteNavRegion/Car_Stops" unique_id=1140019031 instance=ExtResource("13_itu3g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.092742, 0.52641034, 2.556009)
+
+[node name="CarStop2" parent="SalteNavRegion/Car_Stops" unique_id=1953888203 instance=ExtResource("13_itu3g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.476074, 0.5676335, 8.705401)
+
+[node name="CarStop3" parent="SalteNavRegion/Car_Stops" unique_id=809616231 instance=ExtResource("13_itu3g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2046018, 0.5676335, 8.952457)
+
+[node name="CarStop4" parent="SalteNavRegion/Car_Stops" unique_id=2015139855 instance=ExtResource("13_itu3g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2046018, 0.5676335, 3.5329638)
+
+[node name="PunchMachine" parent="SalteNavRegion" unique_id=171283745 instance=ExtResource("14_itu3g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.42346, 1.6906856, -24.965483)
+
+[node name="Point1" type="Marker3D" parent="." unique_id=575898942 groups=["salte_waypoint"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.560773, 0.39460182, 8.381023)
+
+[node name="Point2" type="Marker3D" parent="." unique_id=972236530 groups=["salte_waypoint"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9952607, 0.15745997, -10.324469)
+
+[node name="Point3" type="Marker3D" parent="." unique_id=2014048324 groups=["salte_waypoint"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2745166, 0.7542418, -12.396335)
+
+[node name="Point4" type="Marker3D" parent="." unique_id=1371576826 groups=["salte_waypoint"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2166104, 0.20910907, -30.441675)
+
+[node name="Point5" type="Marker3D" parent="." unique_id=1088854556 groups=["salte_waypoint"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4570022, 0.36407566, -32.247818)
+
+[node name="Point6" type="Marker3D" parent="." unique_id=1161984621 groups=["salte_waypoint"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.443977, 0.3931756, -28.940437)
+
+[node name="Point7" type="Marker3D" parent="." unique_id=902970202 groups=["salte_waypoint"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.624769, 0.3931756, -11.640903)
+
+[node name="Point8" type="Marker3D" parent="." unique_id=516492074 groups=["salte_waypoint"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2664165, 0.3931756, -11.640903)
+
+[node name="Salte_07" parent="." unique_id=1493763854 node_paths=PackedStringArray("navigation_region", "player") instance=ExtResource("17_hj6re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3922195, 1.0281868, 17.324245)
+navigation_region = NodePath("../SalteNavRegion")
+player = NodePath("../player")
