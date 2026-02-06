@@ -5,6 +5,10 @@ extends CharacterBody3D
 @onready var navigation_agent: NavigationAgent3D = $SalteNavigationAgent
 @onready var patrolTimer: Timer = $PatrolTimer
 @onready var salteEyes = $SalteEyes
+@onready var trackTimer = $TrackTimer
+@onready var enterSceneTrack = $PatrolMusicEnterScene
+
+var trackSelecter: Array = [0,0,0,0]
 
 enum States{
 	patrol,
@@ -14,6 +18,7 @@ enum States{
 }
 
 var currentState: States
+var previousState: States
 var waypoints: Array
 var waypointIndex: int = 0
 var salte_speed: int = 5
@@ -28,6 +33,7 @@ var playerInCloseSight: bool
 var playerInFarSight: bool
 
 func _ready():
+	enterSceneTrack.start()
 	currentState = States.patrol
 	waypoints = get_tree().get_nodes_in_group("salte_waypoint")
 	navigation_agent.target_position = waypoints[waypointIndex].global_position
@@ -43,6 +49,8 @@ func _process(delta):
 			hunt(salte_speed, delta)
 		States.waiting:
 			pass
+	change_track()
+	previousState = currentState
 
 
 #--- SAL-TE Actions ---#
@@ -117,9 +125,28 @@ func move_to_target(speed, delta):
 	move_and_slide()
 	if playerInFarHearing:
 		check_for_player()
-	
 
+func change_track():
+	if currentState != previousState:
+		#Don't change track if SAL-TE is going from patrol to waiting and vice versa
+		if (currentState == States.patrol && previousState == States.waiting) || (currentState == States.waiting && previousState == States.patrol):
+			return
+		trackTimer.start()
+		trackSelecter[currentState] = 1
 
+func _on_track_timer_timeout():
+	#Select the track
+	if trackSelecter[1]:
+		#Stop other tracks and Play chasing music
+		AudioManager.saltePatrolMusic.stop()
+	elif trackSelecter[2]:
+		#Stop other tracks and Play hunting music
+		AudioManager.saltePatrolMusic.stop()
+	else:
+		#Play patrol/waiting music
+		AudioManager.saltePatrolMusic.play()
+	#Reset the selecter
+	trackSelecter = [0,0,0,0]
 
 #--- SAL-TE Hearing ---#
 
@@ -127,26 +154,22 @@ func move_to_target(speed, delta):
 func _on_hearing_far_body_entered(body):
 	if body.is_in_group("player"):
 		playerInFarHearing = true
-		print("Player is nearby")
 
 
 func _on_hearing_far_body_exited(body):
 	if body.is_in_group("player"):
 		playerInFarHearing = false
-		print("I lost player")
 
 
 #Close Hearing
 func _on_hearing_close_body_entered(body):
 	if body.is_in_group("player"):
 		playerInCloseHearing = true
-		print("Player very close")
 
 
 func _on_hearing_close_body_exited(body):
 	if body.is_in_group("player"):
 		playerInCloseHearing = false
-		print("Player is leaving")
 
 
 #--- SAL-TE Vision ---#
@@ -155,23 +178,23 @@ func _on_hearing_close_body_exited(body):
 func _on_sight_close_body_entered(body):
 	if body.is_in_group("player"):
 		playerInCloseSight = true
-		print("I found player")
 
 
 func _on_sight_close_body_exited(body):
 	if body.is_in_group("player"):
 		playerInCloseSight = false
-		print("Player is running")
 
 
 #Far Vision
 func _on_sight_far_body_entered(body):
 	if body.is_in_group("player"):
 		playerInFarSight = true
-		print("Is that the player?")
 
 
 func _on_sight_far_body_exited(body):
 	if body.is_in_group("player"):
 		playerInFarSight = false
-		print("Must have been the wind")
+
+
+func _on_patrol_music_enter_scene_timeout():
+	AudioManager.saltePatrolMusic.play()

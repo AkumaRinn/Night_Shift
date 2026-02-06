@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtnbn8oev44mu"]
+[gd_scene format=3 uid="uid://dtnbn8oev44mu"]
 
 [ext_resource type="Script" uid="uid://di242l3osa6ld" path="res://Autoloads/audio_manager.gd" id="1_5psad"]
 [ext_resource type="AudioStream" uid="uid://dxi70e6duasmw" path="res://SFX/lantern sound.mp3" id="2_apnpw"]
@@ -7,26 +7,32 @@
 [ext_resource type="AudioStream" uid="uid://dt0iv43cdc3j0" path="res://SFX/clock in sound.mp3" id="5_amsdr"]
 [ext_resource type="AudioStream" uid="uid://d3x27s10ib60x" path="res://SFX/pickup gas pump sound.mp3" id="6_jpqn3"]
 [ext_resource type="AudioStream" uid="uid://b26wxryx4w7hn" path="res://SFX/basic steps.mp3" id="7_filgv"]
+[ext_resource type="AudioStream" uid="uid://cg4xydhtbsy2h" path="res://SFX/PatrolMusic.mp3" id="8_monbp"]
 
-[node name="AudioManager" type="Node"]
+[node name="AudioManager" type="Node" unique_id=184480088]
 script = ExtResource("1_5psad")
 
-[node name="LanternSound" type="AudioStreamPlayer" parent="."]
+[node name="LanternSound" type="AudioStreamPlayer" parent="." unique_id=1764693228]
 stream = ExtResource("2_apnpw")
 
-[node name="ButtonPressSound" type="AudioStreamPlayer" parent="."]
+[node name="ButtonPressSound" type="AudioStreamPlayer" parent="." unique_id=1720869107]
 stream = ExtResource("3_apnpw")
 
-[node name="ButtonHoverSound" type="AudioStreamPlayer" parent="."]
+[node name="ButtonHoverSound" type="AudioStreamPlayer" parent="." unique_id=1370840143]
 stream = ExtResource("4_h43j6")
 
-[node name="ClockInSound" type="AudioStreamPlayer" parent="."]
+[node name="ClockInSound" type="AudioStreamPlayer" parent="." unique_id=1512823616]
 stream = ExtResource("5_amsdr")
 
-[node name="PickPumpSound" type="AudioStreamPlayer" parent="."]
+[node name="PickPumpSound" type="AudioStreamPlayer" parent="." unique_id=2078019250]
 stream = ExtResource("6_jpqn3")
 volume_db = -10.0
 
-[node name="StepsSound" type="AudioStreamPlayer" parent="."]
+[node name="StepsSound" type="AudioStreamPlayer" parent="." unique_id=338111802]
 stream = ExtResource("7_filgv")
 volume_db = -20.0
+
+[node name="SaltePatrolMusic" type="AudioStreamPlayer" parent="." unique_id=728268864]
+stream = ExtResource("8_monbp")
+volume_db = -20.0
+parameters/looping = true

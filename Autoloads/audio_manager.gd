@@ -6,3 +6,4 @@ class_name AudioManagerNode extends Node
 @onready var clock_in_sound = $ClockInSound
 @onready var pick_pump_sound = $PickPumpSound
 @onready var steps_sound = $StepsSound
+@onready var saltePatrolMusic = $SaltePatrolMusic
