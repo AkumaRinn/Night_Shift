@@ -9,7 +9,7 @@
 [sub_resource type="BoxMesh" id="BoxMesh_1tq3e"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_obchw"]
-radius = 10.976327
+radius = 16.89195
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_tudlx"]
 radius = 4.7269106

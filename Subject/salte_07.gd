@@ -12,13 +12,14 @@ enum States{
 	hunting,
 	waiting
 }
-var vision_mask = (1 << 0) | (1 << 2)
 
 var currentState: States
 var waypoints: Array
 var waypointIndex: int = 0
 var salte_speed: int = 5
 var salte_chase_speed: int = 7
+var vision_mask = (1 << 0) | (1 << 2)
+
 
 #Player detection bools
 var playerInCloseHearing: bool
@@ -42,8 +43,6 @@ func _process(delta):
 			hunt(salte_speed, delta)
 		States.waiting:
 			pass
-	print("Player: " + str(player.name))
-	print("State:" + str(currentState))
 
 
 #--- SAL-TE Actions ---#
@@ -63,11 +62,9 @@ func chase(speed: int, delta):
 
 
 func hunt(speed: int, delta):
-	patrolTimer.stop()
-	navigation_agent.target_position = player.global_position
-	#if navigation_agent.is_navigation_finished():
-	#	currentState = States.waiting
-	#	patrolTimer.start()
+	if navigation_agent.is_navigation_finished():
+		currentState = States.waiting
+		patrolTimer.start()
 	move_to_target(speed, delta)
 
 
@@ -88,28 +85,27 @@ func face_direction(delta,_direction : Vector3):
 	rotation.y = lerp_angle(rotation.y, atan2(-velocity.x, -velocity.z), delta * 10)
 
 func check_for_player():
-	# HEARING ALWAYS WORKS
+	# --- HEARING: always works ---
 	if playerInCloseHearing or playerInFarHearing:
 		currentState = States.hunting
 		navigation_agent.target_position = player.global_position
 
-	# VISION NEEDS LOS
-	if not (playerInCloseSight or playerInFarSight):
-		return
+	# --- VISION: line of sight required ---
+	if playerInCloseSight or playerInFarSight:
+		var spaceState = get_world_3d().direct_space_state
+		var query = PhysicsRayQueryParameters3D.new()
+		query.from = salteEyes.global_position
+		query.to = player.global_position
+		query.exclude = [self]
+		query.collision_mask = vision_mask
 
-	var spaceState = get_world_3d().direct_space_state
-	var query = PhysicsRayQueryParameters3D.new()
-	query.from = salteEyes.global_position
-	query.to = player.global_position
-	query.exclude = [self]
-	query.collision_mask = vision_mask  # map + player layers
+		var result = spaceState.intersect_ray(query)
+		if result:
+			var hit_owner = result["collider"].get_owner()
+			if hit_owner == player:
+				currentState = States.chasing
+				navigation_agent.target_position = player.global_position
 
-	var result = spaceState.intersect_ray(query)
-
-	if result:
-		var hit_owner = result["collider"].get_owner()
-		if hit_owner == player:
-			currentState = States.chasing
 
 
 

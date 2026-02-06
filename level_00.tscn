@@ -668,10 +668,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9952607, 0.15745997, -10.3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2745166, 0.7542418, -12.396335)
 
 [node name="Point4" type="Marker3D" parent="." unique_id=1371576826 groups=["salte_waypoint"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2166104, 0.20910907, -30.441675)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2166104, 0.20910907, -34.539932)
 
 [node name="Point5" type="Marker3D" parent="." unique_id=1088854556 groups=["salte_waypoint"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4570022, 0.36407566, -32.247818)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4570022, 0.36407566, -35.397797)
 
 [node name="Point6" type="Marker3D" parent="." unique_id=1161984621 groups=["salte_waypoint"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.443977, 0.3931756, -28.940437)
@@ -683,6 +683,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.624769, 0.3931756, -11.640
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2664165, 0.3931756, -11.640903)
 
 [node name="Salte_07" parent="." unique_id=1493763854 node_paths=PackedStringArray("navigation_region", "player") instance=ExtResource("17_hj6re")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3922195, 1.0281868, 17.324245)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3922195, 1.0281868, 21.19764)
 navigation_region = NodePath("../SalteNavRegion")
 player = NodePath("../player")
