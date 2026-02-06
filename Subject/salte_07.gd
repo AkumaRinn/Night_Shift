@@ -4,6 +4,7 @@ extends CharacterBody3D
 @export var player: CharacterBody3D
 @onready var navigation_agent: NavigationAgent3D = $SalteNavigationAgent
 @onready var patrolTimer: Timer = $PatrolTimer
+@onready var salteEyes = $SalteEyes
 
 enum States{
 	patrol,
@@ -11,11 +12,19 @@ enum States{
 	hunting,
 	waiting
 }
+var vision_mask = (1 << 0) | (1 << 2)
 
 var currentState: States
 var waypoints: Array
 var waypointIndex: int = 0
 var salte_speed: int = 5
+var salte_chase_speed: int = 7
+
+#Player detection bools
+var playerInCloseHearing: bool
+var playerInFarHearing: bool
+var playerInCloseSight: bool
+var playerInFarSight: bool
 
 func _ready():
 	currentState = States.patrol
@@ -26,39 +35,48 @@ func _ready():
 func _process(delta):
 	match currentState:
 		States.patrol:
-			if navigation_agent.is_navigation_finished():
-				currentState = States.waiting
-				patrolTimer.start()
-				return
-			else:
-				patrol(salte_speed, delta)
-			
+			patrol(salte_speed, delta)
 		States.chasing:
-			pass
+			chase(salte_chase_speed, delta)
 		States.hunting:
-			pass
+			hunt(salte_speed, delta)
 		States.waiting:
 			pass
+	print("Player: " + str(player.name))
+	print("State:" + str(currentState))
+
+
+#--- SAL-TE Actions ---#
 
 func patrol(speed: int, delta):
-	var targetPos = navigation_agent.get_next_path_position()
-	var direction = global_position.direction_to(targetPos)
-	velocity = direction * speed
-	face_direction(delta, direction)
-	move_and_slide()
+	if navigation_agent.is_navigation_finished():
+		currentState = States.waiting
+		patrolTimer.start()
+		return
+	else:
+		move_to_target(speed, delta)
 
-func chase():
-	pass
+func chase(speed: int, delta):
+	patrolTimer.stop()
+	navigation_agent.target_position = player.global_position
+	move_to_target(speed, delta)
 
 
-func hunt():
-	pass
+func hunt(speed: int, delta):
+	patrolTimer.stop()
+	navigation_agent.target_position = player.global_position
+	#if navigation_agent.is_navigation_finished():
+	#	currentState = States.waiting
+	#	patrolTimer.start()
+	move_to_target(speed, delta)
 
 
 func wait():
+	#do some animation to look around maybe 
 	pass
 
 
+#--- Helper Functions ---#
 func _on_patrol_timer_timeout():
 	currentState = States.patrol
 	waypointIndex += 1
@@ -66,5 +84,98 @@ func _on_patrol_timer_timeout():
 		waypointIndex = 0
 	navigation_agent.target_position = waypoints[waypointIndex].global_position
 
-func face_direction(delta,direction : Vector3):
+func face_direction(delta,_direction : Vector3):
 	rotation.y = lerp_angle(rotation.y, atan2(-velocity.x, -velocity.z), delta * 10)
+
+func check_for_player():
+	# HEARING ALWAYS WORKS
+	if playerInCloseHearing or playerInFarHearing:
+		currentState = States.hunting
+		navigation_agent.target_position = player.global_position
+
+	# VISION NEEDS LOS
+	if not (playerInCloseSight or playerInFarSight):
+		return
+
+	var spaceState = get_world_3d().direct_space_state
+	var query = PhysicsRayQueryParameters3D.new()
+	query.from = salteEyes.global_position
+	query.to = player.global_position
+	query.exclude = [self]
+	query.collision_mask = vision_mask  # map + player layers
+
+	var result = spaceState.intersect_ray(query)
+
+	if result:
+		var hit_owner = result["collider"].get_owner()
+		if hit_owner == player:
+			currentState = States.chasing
+
+
+
+func move_to_target(speed, delta):
+	var targetPos = navigation_agent.get_next_path_position()
+	var direction = global_position.direction_to(targetPos)
+	velocity = direction * speed
+	face_direction(delta, direction)
+	move_and_slide()
+	if playerInFarHearing:
+		check_for_player()
+	
+
+
+
+#--- SAL-TE Hearing ---#
+
+#Far Hearing
+func _on_hearing_far_body_entered(body):
+	if body.is_in_group("player"):
+		playerInFarHearing = true
+		print("Player is nearby")
+
+
+func _on_hearing_far_body_exited(body):
+	if body.is_in_group("player"):
+		playerInFarHearing = false
+		print("I lost player")
+
+
+#Close Hearing
+func _on_hearing_close_body_entered(body):
+	if body.is_in_group("player"):
+		playerInCloseHearing = true
+		print("Player very close")
+
+
+func _on_hearing_close_body_exited(body):
+	if body.is_in_group("player"):
+		playerInCloseHearing = false
+		print("Player is leaving")
+
+
+#--- SAL-TE Vision ---#
+
+#Close Vision
+func _on_sight_close_body_entered(body):
+	if body.is_in_group("player"):
+		playerInCloseSight = true
+		print("I found player")
+
+
+func _on_sight_close_body_exited(body):
+	if body.is_in_group("player"):
+		playerInCloseSight = false
+		print("Player is running")
+
+
+#Far Vision
+func _on_sight_far_body_entered(body):
+	if body.is_in_group("player"):
+		playerInFarSight = true
+		print("Is that the player?")
+
+
+func _on_sight_far_body_exited(body):
+	if body.is_in_group("player"):
+		playerInFarSight = false
+		print("Must have been the wind")
