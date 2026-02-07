@@ -10,7 +10,6 @@
 [ext_resource type="Script" uid="uid://duyuel17y6s2o" path="res://Autoloads/Settings.gd" id="11_nqovv"]
 [ext_resource type="PackedScene" uid="uid://cxmm2dkck8ge4" path="res://Interact_obj/GasPump/gas_pump.tscn" id="12_4kdk2"]
 [ext_resource type="PackedScene" uid="uid://b1g461752vamq" path="res://Interact_obj/Car/car_spawner.tscn" id="12_itu3g"]
-[ext_resource type="PackedScene" uid="uid://dcgffnxylpqmg" path="res://Level_n_props/utility_box_02_4k.gltf" id="13_4kdk2"]
 [ext_resource type="PackedScene" uid="uid://b22hrmbiec36h" path="res://Interact_obj/Car/car.tscn" id="13_agx0f"]
 [ext_resource type="PackedScene" uid="uid://sjml3qrx2ua8" path="res://Interact_obj/Car/car_stop.tscn" id="13_itu3g"]
 [ext_resource type="PackedScene" uid="uid://c8qf58djx6of" path="res://Interact_obj/PunchMachine/punch_machine.tscn" id="14_itu3g"]
@@ -145,9 +144,6 @@ size = Vector3(0.7940674, 0.9614258, 0.64590454)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fdc86"]
 size = Vector3(0.7694092, 1.1898804, 0.7369385)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_tdont"]
-size = Vector3(0.9421387, 1.4335938, 0.44934082)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gob4m"]
 size = Vector3(0.71710205, 7.3025208, 1.1150818)
@@ -387,10 +383,6 @@ shape = SubResource("BoxShape3D_fdc86")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2463627, 0.094940186, -0.8688011)
 shape = SubResource("BoxShape3D_fdc86")
 
-[node name="electrical_box" type="CollisionShape3D" parent="Colliders/Bathroom" unique_id=2138504966]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1290226, 0.21679688, 7.581952)
-shape = SubResource("BoxShape3D_tdont")
-
 [node name="Gas Station" type="StaticBody3D" parent="Colliders" unique_id=90236949]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.8175309)
 
@@ -621,9 +613,6 @@ shape = SubResource("BoxShape3D_efb6n")
 
 [node name="main_door" parent="SalteNavRegion/Map_Props" unique_id=1140613576 instance=ExtResource("4_1aab7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7316813, 1.4272472, -14.277618)
-
-[node name="utility_box_02_4k" parent="SalteNavRegion/Map_Props" unique_id=2099282320 instance=ExtResource("13_4kdk2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.491304, 0.012207031, -13.758665)
 
 [node name="lantern" parent="SalteNavRegion/Map_Props" unique_id=1092926670 instance=ExtResource("6_yucxg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.025596, 1.8262205, -17.615591)
