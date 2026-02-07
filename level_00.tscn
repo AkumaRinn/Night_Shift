@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://cyaw5rf6cip3n" path="res://SFX/spacial_audio_player_3d.tscn" id="15_jkr46"]
 [ext_resource type="AudioStream" uid="uid://dw2m0gknw5jkt" path="res://SFX/fridge hum.mp3" id="16_hj6re"]
 [ext_resource type="PackedScene" uid="uid://dku5268ogqgij" path="res://Subject/salte_07.tscn" id="17_hj6re"]
+[ext_resource type="PackedScene" uid="uid://7og2vmc7xpyl" path="res://Interact_obj/Doors/back_door.tscn" id="18_bqybp"]
+[ext_resource type="PackedScene" uid="uid://bi1irwtg5j01w" path="res://Interact_obj/Doors/bathroom_door.tscn" id="19_5g8rr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hykmj"]
 sky_top_color = Color(0.21753925, 0.21753505, 0.19927138, 1)
@@ -687,3 +689,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2664165, 0.3931756, -11.640
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3922195, 1.0281868, 21.19764)
 navigation_region = NodePath("../SalteNavRegion")
 player = NodePath("../player")
+
+[node name="back_door" parent="." unique_id=1115863940 instance=ExtResource("18_bqybp")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.443065, 1.456003, -26.909973)
+
+[node name="door" parent="." unique_id=1453370505 instance=ExtResource("19_5g8rr")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20.817379, 1.4380229, -21.093327)
