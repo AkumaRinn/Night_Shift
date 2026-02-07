@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bqyqxwmlvgoq8"]
 
 [ext_resource type="Script" uid="uid://cg0y3khys4btt" path="res://Interact_obj/Doors/door.gd" id="1_28fel"]
-[ext_resource type="PackedScene" uid="uid://bcgak3n17rsv1" path="res://Interact_obj/Doors/main_door.glb" id="2_du4od"]
+[ext_resource type="PackedScene" uid="uid://cxq1tip1jee6s" path="res://Interact_obj/Doors/entrance_door.fbx" id="2_5ft7k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hun61"]
 size = Vector3(0.7786865, 0.9545288, 1)
@@ -69,8 +69,8 @@ script = ExtResource("1_28fel")
 transform = Transform3D(0.99999994, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000004, -0.43570375, -0.0144958515, 0)
 shape = SubResource("BoxShape3D_hun61")
 
-[node name="main_door" parent="StaticBody3D" unique_id=1128414771 instance=ExtResource("2_du4od")]
-transform = Transform3D(0.7195713, 0, 0, 0, 0.3786727, 0, 0, 0, 4.3355412, -4.816483, -0.5328873, 61.93797)
+[node name="entrance_door" parent="StaticBody3D" unique_id=1628032770 instance=ExtResource("2_5ft7k")]
+transform = Transform3D(-1.0042373, 0, 6.290692e-08, 0, 0.4574295, 0, -5.289693e-07, 0, -4.3355412, -0.40826803, -0.4807087, 0.19876415)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=35469687]
 libraries/ = SubResource("AnimationLibrary_y5njw")

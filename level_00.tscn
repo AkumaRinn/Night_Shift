@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://2o168nn1txj3" path="res://Player/PlayerMovement.gd" id="2_7plxk"]
 [ext_resource type="PackedScene" uid="uid://cp2efuucpuwyg" path="res://Level_n_props/Station/Base_station.glb" id="3_1aab7"]
 [ext_resource type="PackedScene" uid="uid://c3dxj4ftggn1" path="res://UI/pause_menu.tscn" id="3_hykmj"]
-[ext_resource type="PackedScene" uid="uid://bqyqxwmlvgoq8" path="res://Interact_obj/Doors/door.tscn" id="4_1aab7"]
+[ext_resource type="PackedScene" uid="uid://bqyqxwmlvgoq8" path="res://Interact_obj/Doors/entrance_door.tscn" id="4_1aab7"]
 [ext_resource type="PackedScene" uid="uid://b3dt8f8bywpyw" path="res://UI/settings_menu.tscn" id="4_nqovv"]
 [ext_resource type="PackedScene" uid="uid://cqyfcb344ldx2" path="res://Interact_obj/Lantern/lantern.tscn" id="6_yucxg"]
 [ext_resource type="Script" uid="uid://duyuel17y6s2o" path="res://Autoloads/Settings.gd" id="11_nqovv"]
@@ -622,7 +622,7 @@ shape = SubResource("BoxShape3D_efb6n")
 [node name="Map_Props" type="Node3D" parent="SalteNavRegion" unique_id=935982231]
 
 [node name="main_door" parent="SalteNavRegion/Map_Props" unique_id=1140613576 instance=ExtResource("4_1aab7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.679784, 1.3916945, -14.245346)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7316813, 1.4272472, -14.277618)
 
 [node name="utility_box_02_4k" parent="SalteNavRegion/Map_Props" unique_id=2099282320 instance=ExtResource("13_4kdk2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.491304, 0.012207031, -13.758665)
