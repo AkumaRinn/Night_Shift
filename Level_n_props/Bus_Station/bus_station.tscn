@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cl1rd7vy0ngn5"]
+
+[ext_resource type="PackedScene" uid="uid://2rylti443ycu" path="res://Level_n_props/Bus_Station/Bus station.fbx" id="1_7b0ir"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7b0ir"]
+size = Vector3(0.17980957, 2.6293335, 6.4346924)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sks7c"]
+size = Vector3(0.17980957, 3.0313416, 1.6882019)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ofw4w"]
+size = Vector3(0.5852356, 0.60305023, 3.1683884)
+
+[node name="bus_station" type="Node3D" unique_id=1025791382]
+
+[node name="Bus station" parent="." unique_id=1083849600 instance=ExtResource("1_7b0ir")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6169672, -2.3841858e-07, -0.83482695)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bus station" unique_id=571841379]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bus station/StaticBody3D" unique_id=393692891]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.91491294, 1.6418357, 2.180469)
+shape = SubResource("BoxShape3D_7b0ir")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Bus station/StaticBody3D" unique_id=772813985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.91491294, 1.8428397, -2.976143)
+shape = SubResource("BoxShape3D_sks7c")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Bus station/StaticBody3D" unique_id=1409855227]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.331289, 0.62869406, 0.68729806)
+shape = SubResource("BoxShape3D_ofw4w")

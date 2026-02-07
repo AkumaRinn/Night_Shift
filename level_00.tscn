@@ -16,9 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://c8qf58djx6of" path="res://Interact_obj/PunchMachine/punch_machine.tscn" id="14_itu3g"]
 [ext_resource type="PackedScene" uid="uid://cyaw5rf6cip3n" path="res://SFX/spacial_audio_player_3d.tscn" id="15_jkr46"]
 [ext_resource type="AudioStream" uid="uid://dw2m0gknw5jkt" path="res://SFX/fridge hum.mp3" id="16_hj6re"]
-[ext_resource type="PackedScene" uid="uid://dku5268ogqgij" path="res://Subject/salte_07.tscn" id="17_hj6re"]
 [ext_resource type="PackedScene" uid="uid://7og2vmc7xpyl" path="res://Interact_obj/Doors/back_door.tscn" id="18_bqybp"]
 [ext_resource type="PackedScene" uid="uid://bi1irwtg5j01w" path="res://Interact_obj/Doors/bathroom_door.tscn" id="19_5g8rr"]
+[ext_resource type="PackedScene" uid="uid://cl1rd7vy0ngn5" path="res://Level_n_props/Bus_Station/bus_station.tscn" id="19_qn2ik"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hykmj"]
 sky_top_color = Color(0.21753925, 0.21753505, 0.19927138, 1)
@@ -187,8 +187,6 @@ _data = {
 point_count = 15
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_jkr46"]
-vertices = PackedVector3Array(-194.80318, 0.51597595, -53.45079, -194.80318, 0.51597595, 48.54921, 100.69682, 0.51597595, 48.54921, 100.69682, 0.51597595, -53.45079)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 geometry_parsed_geometry_type = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_efb6n"]
@@ -630,6 +628,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.491304, 0.012207031, -13.7
 [node name="lantern" parent="SalteNavRegion/Map_Props" unique_id=1092926670 instance=ExtResource("6_yucxg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.025596, 1.8262205, -17.615591)
 
+[node name="bus_station_come" parent="SalteNavRegion/Map_Props" unique_id=1025791382 instance=ExtResource("19_qn2ik")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -21.446606, 0.028187037, 18.020876)
+
+[node name="bus_station_leave" parent="SalteNavRegion/Map_Props" unique_id=661862953 instance=ExtResource("19_qn2ik")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 33.180073, 0.028187037, 31.514072)
+
 [node name="GasPumps" type="Node3D" parent="SalteNavRegion" unique_id=126094739]
 
 [node name="GasPump" parent="SalteNavRegion/GasPumps" unique_id=1228270758 instance=ExtResource("12_4kdk2")]
@@ -684,11 +688,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.624769, 0.3931756, -11.640
 
 [node name="Point8" type="Marker3D" parent="." unique_id=516492074 groups=["salte_waypoint"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2664165, 0.3931756, -11.640903)
-
-[node name="Salte_07" parent="." unique_id=1493763854 node_paths=PackedStringArray("navigation_region", "player") instance=ExtResource("17_hj6re")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3922195, 1.0281868, 21.19764)
-navigation_region = NodePath("../SalteNavRegion")
-player = NodePath("../player")
 
 [node name="back_door" parent="." unique_id=1115863940 instance=ExtResource("18_bqybp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.443065, 1.456003, -26.909973)
