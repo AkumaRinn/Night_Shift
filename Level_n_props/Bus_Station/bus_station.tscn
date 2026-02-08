@@ -43,3 +43,17 @@ shape = SubResource("BoxShape3D_53mvo")
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="Bus station/StaticBody3D" unique_id=1386433708]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.042563, 3.891972, 2.152687)
 shape = SubResource("BoxShape3D_wbatp")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=204842054]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.67617756, 3.3950768, 3.7298617)
+light_energy = 2.0
+spot_angle = 30.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=1177463495]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.67617756, 3.3950768, 1.3369932)
+spot_angle = 30.0
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="." unique_id=1277924254]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.67617756, 3.3950768, -1.046058)
+light_energy = 2.0
+spot_angle = 30.0
