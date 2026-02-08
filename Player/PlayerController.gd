@@ -27,7 +27,7 @@ var object = null #For pump check
 var obj = null
 var equipped_pump: Node3D = null
 var trashBag: RigidBody3D = null
-@onready var throwDirection = $"../ThrowDirection"
+
 
 # --- Pickup settings ---
 @export var interact_distance := 3.0
@@ -143,6 +143,7 @@ func _process(_delta):
 		
 # END OF _process FUNCTION
 
+
 # --- Inventory / flashlight functions ---
 func add_to_inventory(item: Node3D): 
 	#Object needs to have a var for its collision body named 'object_body'
@@ -167,7 +168,7 @@ func drop_item():
 		item_dropped()
 		equipped_pump.drop_pump(self)
 	if Input.is_action_just_pressed("drop_item") and trashBag: # for trash throw
-		trashBag.throw_trash(throwDirection)
+		trashBag.throw_trash(camera)
 		trashBag = null
 
 func equip_item(index: int):

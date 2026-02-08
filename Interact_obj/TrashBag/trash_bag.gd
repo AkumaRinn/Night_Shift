@@ -1,8 +1,8 @@
 extends Node3D
 
 @onready var bagBody = $"."
-@onready var throw_force := 12.0
-@onready var upward_boost := 7
+@onready var throw_force := 7.0
+@onready var upward_boost := 0.25
 
 
 func pick_up(player):
