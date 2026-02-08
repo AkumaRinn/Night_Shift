@@ -2,6 +2,7 @@ class_name ThrowTrash extends Mission
 
 
 func start_mission() -> void:
+	trash_mission_flag = 1
 	if mission_status == MissionStatus.available:
 		mission_status = MissionStatus.started
 		emit_signal("mission_started_signal", "Throw out the trash")

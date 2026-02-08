@@ -10,6 +10,7 @@ class_name MissionManager extends Node
 @onready var punch_in_mission: PunchMission = $PunchMission
 @onready var fill_car_mission: FillCar = $FillCar
 @onready var punch_out_mission: PunchOutMission = $PunchOutMission
+@onready var throw_trash_mission: ThrowTrash = $ThrowTrash
 
 # --- Mission split on days ---    
 #Set a variable in the save Autoload or whatever that holds the current day 
@@ -44,8 +45,8 @@ func _ready():
 	else:
 		mission_index = 0
 	#Init all possible missions and split them by days
-	day_1_missions = [punch_in_mission,fill_car_mission, punch_out_mission]
-	day_2_missions = [punch_in_mission,]
+	day_1_missions = [punch_in_mission,fill_car_mission,throw_trash_mission, punch_out_mission]
+	day_2_missions = [punch_in_mission,throw_trash_mission, punch_out_mission]
 	all_missions = [day_1_missions, day_2_missions]
 
 	
@@ -94,6 +95,9 @@ func increment_fill_count():
 func get_the_next_day():
 	what_is_today += 1
 	mission_index = 0
+	if what_is_today >= all_missions.size():
+		#there are no more days and the game is done and the universe explodes
+		return
 	today_missions = all_missions[what_is_today]
 	current_mission = today_missions[mission_index]
 	

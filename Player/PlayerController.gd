@@ -120,6 +120,9 @@ func _process(_delta):
 			interact_hint.text = "Trash Bag [E]"
 			interact_hint.visible = true
 			if Input.is_action_just_pressed("interact"):
+				item_drop.visible = true
+				item_use.text = "Eat [Click]"
+				item_use.visible = true
 				obj.pick_up(self)
 	
 	
@@ -134,7 +137,8 @@ func _process(_delta):
 					fill_progress.visible = true
 					fill_progress.value += fill_progress.step
 					car_node.interact(self)
-	
+		if trashBag:
+			item_use.text = "Damn, you are nasty"
 			
 	# Stop the pump
 	if Input.is_action_just_released("use_item"):
@@ -164,11 +168,13 @@ func add_to_inventory(item: Node3D):
 
 
 func drop_item():
-	if Input.is_action_just_pressed("drop_item") and equipped_pump:
+	if Input.is_action_just_pressed("drop_item") and equipped_pump: # pump drop
 		item_dropped()
 		equipped_pump.drop_pump(self)
-	if Input.is_action_just_pressed("drop_item") and trashBag: # for trash throw
+	if Input.is_action_just_pressed("drop_item") and trashBag: # trash throw
 		trashBag.throw_trash(camera)
+		item_use.text = "Use [Click]"
+		item_dropped()
 		trashBag = null
 
 func equip_item(index: int):
