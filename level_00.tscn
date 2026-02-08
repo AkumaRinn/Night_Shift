@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://dw2m0gknw5jkt" path="res://SFX/fridge hum.mp3" id="16_hj6re"]
 [ext_resource type="PackedScene" uid="uid://7og2vmc7xpyl" path="res://Interact_obj/Doors/back_door.tscn" id="18_bqybp"]
 [ext_resource type="PackedScene" uid="uid://bi1irwtg5j01w" path="res://Interact_obj/Doors/bathroom_door.tscn" id="19_5g8rr"]
+[ext_resource type="PackedScene" uid="uid://bq7xfkvihp83r" path="res://Interact_obj/TrashBag/trash_bag.tscn" id="19_a50bj"]
 [ext_resource type="PackedScene" uid="uid://cl1rd7vy0ngn5" path="res://Level_n_props/Bus_Station/bus_station.tscn" id="19_qn2ik"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hykmj"]
@@ -683,3 +684,6 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.4
 
 [node name="door" parent="." unique_id=1453370505 instance=ExtResource("19_5g8rr")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20.817379, 1.4380229, -21.093327)
+
+[node name="BagBody" parent="." unique_id=1940699696 instance=ExtResource("19_a50bj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.093201, 0.07450172, -5.3059015)

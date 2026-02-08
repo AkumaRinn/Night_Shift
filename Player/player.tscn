@@ -213,3 +213,6 @@ script = ExtResource("3_btcbx")
 script = ExtResource("1_tok1r")
 
 [node name="MissionManagerScene" parent="." unique_id=1712250519 groups=["game_event"] instance=ExtResource("5_k53q1")]
+
+[node name="ThrowDirection" type="Marker3D" parent="." unique_id=1807481980]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29441953, -0.9317379)

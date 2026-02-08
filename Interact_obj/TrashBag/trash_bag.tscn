@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bq7xfkvihp83r"]
+
+[ext_resource type="Script" uid="uid://kd8s21m1kvyu" path="res://Interact_obj/TrashBag/trash_bag.gd" id="1_mmn4y"]
+[ext_resource type="PackedScene" uid="uid://dj7xk5vi5y3lb" path="res://Interact_obj/TrashBag/tras_bag_model.glb" id="1_n2xnj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mmn4y"]
+size = Vector3(0.54333496, 0.5369873, 0.5144043)
+
+[node name="BagBody" type="RigidBody3D" unique_id=1940699696 groups=["trash_bag"]]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_mmn4y")
+
+[node name="BagCollision" type="CollisionShape3D" parent="." unique_id=919964026]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026775718, 0.25925153, 0.047729492)
+shape = SubResource("BoxShape3D_mmn4y")
+
+[node name="tras_bag_model" parent="BagCollision" unique_id=522535214 instance=ExtResource("1_n2xnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.026775718, -0.25925153, -0.047729492)

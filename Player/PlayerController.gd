@@ -26,6 +26,8 @@ var equipped_item: Node3D = null
 var object = null #For pump check
 var obj = null
 var equipped_pump: Node3D = null
+var trashBag: RigidBody3D = null
+@onready var throwDirection = $"../ThrowDirection"
 
 # --- Pickup settings ---
 @export var interact_distance := 3.0
@@ -77,7 +79,7 @@ func _process(_delta):
 		interact_hint.text = ""
 		interact_hint.visible = false
 	
-	drop_gas_pump()
+	drop_item()
 	
 	# Handle Interaction
 	if obj and obj.is_in_group("lantern"):
@@ -112,6 +114,13 @@ func _process(_delta):
 			interact_hint.visible = true
 			if Input.is_action_just_pressed("interact"):
 				punch_machine.interact(self)
+	elif obj and obj.is_in_group("trash_bag"):
+		var distance = camera.global_position.distance_to(obj.global_position)
+		if distance <= interact_distance:
+			interact_hint.text = "Trash Bag [E]"
+			interact_hint.visible = true
+			if Input.is_action_just_pressed("interact"):
+				obj.pick_up(self)
 	
 	
 	# Use the pump
@@ -153,10 +162,13 @@ func add_to_inventory(item: Node3D):
 		equip_item(0)
 
 
-func drop_gas_pump():
+func drop_item():
 	if Input.is_action_just_pressed("drop_item") and equipped_pump:
 		item_dropped()
 		equipped_pump.drop_pump(self)
+	if Input.is_action_just_pressed("drop_item") and trashBag: # for trash throw
+		trashBag.throw_trash(throwDirection)
+		trashBag = null
 
 func equip_item(index: int):
 	if index == -1:

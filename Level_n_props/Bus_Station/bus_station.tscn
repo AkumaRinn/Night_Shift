@@ -17,6 +17,20 @@ size = Vector3(0.20651245, 3.9211426, 0.22143555)
 [sub_resource type="BoxShape3D" id="BoxShape3D_wbatp"]
 size = Vector3(1.5948486, 1, 6.7701874)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7b0ir"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 1.5
+
+[sub_resource type="SphereMesh" id="SphereMesh_7b0ir"]
+material = SubResource("StandardMaterial3D_7b0ir")
+
+[sub_resource type="SphereMesh" id="SphereMesh_ofw4w"]
+material = SubResource("StandardMaterial3D_7b0ir")
+
+[sub_resource type="SphereMesh" id="SphereMesh_sks7c"]
+material = SubResource("StandardMaterial3D_7b0ir")
+
 [node name="bus_station" type="Node3D" unique_id=1025791382]
 
 [node name="Bus station" parent="." unique_id=1083849600 instance=ExtResource("1_7b0ir")]
@@ -57,3 +71,15 @@ spot_angle = 30.0
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.67617756, 3.3950768, -1.046058)
 light_energy = 2.0
 spot_angle = 30.0
+
+[node name="bulbLightSource" type="MeshInstance3D" parent="." unique_id=483709775]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.69239086, 3.3955276, 1.3546551)
+mesh = SubResource("SphereMesh_7b0ir")
+
+[node name="bulbLightSource3" type="MeshInstance3D" parent="." unique_id=1496858158]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.6834942, 3.3955276, -1.0371037)
+mesh = SubResource("SphereMesh_ofw4w")
+
+[node name="bulbLightSource2" type="MeshInstance3D" parent="." unique_id=904272847]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.67671007, 3.3955276, 3.7229958)
+mesh = SubResource("SphereMesh_sks7c")
