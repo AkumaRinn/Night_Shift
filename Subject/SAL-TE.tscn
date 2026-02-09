@@ -29,7 +29,7 @@ shape = SubResource("CapsuleShape3D_m3aye")
 avoidance_enabled = true
 
 [node name="PatrolTimer" type="Timer" parent="." unique_id=1759735319]
-wait_time = 3.0
+wait_time = 4.0
 one_shot = true
 
 [node name="HearingFar" type="Area3D" parent="." unique_id=458911928]
@@ -67,7 +67,7 @@ one_shot = true
 one_shot = true
 
 [node name="salte2" parent="." unique_id=1617067959 instance=ExtResource("2_0mamw")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -0.73949283, 0)
 
 [connection signal="timeout" from="PatrolTimer" to="." method="_on_patrol_timer_timeout"]
 [connection signal="body_entered" from="HearingFar" to="." method="_on_hearing_far_body_entered"]

@@ -4,7 +4,7 @@
 
 [node name="salte2" unique_id=1617067959 instance=ExtResource("1_6igtb")]
 
-[node name="Skeleton3D" parent="horse_eater_rig" parent_id_path=PackedInt32Array(1671007676) index="0" unique_id=252511147]
+[node name="Skeleton3D" parent="horse_eater_rig" parent_id_path=PackedInt32Array(473653681) index="0" unique_id=2056021402]
 bones/0/position = Vector3(0.4706327, -0.44763955, -3.7057691e-22)
 bones/0/rotation = Quaternion(-0.5137053, 0.48590833, 0.51370525, 0.4859084)
 bones/1/position = Vector3(3.313154e-08, -1.3397233, 1.2071205)

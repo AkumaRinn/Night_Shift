@@ -2,11 +2,16 @@ extends CharacterBody3D
 
 @export var navigation_region: NavigationRegion3D
 @export var player: CharacterBody3D
+
 @onready var navigation_agent: NavigationAgent3D = $SalteNavigationAgent
 @onready var patrolTimer: Timer = $PatrolTimer
 @onready var salteEyes = $SalteEyes
 @onready var trackTimer = $TrackTimer
 @onready var enterSceneTrack = $PatrolMusicEnterScene
+@onready var salteBody = $salte2
+@onready var salteAnimation = salteBody.get_node("AnimationPlayer")
+
+
 
 var trackSelecter: Array = [0,0,0,0]
 
@@ -24,6 +29,7 @@ var waypointIndex: int = 0
 var salte_speed: int = 5
 var salte_chase_speed: int = 7
 var vision_mask = (1 << 0) | (1 << 2)
+var queued_animation: String = ""
 
 
 #Player detection bools
@@ -48,7 +54,7 @@ func _process(delta):
 		States.hunting:
 			hunt(salte_speed, delta)
 		States.waiting:
-			pass
+			wait()
 	change_track()
 	previousState = currentState
 
@@ -56,6 +62,8 @@ func _process(delta):
 #--- SAL-TE Actions ---#
 
 func patrol(speed: int, delta):
+	
+	salteAnimation.play("Walk")
 	if navigation_agent.is_navigation_finished():
 		currentState = States.waiting
 		patrolTimer.start()
@@ -64,12 +72,13 @@ func patrol(speed: int, delta):
 		move_to_target(speed, delta)
 
 func chase(speed: int, delta):
+	salteAnimation.play("RunOpen")
 	patrolTimer.stop()
 	navigation_agent.target_position = player.global_position
 	move_to_target(speed, delta)
 
 
-func hunt(speed: int, delta):
+func hunt(speed: int, delta): #Looking for player
 	if navigation_agent.is_navigation_finished():
 		currentState = States.waiting
 		patrolTimer.start()
@@ -77,8 +86,9 @@ func hunt(speed: int, delta):
 
 
 func wait():
-	#do some animation to look around maybe 
-	pass
+	#Remake the looking around animation into one 
+	salteAnimation.play("LookRight")
+
 
 
 #--- Helper Functions ---#
@@ -109,11 +119,10 @@ func check_for_player():
 
 		var result = spaceState.intersect_ray(query)
 		if result:
-			var hit_owner = result["collider"].get_owner()
+			var hit_owner = result["collider"]#.get_owner()
 			if hit_owner == player:
 				currentState = States.chasing
 				navigation_agent.target_position = player.global_position
-
 
 
 
@@ -124,6 +133,8 @@ func move_to_target(speed, delta):
 	face_direction(delta, direction)
 	move_and_slide()
 	if playerInFarHearing:
+		check_for_player()
+	if playerInCloseSight:
 		check_for_player()
 
 func change_track():
