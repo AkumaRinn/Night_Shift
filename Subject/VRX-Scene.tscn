@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://damdyf7kpwodl"]
+
+[ext_resource type="PackedScene" uid="uid://cbg1w4w7dycor" path="res://Subject/VRX_Import.glb" id="1_78vnn"]
+
+[node name="VRX_Import" unique_id=359263296 instance=ExtResource("1_78vnn")]

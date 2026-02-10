@@ -20,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://bq7xfkvihp83r" path="res://Interact_obj/TrashBag/trash_bag.tscn" id="19_a50bj"]
 [ext_resource type="PackedScene" uid="uid://cl1rd7vy0ngn5" path="res://Level_n_props/Bus_Station/bus_station.tscn" id="19_qn2ik"]
 [ext_resource type="PackedScene" uid="uid://bnul1uq6fo2wd" path="res://Interact_obj/TrashBag/trash_bin.tscn" id="20_qn2ik"]
-[ext_resource type="PackedScene" uid="uid://dku5268ogqgij" path="res://Subject/SAL-TE.tscn" id="21_a50bj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hykmj"]
 sky_top_color = Color(0.21753925, 0.21753505, 0.19927138, 1)
@@ -186,8 +185,6 @@ _data = {
 point_count = 15
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_jkr46"]
-vertices = PackedVector3Array(-24.303177, 0.51597595, 48.54921, -24.053177, 0.51597595, 17.04921, -26.303177, 0.51597595, 17.04921, -26.553177, 0.51597595, 15.79921, -194.80318, 0.51597595, 48.54921, -16.553177, 0.51597595, 15.54921, 4.946823, 0.51597595, -13.95079, 4.946823, 0.51597595, -14.70079, 5.946823, 0.51597595, -14.95079, 5.946823, 0.51597595, -53.45079, -194.80318, 0.51597595, -53.45079, 28.446823, 0.51597595, 32.54921, 30.696823, 0.51597595, 32.54921, 30.946823, 0.51597595, 32.04921, 7.196823, 0.51597595, -13.95079, 38.446823, 0.51597595, 33.79921, 37.946823, 0.51597595, 34.04921, 37.946823, 0.51597595, 48.54921, 100.69682, 0.51597595, 48.54921, 6.946823, 0.51597595, -14.95079, 38.196823, 0.51597595, 32.54921, 100.69682, 0.51597595, -53.45079, -16.053177, 0.51597595, 16.04921, 5.446823, 0.51597595, -13.45079, -16.053177, 0.51597595, 16.54921, 27.946823, 0.51597595, 33.04921, 6.946823, 0.51597595, -13.45079, 28.446823, 0.51597595, 48.54921, 28.446823, 0.51597595, 34.04921, 27.946823, 0.51597595, 33.79921, -16.303177, 0.51597595, 17.04921, -18.303177, 0.51597595, 48.54921, -18.553177, 0.51597595, 17.04921, -25.803177, 4.765976, 17.04921, -25.803177, 4.765976, 17.79921, -19.803177, 4.765976, 17.79921, -19.803177, 4.765976, 17.04921, -19.053177, 0.51597595, 17.54921, -23.303177, 0.51597595, 17.54921, 31.446823, 4.765976, 31.54921, 31.446823, 4.765976, 32.54921, 37.446823, 4.765976, 32.54921, 37.446823, 4.765976, 31.54921)
-polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 4), PackedInt32Array(6, 5, 7), PackedInt32Array(7, 5, 3), PackedInt32Array(9, 8, 7), PackedInt32Array(7, 3, 9), PackedInt32Array(9, 3, 10), PackedInt32Array(10, 3, 4), PackedInt32Array(12, 11, 13), PackedInt32Array(13, 11, 14), PackedInt32Array(16, 15, 17), PackedInt32Array(17, 15, 18), PackedInt32Array(19, 8, 9), PackedInt32Array(19, 9, 14), PackedInt32Array(14, 9, 20), PackedInt32Array(20, 9, 21), PackedInt32Array(20, 21, 18), PackedInt32Array(18, 15, 20), PackedInt32Array(20, 13, 14), PackedInt32Array(6, 23, 5), PackedInt32Array(5, 23, 22), PackedInt32Array(22, 23, 24), PackedInt32Array(24, 23, 26), PackedInt32Array(24, 26, 25), PackedInt32Array(25, 26, 11), PackedInt32Array(26, 14, 11), PackedInt32Array(28, 27, 29), PackedInt32Array(29, 27, 31), PackedInt32Array(29, 31, 30), PackedInt32Array(29, 30, 24), PackedInt32Array(31, 32, 30), PackedInt32Array(24, 25, 29), PackedInt32Array(36, 35, 33), PackedInt32Array(33, 35, 34), PackedInt32Array(37, 32, 31), PackedInt32Array(0, 1, 38), PackedInt32Array(37, 31, 38), PackedInt32Array(38, 31, 0), PackedInt32Array(42, 41, 39), PackedInt32Array(39, 41, 40), PackedInt32Array(16, 17, 28), PackedInt32Array(28, 17, 27)]
 geometry_parsed_geometry_type = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_efb6n"]
@@ -666,7 +663,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.560773, 0.39460182, 8.3810
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9952607, 0.15745997, -10.324469)
 
 [node name="Point3" type="Marker3D" parent="." unique_id=2014048324 groups=["salte_waypoint"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2745166, 0.7542418, -12.396335)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.250706, 0.7542418, -13.934241)
 
 [node name="Point4" type="Marker3D" parent="." unique_id=1371576826 groups=["salte_waypoint"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2166104, 0.20910907, -34.539932)
@@ -694,9 +691,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.093201, 0.07450172, -5.3059
 
 [node name="TrashBin" parent="." unique_id=1087483736 node_paths=PackedStringArray("player") instance=ExtResource("20_qn2ik")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.133465, 0.16761881, -22.766605)
-player = NodePath("../player")
-
-[node name="Salte_07" parent="." unique_id=1493763854 node_paths=PackedStringArray("navigation_region", "player") instance=ExtResource("21_a50bj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.950611, 0.26350915, 21.452991)
-navigation_region = NodePath("../SalteNavRegion")
 player = NodePath("../player")
