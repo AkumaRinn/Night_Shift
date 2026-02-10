@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://py72gkebiqci"
-path.s3tc="res://.godot/imported/Grid_Color.png-b69c6fd95a606c37b678dd481f2a1ec0.s3tc.ctex"
+uid="uid://ygqyw717aq72"
+path.s3tc="res://.godot/imported/rusty_metal_04_rough_1k.png-4120724e896603b1b61edcd402007d51.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Level_n_props/Tower/Textures/Grid/Grid_Color.png"
-dest_files=["res://.godot/imported/Grid_Color.png-b69c6fd95a606c37b678dd481f2a1ec0.s3tc.ctex"]
+source_file="res://Interact_obj/Tower/Textures/rusty_metal_04_rough_1k.png"
+dest_files=["res://.godot/imported/rusty_metal_04_rough_1k.png-4120724e896603b1b61edcd402007d51.s3tc.ctex"]
 
 [params]
 

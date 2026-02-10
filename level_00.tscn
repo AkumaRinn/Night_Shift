@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://b4c2pxeob6wi4"]
 
 [ext_resource type="PackedScene" uid="uid://c6ccpe8oqxaq3" path="res://Player/player.tscn" id="1_p1oqu"]
-[ext_resource type="Script" uid="uid://2o168nn1txj3" path="res://Player/PlayerMovement.gd" id="2_7plxk"]
 [ext_resource type="PackedScene" uid="uid://cp2efuucpuwyg" path="res://Level_n_props/Station/Base_station.glb" id="3_1aab7"]
 [ext_resource type="PackedScene" uid="uid://c3dxj4ftggn1" path="res://UI/pause_menu.tscn" id="3_hykmj"]
 [ext_resource type="PackedScene" uid="uid://bqyqxwmlvgoq8" path="res://Interact_obj/Doors/entrance_door.tscn" id="4_1aab7"]
@@ -15,11 +14,15 @@
 [ext_resource type="PackedScene" uid="uid://c8qf58djx6of" path="res://Interact_obj/PunchMachine/punch_machine.tscn" id="14_itu3g"]
 [ext_resource type="PackedScene" uid="uid://cyaw5rf6cip3n" path="res://SFX/spacial_audio_player_3d.tscn" id="15_jkr46"]
 [ext_resource type="AudioStream" uid="uid://dw2m0gknw5jkt" path="res://SFX/fridge hum.mp3" id="16_hj6re"]
+[ext_resource type="PackedScene" uid="uid://cqnvr8guiydfp" path="res://Interact_obj/Tower/SignalTower.tscn" id="17_geuvn"]
 [ext_resource type="PackedScene" uid="uid://7og2vmc7xpyl" path="res://Interact_obj/Doors/back_door.tscn" id="18_bqybp"]
 [ext_resource type="PackedScene" uid="uid://bi1irwtg5j01w" path="res://Interact_obj/Doors/bathroom_door.tscn" id="19_5g8rr"]
 [ext_resource type="PackedScene" uid="uid://bq7xfkvihp83r" path="res://Interact_obj/TrashBag/trash_bag.tscn" id="19_a50bj"]
 [ext_resource type="PackedScene" uid="uid://cl1rd7vy0ngn5" path="res://Level_n_props/Bus_Station/bus_station.tscn" id="19_qn2ik"]
 [ext_resource type="PackedScene" uid="uid://bnul1uq6fo2wd" path="res://Interact_obj/TrashBag/trash_bin.tscn" id="20_qn2ik"]
+[ext_resource type="Texture2D" uid="uid://h2gprw8w3f4" path="res://Level_n_props/textures/concrete_floor_damaged_01_diff_1k.png" id="21_eg13t"]
+[ext_resource type="Texture2D" uid="uid://bha0mhjiv8521" path="res://Level_n_props/textures/concrete_floor_damaged_01_nor_gl_1k.png" id="22_geuvn"]
+[ext_resource type="Texture2D" uid="uid://w7dkgulhrnu3" path="res://Level_n_props/textures/concrete_floor_damaged_01_rough_1k.png" id="23_yarvo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hykmj"]
 sky_top_color = Color(0.21753925, 0.21753505, 0.19927138, 1)
@@ -190,6 +193,21 @@ geometry_parsed_geometry_type = 1
 [sub_resource type="BoxShape3D" id="BoxShape3D_efb6n"]
 size = Vector3(1.4822998, 0.50006104, 0.51490784)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tpp2v"]
+albedo_texture = ExtResource("21_eg13t")
+roughness_texture = ExtResource("23_yarvo")
+normal_enabled = true
+normal_texture = ExtResource("22_geuvn")
+
+[sub_resource type="BoxMesh" id="BoxMesh_ud3na"]
+material = SubResource("StandardMaterial3D_tpp2v")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tdont"]
+size = Vector3(31.811493, 1, 31.311966)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_86o1h"]
+size = Vector3(17.817764, 1, 4.7285156)
+
 [node name="level" type="Node3D" unique_id=1903324472]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1091112738]
@@ -202,7 +220,6 @@ shadow_enabled = true
 
 [node name="player" parent="." unique_id=1976774538 instance=ExtResource("1_p1oqu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3254194, 0.9593967, -0.92472506)
-script = ExtResource("2_7plxk")
 
 [node name="LevelCanvas" type="CanvasLayer" parent="." unique_id=1984471315]
 
@@ -625,6 +642,25 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -21.
 [node name="bus_station_leave" parent="SalteNavRegion/Map_Props" unique_id=661862953 instance=ExtResource("19_qn2ik")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 33.180073, 0.028187037, 31.514072)
 
+[node name="TowerGround" type="StaticBody3D" parent="SalteNavRegion/Map_Props" unique_id=1108504236]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.217556, 1.9714148, -9.253822)
+
+[node name="TowerGround" type="MeshInstance3D" parent="SalteNavRegion/Map_Props/TowerGround" unique_id=60356108]
+transform = Transform3D(31.556393, 0, 0, 0, 1, 0, 0, 0, 31.166206, 15.136386, 0.031969547, -4.481051)
+mesh = SubResource("BoxMesh_ud3na")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SalteNavRegion/Map_Props/TowerGround" unique_id=599226947]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.405746, 0, -4.442299)
+shape = SubResource("BoxShape3D_tdont")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="SalteNavRegion/Map_Props/TowerGround" unique_id=939322378]
+transform = Transform3D(0.9906814, -0.13619973, 0, 0.13619973, 0.9906814, 0, 0, 0, 1, -9.300465, -1.2001857, 3.1695256)
+shape = SubResource("BoxShape3D_86o1h")
+
+[node name="SignalTower" parent="SalteNavRegion/Map_Props" unique_id=680095210 instance=ExtResource("17_geuvn")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 66.37009, 2.530943, -13.971851)
+
 [node name="GasPumps" type="Node3D" parent="SalteNavRegion" unique_id=126094739]
 
 [node name="GasPump" parent="SalteNavRegion/GasPumps" unique_id=1228270758 instance=ExtResource("12_4kdk2")]
@@ -687,7 +723,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.4
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20.817379, 1.4380229, -21.093327)
 
 [node name="BagBody" parent="." unique_id=1940699696 instance=ExtResource("19_a50bj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.093201, 0.07450172, -5.3059015)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.093201, 0.07450172, -27.923996)
 
 [node name="TrashBin" parent="." unique_id=1087483736 node_paths=PackedStringArray("player") instance=ExtResource("20_qn2ik")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.133465, 0.16761881, -22.766605)

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b1af6ck23l21p"
-path="res://.godot/imported/radio_tower.fbx-27e2601aa79547c75942c69dd39b3950.scn"
+path="res://.godot/imported/radio_tower.fbx-6cde6eda5a1aeefbad1137699bcb86bf.scn"
 
 [deps]
 
-source_file="res://Level_n_props/Tower/radio_tower.fbx"
-dest_files=["res://.godot/imported/radio_tower.fbx-27e2601aa79547c75942c69dd39b3950.scn"]
+source_file="res://Interact_obj/Tower/radio_tower.fbx"
+dest_files=["res://.godot/imported/radio_tower.fbx-6cde6eda5a1aeefbad1137699bcb86bf.scn"]
 
 [params]
 

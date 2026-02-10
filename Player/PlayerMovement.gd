@@ -24,6 +24,17 @@ var crouch_collider_y: float
 @onready var camera: Camera3D = $Camera3D
 @onready var stamina_component = $Stamina
 
+# --- Movement toggle States --- #
+enum PlayerState {
+	NORMAL,
+	CLIMBING
+}
+var playerState: PlayerState = PlayerState.NORMAL
+var current_ladder: Area3D = null
+var signalTower = null
+@export var climb_speed := 3.0
+
+
 func _ready():
 	if collider and collider.shape is CapsuleShape3D:
 		var shape = collider.shape as CapsuleShape3D
@@ -32,6 +43,15 @@ func _ready():
 		crouch_collider_y = original_collider_y - (original_collider_height - crouch_collider_height)/2
 
 func _physics_process(delta):
+	
+	match playerState:
+		PlayerState.NORMAL:
+			handle_normal_movement(delta)
+		PlayerState.CLIMBING:
+			handle_climbing(delta)
+	
+
+func handle_normal_movement(delta):
 	# --- Crouch input ---
 	var crouch_pressed = Input.is_action_pressed("crouch")
 	set_crouch(crouch_pressed)
@@ -111,8 +131,61 @@ func _physics_process(delta):
 	# --- Camera bobbing ---
 	if camera and camera.has_method("apply_bob"):
 		camera.apply_bob(direction, delta)
-
+	
+	# Try to grab ladder
+	if current_ladder and Input.is_action_pressed("forward_walk"):
+		if is_near_ladder_bottom():
+			enter_climbing()
+	
+	if current_ladder and Input.is_action_pressed("forward_walk"):
+		if is_near_ladder_top():
+			enter_climbing()
 
 # --- Crouch setter ---
 func set_crouch(state: bool) -> void:
 	is_crouching = state
+
+
+
+# --- Ladder climbing state functions --- #
+func enter_climbing():
+	playerState = PlayerState.CLIMBING
+	velocity = Vector3.ZERO
+	#set_gravity_scale(0)
+	
+func exit_climbing():
+	playerState = PlayerState.NORMAL
+	#set_gravity_scale(1)
+
+func is_near_ladder_bottom() -> bool:
+	var bottom = signalTower.bottomMarker.global_position
+	return global_position.distance_to(bottom) < 0.6
+	
+func is_near_ladder_top() -> bool:
+	var top = signalTower.topMarker.global_position
+	return global_position.distance_to(top) < 0.6
+
+func handle_climbing(_delta):
+	var input := Input.get_axis("backwards_walk", "forward_walk")
+
+	# Move straight up/down
+	velocity = Vector3.UP * input * climb_speed
+
+	# Exit conditions
+	if Input.is_action_just_pressed("jump"):
+		exit_climbing()
+	if not current_ladder:
+		exit_climbing()
+
+	if current_ladder:
+		if is_near_ladder_bottom() and Input.is_action_pressed("backwards_walk"):
+			exit_climbing()
+		
+	
+	# Lock X/Z to ladder
+	if current_ladder:
+		var ladder_pos = current_ladder.global_position
+		global_position.x = ladder_pos.x
+		global_position.z = ladder_pos.z
+
+	move_and_slide()

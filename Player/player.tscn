@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c6ccpe8oqxaq3"]
 
+[ext_resource type="Script" uid="uid://2o168nn1txj3" path="res://Player/PlayerMovement.gd" id="1_fhl08"]
 [ext_resource type="Script" uid="uid://ct7wc7pmarf35" path="res://Player/PlayerController.gd" id="1_tok1r"]
 [ext_resource type="Texture2D" uid="uid://cxj3xrf7056c0" path="res://Player/cross.png" id="2_4ntmi"]
 [ext_resource type="Script" uid="uid://bvshplcj4be85" path="res://Player/Stamina.gd" id="3_btcbx"]
@@ -53,6 +54,7 @@ material = SubResource("StandardMaterial3D_n6pxt")
 
 [node name="player" type="CharacterBody3D" unique_id=1776729673 groups=["player"]]
 collision_layer = 4
+script = ExtResource("1_fhl08")
 
 [node name="PlayerCanvas" type="CanvasLayer" parent="." unique_id=61186531]
 
