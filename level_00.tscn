@@ -77,7 +77,7 @@ size = Vector3(1.3930054, 3.8032227, 0.2345581)
 size = Vector3(1.4627075, 3.8723145, 0.9618225)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_agx0f"]
-size = Vector3(0.914917, 1.4279785, 4.348633)
+size = Vector3(0.914917, 1.1505127, 4.348633)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jkr46"]
 size = Vector3(4.9138794, 1.5092773, 0.5576172)
@@ -308,7 +308,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7851896, 1.0196533, -5.0093
 shape = SubResource("BoxShape3D_itu3g")
 
 [node name="ins_wall4" type="CollisionShape3D" parent="Colliders/Station" unique_id=54466802]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7284107, -0.21398926, -2.3649015)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7284107, -0.35272217, -2.3649015)
 shape = SubResource("BoxShape3D_agx0f")
 
 [node name="ins_wall5" type="CollisionShape3D" parent="Colliders/Station" unique_id=39645605]
@@ -674,7 +674,7 @@ shape = SubResource("BoxShape3D_efb6n")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7316813, 1.4272472, -14.277618)
 
 [node name="lantern" parent="SalteNavRegion/Map_Props" unique_id=1092926670 instance=ExtResource("6_yucxg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.025596, 1.8262205, -17.615591)
+transform = Transform3D(0.8794576, 0, -0.4759773, 0, 1, 0, 0.4759773, 0, 0.8794576, 8.280299, 1.3307087, -16.879734)
 
 [node name="bus_station_come" parent="SalteNavRegion/Map_Props" unique_id=1025791382 instance=ExtResource("19_qn2ik")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -21.446606, 0.028187037, 18.020876)
