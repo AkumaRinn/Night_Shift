@@ -770,7 +770,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.133465, 0.16761881, -22.76
 player = NodePath("../player")
 
 [node name="HiddenRoom" parent="." unique_id=290519858 instance=ExtResource("24_geuvn")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -43.68667, 0.019291162, -14.1225815)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -159.56335, 0.019291162, -14.122576)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="HiddenRoom" unique_id=166307931]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1876798, 0)
@@ -778,7 +778,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1876798, 0)
 [node name="Location1" type="Node3D" parent="." unique_id=1339552934 node_paths=PackedStringArray("exit_portal") groups=["portals"]]
 process_priority = 100
 process_physics_priority = 100
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10.258576, 1.5892162, -27.219086)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10.258576, 1.3983293, -27.397568)
 script = ExtResource("25_ud3na")
 _portal_mesh_path = NodePath("Portal3D_Mesh")
 _teleport_area_path = NodePath("TeleportArea")
@@ -814,7 +814,7 @@ shape = SubResource("BoxShape3D_tspw7")
 [node name="Location2" type="Node3D" parent="." unique_id=1957921300 node_paths=PackedStringArray("exit_portal") groups=["portals"]]
 process_priority = 100
 process_physics_priority = 100
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -41.4554, 1.3466041, -17.15141)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -157.33209, 1.3466041, -17.151405)
 script = ExtResource("25_ud3na")
 _portal_mesh_path = NodePath("Portal3D2_Mesh")
 _teleport_area_path = NodePath("TeleportArea")

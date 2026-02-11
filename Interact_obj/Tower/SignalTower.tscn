@@ -94,7 +94,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45680237, 0, 0.023487091)
 shape = SubResource("BoxShape3D_qo4hb")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="TopPlatform/bottom_collision" unique_id=667315522]
-transform = Transform3D(3.050738, 0, 0, 0, 1, 0, 0, 0, 3.9161222, -0.030368805, 0, -0.023487091)
+transform = Transform3D(3.050738, 0, 0, 0, 1, 0, 0, 0, 3.9161222, -0.030368805, 0.022636414, -0.023487091)
 mesh = SubResource("BoxMesh_p51so")
 skeleton = NodePath("../..")
 
