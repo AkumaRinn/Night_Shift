@@ -34,7 +34,6 @@ var current_ladder: Area3D = null
 var signalTower = null
 @export var climb_speed := 3.0
 
-
 func _ready():
 	if collider and collider.shape is CapsuleShape3D:
 		var shape = collider.shape as CapsuleShape3D

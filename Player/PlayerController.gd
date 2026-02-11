@@ -18,6 +18,11 @@ extends Node
 @onready var player_mission_manager =$"../MissionManagerScene"
 @onready var player_mission
 
+#Some abomination to be able to assign the player camera to the portals
+@onready var levelNode = get_parent().get_parent()
+@onready var portal1 = levelNode.get_node("Location1")
+@onready var portal2 = levelNode.get_node("Location2")
+
 
 # --- Inventory ---
 var inventory: Array[Node3D] = []
@@ -33,6 +38,9 @@ var trashBag: RigidBody3D = null
 @export var interact_distance := 3.0
 
 func _ready():
+	# Assign the camera to the portals
+	portal1.player_camera = camera
+	portal2.player_camera = camera
 	var player_node = get_parent()
 	var player_controller = self
 	SaveLoadAutoload.register_player(player_node, player_controller)
