@@ -23,16 +23,21 @@ var crouch_collider_y: float
 # --- Camera Reference ---
 @onready var camera: Camera3D = $Camera3D
 @onready var stamina_component = $Stamina
+@onready var phone = $Camera3D/Phone
+@onready var phoneViewport = $Camera3D/Phone/SubViewport
+
 
 # --- Movement toggle States --- #
 enum PlayerState {
 	NORMAL,
-	CLIMBING
+	CLIMBING,
+	PHONE
 }
 var playerState: PlayerState = PlayerState.NORMAL
 var current_ladder: Area3D = null
 var signalTower = null
 @export var climb_speed := 3.0
+@onready var can_move: bool = true
 
 func _ready():
 	if collider and collider.shape is CapsuleShape3D:
@@ -43,11 +48,17 @@ func _ready():
 
 func _physics_process(delta):
 	
-	match playerState:
-		PlayerState.NORMAL:
-			handle_normal_movement(delta)
-		PlayerState.CLIMBING:
-			handle_climbing(delta)
+	if can_move:
+		match playerState:
+			PlayerState.NORMAL:
+				handle_normal_movement(delta)
+			PlayerState.CLIMBING:
+				handle_climbing(delta)
+	if Input.is_action_pressed("toggle_phone"):
+		if playerState == PlayerState.NORMAL:
+			open_phone()
+		else:
+			close_phone()
 	
 
 func handle_normal_movement(delta):
@@ -188,3 +199,23 @@ func handle_climbing(_delta):
 		global_position.z = ladder_pos.z
 
 	move_and_slide()
+
+
+# --- Phone system usability --- #
+func open_phone():
+	playerState = PlayerState.PHONE
+	# Show phone visually
+	phone.visible = true
+	# Disable player movement
+	can_move = false
+	# Switch mouse mode
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	# Send input to SubViewport
+	phoneViewport.gui_disable_input = false
+
+func close_phone():
+	playerState = PlayerState.NORMAL
+	phone.visible = false
+	can_move = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	phoneViewport.gui_disable_input = true
