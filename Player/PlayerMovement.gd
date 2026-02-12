@@ -54,12 +54,14 @@ func _physics_process(delta):
 				handle_normal_movement(delta)
 			PlayerState.CLIMBING:
 				handle_climbing(delta)
-	if Input.is_action_pressed("toggle_phone"):
+	
+func _input(event):
+	if event.is_action_pressed("toggle_phone"):
 		if playerState == PlayerState.NORMAL:
 			open_phone()
 		else:
 			close_phone()
-	
+
 
 func handle_normal_movement(delta):
 	# --- Crouch input ---
