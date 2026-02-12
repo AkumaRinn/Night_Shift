@@ -21,6 +21,8 @@ var bob_offset := 0.0
 var vertical_rotation := 0.0
 var target_crouch_height := 0.0
 
+@onready var phoneNode = $Phone
+
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -34,21 +36,22 @@ func _process(delta):
 	_apply_camera_position()
 
 func _unhandled_input(event):
-	if event is InputEventMouseMotion:
-		var sens = _get_sensitivity() * sensitivity_scaling
-		if get_parent():
-			get_parent().rotate_y(-event.relative.x * sens)
-		var delta_y = event.relative.y * sens * vertical_scale
-		var should_invert = invert_y
-		if has_node("/root/Settings"):
-			should_invert = get_node("/root/Settings").invert_y
-		if should_invert:
-			delta_y *= -1
-		vertical_rotation -= delta_y
-		vertical_rotation = clamp(vertical_rotation, deg_to_rad(-80), deg_to_rad(80))
-		rotation.x = vertical_rotation
-	elif event.is_action_pressed("ui_cancel"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	if not phoneNode.visible:
+		if event is InputEventMouseMotion:
+			var sens = _get_sensitivity() * sensitivity_scaling
+			if get_parent():
+				get_parent().rotate_y(-event.relative.x * sens)
+			var delta_y = event.relative.y * sens * vertical_scale
+			var should_invert = invert_y
+			if has_node("/root/Settings"):
+				should_invert = get_node("/root/Settings").invert_y
+			if should_invert:
+				delta_y *= -1
+			vertical_rotation -= delta_y
+			vertical_rotation = clamp(vertical_rotation, deg_to_rad(-80), deg_to_rad(80))
+			rotation.x = vertical_rotation
+		elif event.is_action_pressed("ui_cancel"):
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 # --- Crouch setter ---
 func set_crouch(state: bool) -> void:
