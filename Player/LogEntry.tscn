@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cho1gem6c8nm7"]
+
+[node name="PanelContainer" type="PanelContainer" unique_id=206332338]
+offset_right = 320.0
+offset_bottom = 30.0
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=629301022]
+layout_mode = 2
+
+[node name="EntryTitle" type="Label" parent="HBoxContainer" unique_id=707392909]
+layout_mode = 2
+size_flags_horizontal = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EntryText" type="RichTextLabel" parent="HBoxContainer" unique_id=755030869]
+layout_mode = 2
+size_flags_horizontal = 3

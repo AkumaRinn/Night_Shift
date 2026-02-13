@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bvshplcj4be85" path="res://Player/Stamina.gd" id="3_btcbx"]
 [ext_resource type="Script" uid="uid://b76rbvxqt18g8" path="res://Player/PlayerCamera.gd" id="3_ddoul"]
 [ext_resource type="Texture2D" uid="uid://xogttr5n0hvy" path="res://Player/phonebg.png" id="3_vtle1"]
+[ext_resource type="ButtonGroup" uid="uid://b8bmwj7b3s8p2" path="res://System/anomalyButtonGroup.tres" id="4_od3ui"]
 [ext_resource type="PackedScene" uid="uid://bqi6e84o6cv1k" path="res://System/mission_manager_scene.tscn" id="5_k53q1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gwnis"]
@@ -16,8 +17,6 @@ frequency = 1.0
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k53q1"]
 noise = SubResource("FastNoiseLite_gwnis")
-
-[sub_resource type="Theme" id="Theme_fhl08"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
 radius = 0.41796875
@@ -176,6 +175,7 @@ grow_vertical = 0
 text = "Use [Click]"
 
 [node name="PhoneUI" type="Control" parent="PlayerCanvas" unique_id=2136125193]
+visible = false
 custom_minimum_size = Vector2(320, 512)
 layout_mode = 3
 anchors_preset = 8
@@ -207,6 +207,7 @@ grow_vertical = 2
 texture = ExtResource("3_vtle1")
 
 [node name="ReportPage" type="Control" parent="PlayerCanvas/PhoneUI" unique_id=1728570114]
+visible = false
 custom_minimum_size = Vector2(320, 512)
 layout_mode = 1
 anchors_preset = 8
@@ -233,13 +234,48 @@ grow_horizontal = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = SubResource("Theme_fhl08")
 
 [node name="TrashSelect" type="Button" parent="PlayerCanvas/PhoneUI/ReportPage/AnomalyObjects/VBoxContainer" unique_id=1410654550]
 layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0.3219389, 0.83410233, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.32156864, 0.8352941, 0, 1)
 toggle_mode = true
+button_group = ExtResource("4_od3ui")
 text = "Trash Bag"
+
+[node name="StationSelect" type="Button" parent="PlayerCanvas/PhoneUI/ReportPage/AnomalyObjects/VBoxContainer" unique_id=1898357045]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.32156864, 0.8352941, 0, 1)
+toggle_mode = true
+button_group = ExtResource("4_od3ui")
+text = "Station"
+
+[node name="GasPumpSelect" type="Button" parent="PlayerCanvas/PhoneUI/ReportPage/AnomalyObjects/VBoxContainer" unique_id=852254907]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.32156864, 0.8352941, 0, 1)
+toggle_mode = true
+button_group = ExtResource("4_od3ui")
+text = "Gas Pump"
+
+[node name="MopSelect" type="Button" parent="PlayerCanvas/PhoneUI/ReportPage/AnomalyObjects/VBoxContainer" unique_id=1961825814]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.32156864, 0.8352941, 0, 1)
+toggle_mode = true
+button_group = ExtResource("4_od3ui")
+text = "Mop"
+
+[node name="BusSelect" type="Button" parent="PlayerCanvas/PhoneUI/ReportPage/AnomalyObjects/VBoxContainer" unique_id=925098267]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.32156864, 0.8352941, 0, 1)
+toggle_mode = true
+button_group = ExtResource("4_od3ui")
+text = "Bus"
+
+[node name="DoorKeySelect" type="Button" parent="PlayerCanvas/PhoneUI/ReportPage/AnomalyObjects/VBoxContainer" unique_id=199487844]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.32156864, 0.8352941, 0, 1)
+toggle_mode = true
+button_group = ExtResource("4_od3ui")
+text = "Door Key"
 
 [node name="AnomalyDetails" type="TextEdit" parent="PlayerCanvas/PhoneUI/ReportPage" unique_id=1559501677]
 layout_mode = 1
@@ -247,9 +283,9 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 9.0
-offset_top = 76.0
+offset_top = -20.0
 offset_right = 225.0
-offset_bottom = 115.0
+offset_bottom = 19.0
 grow_vertical = 2
 placeholder_text = "What happened..."
 
@@ -259,13 +295,29 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 9.0
-offset_top = -30.0
+offset_top = -40.0
 offset_right = 92.0
-offset_bottom = 1.0
+offset_bottom = -9.0
 grow_vertical = 0
 text = "Log Event"
 
-[node name="Logs" type="Control" parent="PlayerCanvas/PhoneUI" unique_id=1076571338]
+[node name="BackReport" type="Button" parent="PlayerCanvas/PhoneUI/ReportPage" unique_id=225128119]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -40.0
+offset_right = -5.0
+offset_bottom = -9.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Back
+"
+
+[node name="LogsPage" type="Control" parent="PlayerCanvas/PhoneUI" unique_id=1076571338]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -273,6 +325,75 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PlayerCanvas/PhoneUI/LogsPage" unique_id=325806322]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 32.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LogsList" type="VBoxContainer" parent="PlayerCanvas/PhoneUI/LogsPage/ScrollContainer" unique_id=1591553490]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LogsBackButton" type="Button" parent="PlayerCanvas/PhoneUI/LogsPage" unique_id=1963240448]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -56.0
+offset_top = -41.0
+offset_right = -11.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Back
+"
+
+[node name="MainPage" type="Control" parent="PlayerCanvas/PhoneUI" unique_id=63496526]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReportTabButton" type="Button" parent="PlayerCanvas/PhoneUI/MainPage" unique_id=142331755]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.0
+offset_top = -16.0
+offset_right = -47.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Report"
+
+[node name="LogsTabButton" type="Button" parent="PlayerCanvas/PhoneUI/MainPage" unique_id=394055088]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 57.0
+offset_top = -16.0
+offset_right = 101.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Logs"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=967057533]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.13808593, 0)
@@ -318,3 +439,9 @@ script = ExtResource("3_btcbx")
 script = ExtResource("1_tok1r")
 
 [node name="MissionManagerScene" parent="." unique_id=1712250519 groups=["game_event"] instance=ExtResource("5_k53q1")]
+
+[connection signal="pressed" from="PlayerCanvas/PhoneUI/ReportPage/LogButton" to="." method="_on_log_button_pressed"]
+[connection signal="pressed" from="PlayerCanvas/PhoneUI/ReportPage/BackReport" to="." method="_on_back_report_pressed"]
+[connection signal="pressed" from="PlayerCanvas/PhoneUI/LogsPage/LogsBackButton" to="." method="_on_logs_back_button_pressed"]
+[connection signal="pressed" from="PlayerCanvas/PhoneUI/MainPage/ReportTabButton" to="." method="_on_report_tab_button_pressed"]
+[connection signal="pressed" from="PlayerCanvas/PhoneUI/MainPage/LogsTabButton" to="." method="_on_logs_tab_button_pressed"]

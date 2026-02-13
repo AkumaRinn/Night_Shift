@@ -23,8 +23,19 @@ var crouch_collider_y: float
 # --- Camera Reference ---
 @onready var camera: Camera3D = $Camera3D
 @onready var stamina_component = $Stamina
+
+# --- Phone Elements --- #
 @onready var phone = $PlayerCanvas/PhoneUI
 @onready var playerCanvas = $PlayerCanvas
+@onready var reportPage = $PlayerCanvas/PhoneUI/ReportPage
+@onready var logsPage = $PlayerCanvas/PhoneUI/LogsPage
+@onready var mainPage = $PlayerCanvas/PhoneUI/MainPage
+@onready var backFromReport = $PlayerCanvas/PhoneUI/ReportPage/BackReport
+@onready var anomaliesList = $PlayerCanvas/PhoneUI/ReportPage/AnomalyObjects/VBoxContainer
+@onready var anomalyDetails = $PlayerCanvas/PhoneUI/ReportPage/AnomalyDetails
+
+@onready var logsList = $PlayerCanvas/PhoneUI/LogsPage/ScrollContainer/LogsList
+var log_scene = preload("res://Player/LogEntry.tscn")
 
 
 # --- Movement toggle States --- #
@@ -223,3 +234,58 @@ func close_phone():
 	phone.visible = false
 	can_move = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+# --- Phone Logic --- #
+func _on_report_tab_button_pressed():
+	mainPage.visible = false
+	reportPage.visible = true
+
+func _on_back_report_pressed():
+	reportPage.visible = false
+	mainPage.visible = true
+
+
+func _on_logs_back_button_pressed():
+	logsPage.visible = false
+	mainPage.visible = true
+
+
+func _on_logs_tab_button_pressed():
+	mainPage.visible = false
+	logsPage.visible = true
+	
+
+
+func _on_log_button_pressed():
+	#save the input and load them in the log page
+	var selectedAnomaly = get_selected_anomaly(anomaliesList)
+	print(selectedAnomaly)
+	var justificationInput = anomalyDetails.text
+	print(justificationInput)
+	if selectedAnomaly == null:
+		return
+	# Append data to the logged anomalies array that needs to be saved
+	# Update the log page
+	add_entry(selectedAnomaly, justificationInput)
+	# Clear the logging page
+	for button in anomaliesList.get_children():
+		if button is Button and button.button_pressed:
+			button.button_pressed = false
+	anomalyDetails.text = ""
+	
+
+
+# --- helper Functions --- #
+
+func get_selected_anomaly(vbox : VBoxContainer):
+	for button in vbox.get_children():
+		if button.button_pressed:
+			return button.text
+			
+func add_entry(anomaly_name: String, anomaly_description: String):
+	var instance = log_scene.instantiate()
+
+	instance.get_node("HBoxContainer/EntryTitle").text = anomaly_name + str(": ")
+	instance.get_node("HBoxContainer/EntryText").text = anomaly_description
+	
+	logsList.add_child(instance)
