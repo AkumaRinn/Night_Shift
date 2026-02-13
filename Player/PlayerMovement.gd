@@ -23,8 +23,8 @@ var crouch_collider_y: float
 # --- Camera Reference ---
 @onready var camera: Camera3D = $Camera3D
 @onready var stamina_component = $Stamina
-@onready var phone = $Camera3D/Phone
-@onready var phoneViewport = $Camera3D/Phone/SubViewport
+@onready var phone = $PlayerCanvas/PhoneUI
+@onready var playerCanvas = $PlayerCanvas
 
 
 # --- Movement toggle States --- #
@@ -61,6 +61,7 @@ func _input(event):
 			open_phone()
 		else:
 			close_phone()
+
 
 
 func handle_normal_movement(delta):
@@ -208,16 +209,17 @@ func open_phone():
 	playerState = PlayerState.PHONE
 	# Show phone visually
 	phone.visible = true
+	#create_tween().tween_property(phone, "position:y", -0.1, 0.2)
 	# Disable player movement
 	can_move = false
 	# Switch mouse mode
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	# Send input to SubViewport
-	phoneViewport.gui_disable_input = false
+
 
 func close_phone():
 	playerState = PlayerState.NORMAL
+	# this tween not visible, just resets the position cause i don't wnat to wait here
+	#create_tween().tween_property(phone, "position:y", 0.2, -0.1)
 	phone.visible = false
 	can_move = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	phoneViewport.gui_disable_input = true

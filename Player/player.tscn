@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cxj3xrf7056c0" path="res://Player/cross.png" id="2_4ntmi"]
 [ext_resource type="Script" uid="uid://bvshplcj4be85" path="res://Player/Stamina.gd" id="3_btcbx"]
 [ext_resource type="Script" uid="uid://b76rbvxqt18g8" path="res://Player/PlayerCamera.gd" id="3_ddoul"]
+[ext_resource type="Texture2D" uid="uid://xogttr5n0hvy" path="res://Player/phonebg.png" id="3_vtle1"]
 [ext_resource type="PackedScene" uid="uid://bqi6e84o6cv1k" path="res://System/mission_manager_scene.tscn" id="5_k53q1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gwnis"]
@@ -15,6 +16,8 @@ frequency = 1.0
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k53q1"]
 noise = SubResource("FastNoiseLite_gwnis")
+
+[sub_resource type="Theme" id="Theme_fhl08"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
 radius = 0.41796875
@@ -51,17 +54,6 @@ albedo_color = Color(0.96828836, 0.9462082, 1.540184e-06, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_fhl08"]
 material = SubResource("StandardMaterial3D_n6pxt")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_fhl08"]
-viewport_path = NodePath("Camera3D/Phone/SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fhl08"]
-resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_fhl08")
-
-[sub_resource type="QuadMesh" id="QuadMesh_fhl08"]
-resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_fhl08")
 
 [node name="player" type="CharacterBody3D" unique_id=1776729673 groups=["player"]]
 collision_layer = 32772
@@ -183,6 +175,105 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Use [Click]"
 
+[node name="PhoneUI" type="Control" parent="PlayerCanvas" unique_id=2136125193]
+custom_minimum_size = Vector2(320, 512)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -256.0
+offset_right = 160.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PhoneBG" type="TextureRect" parent="PlayerCanvas/PhoneUI" unique_id=827162271]
+custom_minimum_size = Vector2(320, 512)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -256.0
+offset_right = 160.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_vtle1")
+
+[node name="ReportPage" type="Control" parent="PlayerCanvas/PhoneUI" unique_id=1728570114]
+custom_minimum_size = Vector2(320, 512)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -256.0
+offset_right = 160.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnomalyObjects" type="ScrollContainer" parent="PlayerCanvas/PhoneUI/ReportPage" unique_id=592906685]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 27.0
+offset_bottom = 222.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayerCanvas/PhoneUI/ReportPage/AnomalyObjects" unique_id=1834917532]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_fhl08")
+
+[node name="TrashSelect" type="Button" parent="PlayerCanvas/PhoneUI/ReportPage/AnomalyObjects/VBoxContainer" unique_id=1410654550]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.3219389, 0.83410233, 0, 1)
+toggle_mode = true
+text = "Trash Bag"
+
+[node name="AnomalyDetails" type="TextEdit" parent="PlayerCanvas/PhoneUI/ReportPage" unique_id=1559501677]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 9.0
+offset_top = 76.0
+offset_right = 225.0
+offset_bottom = 115.0
+grow_vertical = 2
+placeholder_text = "What happened..."
+
+[node name="LogButton" type="Button" parent="PlayerCanvas/PhoneUI/ReportPage" unique_id=1328624092]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = -30.0
+offset_right = 92.0
+offset_bottom = 1.0
+grow_vertical = 0
+text = "Log Event"
+
+[node name="Logs" type="Control" parent="PlayerCanvas/PhoneUI" unique_id=1076571338]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=967057533]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.13808593, 0)
 shape = SubResource("CapsuleShape3D_sh265")
@@ -219,31 +310,6 @@ speed_scale = 2.0
 trail_lifetime = 0.01
 process_material = SubResource("ParticleProcessMaterial_k53q1")
 draw_pass_1 = SubResource("SphereMesh_fhl08")
-
-[node name="Phone" type="Node3D" parent="Camera3D" unique_id=918111789]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.9305475)
-visible = false
-
-[node name="PhoneBody" type="MeshInstance3D" parent="Camera3D/Phone" unique_id=672493497]
-
-[node name="Screen" type="MeshInstance3D" parent="Camera3D/Phone" unique_id=1711466384]
-mesh = SubResource("QuadMesh_fhl08")
-
-[node name="SubViewport" type="SubViewport" parent="Camera3D/Phone" unique_id=1944783922]
-transparent_bg = true
-size = Vector2i(512, 1024)
-
-[node name="PhoneUI" type="Control" parent="Camera3D/Phone/SubViewport" unique_id=2136125193]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="LogButton" type="Button" parent="Camera3D/Phone/SubViewport/PhoneUI" unique_id=1328624092]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-text = "Log"
 
 [node name="Stamina" type="CharacterBody3D" parent="." unique_id=1422866574]
 script = ExtResource("3_btcbx")

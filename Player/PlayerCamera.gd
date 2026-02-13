@@ -21,7 +21,7 @@ var bob_offset := 0.0
 var vertical_rotation := 0.0
 var target_crouch_height := 0.0
 
-@onready var phoneNode = $Phone
+@onready var phoneNode = $"../PlayerCanvas/PhoneUI"
 
 
 func _ready():
