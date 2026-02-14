@@ -28,6 +28,7 @@
 [ext_resource type="Material" uid="uid://dcfkcyddxkglf" path="res://addons/portals/materials/editor-preview-portal-material.tres" id="26_ubg0j"]
 [ext_resource type="Script" uid="uid://bxcel82b180o3" path="res://addons/portals/scripts/portal_boxmesh.gd" id="27_5wgt5"]
 [ext_resource type="PackedScene" uid="uid://1ag2ovms7brq" path="res://Interact_obj/LightSwitch/LightSwitch.tscn" id="28_ubg0j"]
+[ext_resource type="PackedScene" uid="uid://bjow38xrtmaxc" path="res://Level_n_props/TV/Tv.tscn" id="29_5wgt5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hykmj"]
 sky_top_color = Color(0.21753925, 0.21753505, 0.19927138, 1)
@@ -853,3 +854,6 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 10.2
 
 [node name="door2" parent="." unique_id=694505995 instance=ExtResource("19_5g8rr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.924378, 1.4380229, -24.680851)
+
+[node name="TV" parent="." unique_id=588489073 instance=ExtResource("29_5wgt5")]
+transform = Transform3D(-0.8784894, 0.2131635, -0.4275717, 0.032101303, 0.9192611, 0.39233705, 0.47668207, 0.33093837, -0.8144039, 8.484, 2.857, -18.327)
