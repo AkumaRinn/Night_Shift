@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://2o168nn1txj3" path="res://Player/PlayerMovement.gd" id="1_fhl08"]
 [ext_resource type="Script" uid="uid://ct7wc7pmarf35" path="res://Player/PlayerController.gd" id="1_tok1r"]
 [ext_resource type="Texture2D" uid="uid://cxj3xrf7056c0" path="res://Player/cross.png" id="2_4ntmi"]
+[ext_resource type="Script" uid="uid://dew8ftdhbk3lv" path="res://Player/phone_script.gd" id="3_00tjw"]
 [ext_resource type="Script" uid="uid://bvshplcj4be85" path="res://Player/Stamina.gd" id="3_btcbx"]
 [ext_resource type="Script" uid="uid://b76rbvxqt18g8" path="res://Player/PlayerCamera.gd" id="3_ddoul"]
 [ext_resource type="Texture2D" uid="uid://xogttr5n0hvy" path="res://Player/phonebg.png" id="3_vtle1"]
@@ -174,7 +175,7 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Use [Click]"
 
-[node name="PhoneUI" type="Control" parent="PlayerCanvas" unique_id=2136125193]
+[node name="PhoneUI" type="Control" parent="PlayerCanvas" unique_id=2136125193 groups=["log_file"]]
 visible = false
 custom_minimum_size = Vector2(320, 512)
 layout_mode = 3
@@ -189,6 +190,7 @@ offset_right = 160.0
 offset_bottom = 256.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("3_00tjw")
 
 [node name="PhoneBG" type="TextureRect" parent="PlayerCanvas/PhoneUI" unique_id=827162271]
 custom_minimum_size = Vector2(320, 512)

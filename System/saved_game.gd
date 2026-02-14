@@ -7,3 +7,4 @@ class_name SavedGame extends Resource
 @export var mission_index_saved: int
 
 @export var saved_data: Array[SavedData] = []
+@export var saved_logs: Array[SavedLogs] = []

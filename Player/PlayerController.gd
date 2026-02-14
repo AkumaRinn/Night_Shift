@@ -23,6 +23,9 @@ extends Node
 @onready var portal1 = levelNode.get_node("Location1")
 @onready var portal2 = levelNode.get_node("Location2")
 
+#Phone logs access point for save_load
+@onready var logsList = $"../PlayerCanvas/PhoneUI/LogsPage/ScrollContainer/LogsList"
+
 
 # --- Inventory ---
 var inventory: Array[Node3D] = []
@@ -43,7 +46,7 @@ func _ready():
 	portal2.player_camera = camera
 	var player_node = get_parent()
 	var player_controller = self
-	SaveLoadAutoload.register_player(player_node, player_controller)
+	SaveLoadAutoload.register_player(player_node, player_controller, logsList)
 	await player_mission_manager.ready
 	player_mission = player_mission_manager.current_mission
 	if light:

@@ -259,9 +259,7 @@ func _on_logs_tab_button_pressed():
 func _on_log_button_pressed():
 	#save the input and load them in the log page
 	var selectedAnomaly = get_selected_anomaly(anomaliesList)
-	print(selectedAnomaly)
 	var justificationInput = anomalyDetails.text
-	print(justificationInput)
 	if selectedAnomaly == null:
 		return
 	# Append data to the logged anomalies array that needs to be saved
