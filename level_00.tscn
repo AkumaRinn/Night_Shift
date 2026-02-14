@@ -29,6 +29,7 @@
 [ext_resource type="Script" uid="uid://bxcel82b180o3" path="res://addons/portals/scripts/portal_boxmesh.gd" id="27_5wgt5"]
 [ext_resource type="PackedScene" uid="uid://1ag2ovms7brq" path="res://Interact_obj/LightSwitch/LightSwitch.tscn" id="28_ubg0j"]
 [ext_resource type="PackedScene" uid="uid://bjow38xrtmaxc" path="res://Level_n_props/TV/Tv.tscn" id="29_5wgt5"]
+[ext_resource type="PackedScene" uid="uid://ka2tg2dwkchq" path="res://Level_n_props/Generator/generator.tscn" id="30_iumk0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hykmj"]
 sky_top_color = Color(0.21753925, 0.21753505, 0.19927138, 1)
@@ -655,6 +656,7 @@ volume_db = -10.0
 max_db = 2.0
 autoplay = true
 parameters/looping = true
+max_raycast_distance = 3.0
 
 [node name="SalteNavRegion" type="NavigationRegion3D" parent="." unique_id=465245798]
 navigation_mesh = SubResource("NavigationMesh_jkr46")
@@ -857,3 +859,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.924378, 1.4380229, -24.6808
 
 [node name="TV" parent="." unique_id=588489073 instance=ExtResource("29_5wgt5")]
 transform = Transform3D(-0.8784894, 0.2131635, -0.4275717, 0.032101303, 0.9192611, 0.39233705, 0.47668207, 0.33093837, -0.8144039, 8.484, 2.857, -18.327)
+
+[node name="generator" parent="." unique_id=1856863620 instance=ExtResource("30_iumk0")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 47.896736, 2.4837775, -22.130344)

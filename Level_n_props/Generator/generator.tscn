@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ka2tg2dwkchq"]
+
+[ext_resource type="PackedScene" uid="uid://coifk0rjkparp" path="res://Level_n_props/Generator/generator.fbx" id="1_7m84v"]
+[ext_resource type="Texture2D" uid="uid://cj1ixtvsp63pq" path="res://Level_n_props/Generator/Generator_Diffuse.tga" id="2_dkqws"]
+[ext_resource type="Texture2D" uid="uid://cn1gonfybdtg3" path="res://Level_n_props/Generator/Generator_Normal.tga" id="3_wmrar"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3stsc"]
+albedo_texture = ExtResource("2_dkqws")
+normal_enabled = true
+normal_texture = ExtResource("3_wmrar")
+
+[node name="generator" unique_id=1856863620 instance=ExtResource("1_7m84v")]
+
+[node name="Generator" parent="." index="0" unique_id=1920896782]
+surface_material_override/0 = SubResource("StandardMaterial3D_3stsc")
