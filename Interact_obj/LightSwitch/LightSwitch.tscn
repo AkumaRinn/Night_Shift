@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://1ag2ovms7brq"]
+
+[ext_resource type="PackedScene" uid="uid://brxclwnomxgn2" path="res://Interact_obj/LightSwitch/LightSwitch.fbx" id="1_4vkmk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gotbr"]
+
+[node name="LightSwitch" type="Node3D" unique_id=1831118159]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1582290868]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1890308012]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+shape = SubResource("BoxShape3D_gotbr")
+
+[node name="LightSwitch" parent="StaticBody3D" unique_id=1148466204 instance=ExtResource("1_4vkmk")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.17923382, 0)

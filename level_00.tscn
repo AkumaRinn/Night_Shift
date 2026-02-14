@@ -27,6 +27,7 @@
 [ext_resource type="Script" uid="uid://cw1r4c1d7beyv" path="res://addons/portals/scripts/portal_3d.gd" id="25_ud3na"]
 [ext_resource type="Material" uid="uid://dcfkcyddxkglf" path="res://addons/portals/materials/editor-preview-portal-material.tres" id="26_ubg0j"]
 [ext_resource type="Script" uid="uid://bxcel82b180o3" path="res://addons/portals/scripts/portal_boxmesh.gd" id="27_5wgt5"]
+[ext_resource type="PackedScene" uid="uid://1ag2ovms7brq" path="res://Interact_obj/LightSwitch/LightSwitch.tscn" id="28_ubg0j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hykmj"]
 sky_top_color = Color(0.21753925, 0.21753505, 0.19927138, 1)
@@ -760,7 +761,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2664165, 0.3931756, -11.640
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.443065, 1.456003, -26.909973)
 
 [node name="door" parent="." unique_id=1453370505 instance=ExtResource("19_5g8rr")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20.817379, 1.4380229, -21.093327)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20.719553, 1.4380229, -21.046286)
 
 [node name="BagBody" parent="." unique_id=1940699696 instance=ExtResource("19_a50bj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.093201, 0.07450172, -27.923996)
@@ -846,3 +847,9 @@ mesh = SubResource("ArrayMesh_yh6ma")
 
 [node name="Collider" type="CollisionShape3D" parent="Location2/TeleportArea" unique_id=598836610]
 shape = SubResource("BoxShape3D_s4dbb")
+
+[node name="LightSwitch" parent="." unique_id=1831118159 instance=ExtResource("28_ubg0j")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 10.27294, 1.6757255, -25.997969)
+
+[node name="door2" parent="." unique_id=694505995 instance=ExtResource("19_5g8rr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.924378, 1.4380229, -24.680851)

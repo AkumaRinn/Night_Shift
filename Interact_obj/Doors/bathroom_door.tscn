@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cufm1w4lskjjm" path="res://Interact_obj/Doors/Bathroom_Door.glb" id="2_ua4fi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hun61"]
-size = Vector3(0.7786865, 0.9545288, 1)
+size = Vector3(0.6832886, 0.9545288, 1)
 
 [sub_resource type="Animation" id="Animation_0phs7"]
 length = 0.001
@@ -66,11 +66,11 @@ collision_layer = 3
 script = ExtResource("1_ua4fi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=64414139]
-transform = Transform3D(0.99999994, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000004, -0.43570375, -0.0144958515, 0)
+transform = Transform3D(0.99999994, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000004, -0.38800478, -0.0144958515, 0)
 shape = SubResource("BoxShape3D_hun61")
 
 [node name="Bathroom_Door" parent="StaticBody3D" unique_id=909987587 instance=ExtResource("2_ua4fi")]
-transform = Transform3D(-3.145346e-08, 0, -0.7195713, 0, 0.3786727, 0, 4.3355412, 0, -1.8951253e-07, -0.08479311, -0.5338664, -0.9113466)
+transform = Transform3D(-3.145346e-08, 0, -0.7195713, 0, 0.3786727, 0, 4.3355412, 0, -1.8951253e-07, -0.04136591, -0.5338664, -1.2023878)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=35469687]
 libraries/ = SubResource("AnimationLibrary_y5njw")
