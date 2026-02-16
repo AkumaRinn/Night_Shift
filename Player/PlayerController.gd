@@ -35,6 +35,7 @@ var object = null #For pump check
 var obj = null
 var equipped_pump: Node3D = null
 var trashBag: RigidBody3D = null
+var gasCanister = null
 
 
 # --- Pickup settings ---
@@ -135,6 +136,21 @@ func _process(_delta):
 				item_use.text = "Eat [Click]"
 				item_use.visible = true
 				obj.pick_up(self)
+	elif obj and obj.is_in_group("generator"):
+		var distance = camera.global_position.distance_to(obj.global_position)
+		if distance <= interact_distance:
+			interact_hint.text = "Generator [E]"
+			interact_hint.visible = true
+			if Input.is_action_just_pressed("interact") and gasCanister:
+				if gasCanister.is_filled:
+					obj.fill_generator()
+	elif obj and obj.is_in_group("canister"):
+		var distance = camera.global_position.distance_to(obj.global_position)
+		if distance <= interact_distance:
+			interact_hint.text = "Canister [E]"
+			interact_hint.visible = true
+			if Input.is_action_just_pressed("interact"):
+				obj.equip_canister()
 	
 	
 	# Use the pump

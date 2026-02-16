@@ -9,7 +9,16 @@ albedo_texture = ExtResource("2_dkqws")
 normal_enabled = true
 normal_texture = ExtResource("3_wmrar")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_7m84v"]
+size = Vector3(0.5951538, 1, 1)
+
 [node name="generator" unique_id=1856863620 instance=ExtResource("1_7m84v")]
 
 [node name="Generator" parent="." index="0" unique_id=1920896782]
 surface_material_override/0 = SubResource("StandardMaterial3D_3stsc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=808140437 groups=["generator"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1074423695]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011566162, 0.3503858, -0.03321743)
+shape = SubResource("BoxShape3D_7m84v")

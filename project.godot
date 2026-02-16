@@ -54,6 +54,7 @@ salte_waypoint=""
 trash_bag=""
 player_camera=""
 log_file=""
+generator=""
 
 [input]
 
