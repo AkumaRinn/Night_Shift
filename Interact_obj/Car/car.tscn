@@ -9,19 +9,31 @@ size = Vector3(1.7124939, 1, 4.3304596)
 [sub_resource type="BoxShape3D" id="BoxShape3D_xn7qp"]
 size = Vector3(1.7473145, 1, 4.368225)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mmmx"]
+emission_enabled = true
+emission = Color(0.9882353, 0.94509804, 0.67058825, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_xn7qp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lpl03"]
+emission_enabled = true
+emission = Color(0.9882353, 0.94509804, 0.67058825, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_wugvo"]
+
 [node name="Car_Node" type="Node3D" unique_id=1935831614 groups=["car"]]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_uoj53")
 
 [node name="headlight" type="SpotLight3D" parent="." unique_id=2117097919]
-transform = Transform3D(-1, -2.262668e-08, -9.0401635e-08, -4.525336e-08, 0.9659259, 0.25881907, 8.146506e-08, 0.25881907, -0.9659258, -0.5157061, 0.66203094, 2.0521183)
-light_color = Color(0.99416655, 0.96763223, 0, 1)
+transform = Transform3D(-1, -2.262668e-08, -9.0401635e-08, -4.525336e-08, 0.9659259, 0.25881907, 8.146506e-08, 0.25881907, -0.9659258, -0.5157061, 0.66203094, 2.1768107)
+light_color = Color(0.9900655, 0.94414264, 0.6704423, 1)
 light_energy = 2.0
 spot_angle = 30.0
 
 [node name="headlight2" type="SpotLight3D" parent="." unique_id=136503139]
-transform = Transform3D(-1, -2.262668e-08, -9.0401635e-08, -4.525336e-08, 0.9659259, 0.25881907, 8.146506e-08, 0.25881907, -0.9659258, 0.6335854, 0.66203094, 2.0521183)
-light_color = Color(0.99607843, 0.96862745, 0, 1)
+transform = Transform3D(-1, -2.262668e-08, -9.0401635e-08, -4.525336e-08, 0.9659259, 0.25881907, 8.146506e-08, 0.25881907, -0.9659258, 0.6335854, 0.66203094, 2.1793833)
+light_color = Color(0.9882353, 0.94509804, 0.67058825, 1)
 light_energy = 2.0
 spot_angle = 30.0
 
@@ -39,5 +51,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14440918, 0.5166451, -0.019
 shape = SubResource("BoxShape3D_xn7qp")
 
 [node name="covered_car_4k" parent="RigidBody3D" unique_id=932447313 instance=ExtResource("1_7822p")]
+
+[node name="HeadLightOrigin" type="MeshInstance3D" parent="." unique_id=681319742]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.58579403, 0.6462711, 1.9989498)
+material_override = SubResource("StandardMaterial3D_7mmmx")
+mesh = SubResource("SphereMesh_xn7qp")
+
+[node name="HeadLightOrigin2" type="MeshInstance3D" parent="." unique_id=798222968]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.47925556, 0.61566824, 2.0268958)
+material_override = SubResource("StandardMaterial3D_lpl03")
+mesh = SubResource("SphereMesh_wugvo")
 
 [connection signal="area_entered" from="StopSensor" to="." method="_on_stop_sensor_area_entered"]
