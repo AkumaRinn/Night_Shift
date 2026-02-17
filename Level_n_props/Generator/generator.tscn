@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://coifk0rjkparp" path="res://Level_n_props/Generator/generator.fbx" id="1_7m84v"]
 [ext_resource type="Texture2D" uid="uid://cj1ixtvsp63pq" path="res://Level_n_props/Generator/Generator_Diffuse.tga" id="2_dkqws"]
+[ext_resource type="Script" uid="uid://cp6pv5fgqbyob" path="res://Level_n_props/Generator/generator.gd" id="2_wmrar"]
 [ext_resource type="Texture2D" uid="uid://cn1gonfybdtg3" path="res://Level_n_props/Generator/Generator_Normal.tga" id="3_wmrar"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3stsc"]
@@ -13,11 +14,13 @@ normal_texture = ExtResource("3_wmrar")
 size = Vector3(0.5951538, 1, 1)
 
 [node name="generator" unique_id=1856863620 instance=ExtResource("1_7m84v")]
+script = ExtResource("2_wmrar")
 
 [node name="Generator" parent="." index="0" unique_id=1920896782]
 surface_material_override/0 = SubResource("StandardMaterial3D_3stsc")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=808140437 groups=["generator"]]
+collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1074423695]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011566162, 0.3503858, -0.03321743)

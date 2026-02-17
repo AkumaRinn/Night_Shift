@@ -17,6 +17,8 @@ extends Node
 
 @onready var player_mission_manager =$"../MissionManagerScene"
 @onready var player_mission
+@onready var hintLabel = $"../PlayerCanvas/HintLabel"
+@onready var hintTimer = $"../HintTimer"
 
 #Some abomination to be able to assign the player camera to the portals
 @onready var levelNode = get_parent().get_parent()
@@ -144,6 +146,10 @@ func _process(_delta):
 			if Input.is_action_just_pressed("interact") and gasCanister:
 				if gasCanister.is_filled:
 					obj.fill_generator()
+			if Input.is_action_just_pressed("interact")  and not gasCanister:
+				hintLabel.visible = true
+				hintLabel.text = "You need a diesel canister"
+				hintTimer.start()
 	elif obj and obj.is_in_group("canister"):
 		var distance = camera.global_position.distance_to(obj.global_position)
 		if distance <= interact_distance:
@@ -151,6 +157,8 @@ func _process(_delta):
 			interact_hint.visible = true
 			if Input.is_action_just_pressed("interact"):
 				obj.equip_canister()
+			if equipped_pump and Input.is_action_just_pressed("use_item"):
+				obj.fill_canister()
 	
 	
 	# Use the pump
@@ -239,3 +247,9 @@ func toggle_light():
 	if equipped_item and equipped_item.is_in_group("lantern") and light:
 		AudioManager.lantern_sound.play()
 		light.visible = not light.visible
+
+
+func _on_hint_timer_timeout():
+	# Reset hint text and visibility
+	hintLabel.visible = false
+	hintLabel.text = ""

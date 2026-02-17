@@ -397,6 +397,21 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Logs"
 
+[node name="HintLabel" type="Label" parent="PlayerCanvas" unique_id=534937549]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -89.0
+offset_right = 73.0
+offset_bottom = -66.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=967057533]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.13808593, 0)
 shape = SubResource("CapsuleShape3D_sh265")
@@ -442,8 +457,13 @@ script = ExtResource("1_tok1r")
 
 [node name="MissionManagerScene" parent="." unique_id=1712250519 groups=["game_event"] instance=ExtResource("5_k53q1")]
 
+[node name="HintTimer" type="Timer" parent="." unique_id=867273441]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="pressed" from="PlayerCanvas/PhoneUI/ReportPage/LogButton" to="." method="_on_log_button_pressed"]
 [connection signal="pressed" from="PlayerCanvas/PhoneUI/ReportPage/BackReport" to="." method="_on_back_report_pressed"]
 [connection signal="pressed" from="PlayerCanvas/PhoneUI/LogsPage/LogsBackButton" to="." method="_on_logs_back_button_pressed"]
 [connection signal="pressed" from="PlayerCanvas/PhoneUI/MainPage/ReportTabButton" to="." method="_on_report_tab_button_pressed"]
 [connection signal="pressed" from="PlayerCanvas/PhoneUI/MainPage/LogsTabButton" to="." method="_on_logs_tab_button_pressed"]
+[connection signal="timeout" from="HintTimer" to="PlayerController" method="_on_hint_timer_timeout"]
