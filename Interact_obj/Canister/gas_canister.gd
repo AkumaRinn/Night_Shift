@@ -3,6 +3,8 @@ extends Node3D
 @onready var canisterBody = $"."
 @onready var release_item_force = 2
 
+var canisterFilled: bool = false
+
 func equip_canister(player):
 	player.gasCanister = canisterBody
 	canisterBody.reparent(player.hand)
@@ -37,3 +39,17 @@ func release_canister(throw_origin):
 
 	# Apply impulse
 	canisterBody.apply_impulse(forward * release_item_force)
+
+func fill_canister(player):
+	if not canisterFilled:
+		player.fill_progress.visible = true
+		player.fill_progress.value += player.fill_progress.step
+		if player.fill_progress.value >= 99.0:
+			player.fill_progress.value = 0.0
+			canisterFilled = true
+	if canisterFilled:
+		player.hintLabel.text = "Canister Full"
+		player.hintLabel.visible = true
+		player.hintTimer.start()
+		
+	

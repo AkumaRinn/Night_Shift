@@ -160,8 +160,8 @@ func _process(_delta):
 				obj.equip_canister(self)
 				item_drop.visible = true
 				item_use.visible = true
-			if equipped_pump and Input.is_action_just_pressed("use_item"):
-				obj.fill_canister()
+			if equipped_pump and Input.is_action_pressed("use_item"):
+				obj.fill_canister(self)
 	
 	
 	# Use the pump
@@ -175,6 +175,7 @@ func _process(_delta):
 					fill_progress.visible = true
 					fill_progress.value += fill_progress.step
 					car_node.interact(self)
+
 		if trashBag:
 			item_use.text = "Damn, you are nasty"
 			
