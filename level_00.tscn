@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://1ag2ovms7brq" path="res://Interact_obj/LightSwitch/LightSwitch.tscn" id="28_ubg0j"]
 [ext_resource type="PackedScene" uid="uid://bjow38xrtmaxc" path="res://Level_n_props/TV/Tv.tscn" id="29_5wgt5"]
 [ext_resource type="PackedScene" uid="uid://ka2tg2dwkchq" path="res://Level_n_props/Generator/generator.tscn" id="30_iumk0"]
+[ext_resource type="PackedScene" uid="uid://cuam8cliiibgw" path="res://Interact_obj/Canister/GasCanister.tscn" id="31_7itvb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hykmj"]
 sky_top_color = Color(0.21753925, 0.21753505, 0.19927138, 1)
@@ -862,3 +863,6 @@ transform = Transform3D(-0.8784894, 0.2131635, -0.4275717, 0.032101303, 0.919261
 
 [node name="generator" parent="." unique_id=1856863620 instance=ExtResource("30_iumk0")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 47.896736, 2.4837775, -22.130344)
+
+[node name="GasCanister" parent="." unique_id=771553999 instance=ExtResource("31_7itvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5657578, 0.63816243, -6.039833)

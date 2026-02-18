@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cuam8cliiibgw"]
+
+[ext_resource type="PackedScene" uid="uid://smlpck8shoj6" path="res://Interact_obj/Canister/gas_canister_model.tscn" id="2_j3nxp"]
+[ext_resource type="Script" uid="uid://x5eu1x7j2a38" path="res://Interact_obj/Canister/gas_canister.gd" id="2_vvig4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j3nxp"]
+size = Vector3(0.31773376, 1, 0.7385559)
+
+[node name="GasCanister" type="RigidBody3D" unique_id=771553999 groups=["canister"]]
+collision_layer = 3
+script = ExtResource("2_vvig4")
+
+[node name="canister" parent="." unique_id=127546431 instance=ExtResource("2_j3nxp")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1999416788]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021949768, 0, -0.069625854)
+shape = SubResource("BoxShape3D_j3nxp")

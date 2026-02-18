@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://smlpck8shoj6"]
+
+[ext_resource type="PackedScene" uid="uid://cxtqyb72elf0p" path="res://Interact_obj/Canister/canister.fbx" id="1_rcclb"]
+[ext_resource type="Texture2D" uid="uid://dd78x4e40osi3" path="res://Interact_obj/Canister/Kanister_low_DefaultMaterial_BaseColor.png" id="2_1v1ck"]
+[ext_resource type="Texture2D" uid="uid://c0nbmuommpeti" path="res://Interact_obj/Canister/Kanister_low_DefaultMaterial_Metallic.png" id="3_vvig4"]
+[ext_resource type="Texture2D" uid="uid://ca1shkfmmeokf" path="res://Interact_obj/Canister/Kanister_low_DefaultMaterial_Normal.png" id="4_44ms7"]
+[ext_resource type="Texture2D" uid="uid://dpidkp6p1imcc" path="res://Interact_obj/Canister/Kanister_low_DefaultMaterial_Roughness.png" id="5_uy70h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8f60a"]
+albedo_texture = ExtResource("2_1v1ck")
+metallic = 1.0
+metallic_texture = ExtResource("3_vvig4")
+roughness_texture = ExtResource("5_uy70h")
+normal_enabled = true
+normal_texture = ExtResource("4_44ms7")
+
+[node name="canister" unique_id=127546431 instance=ExtResource("1_rcclb")]
+
+[node name="GasTank" parent="." index="0" unique_id=14275144]
+material_override = SubResource("StandardMaterial3D_8f60a")

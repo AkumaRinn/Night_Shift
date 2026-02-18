@@ -155,8 +155,11 @@ func _process(_delta):
 		if distance <= interact_distance:
 			interact_hint.text = "Canister [E]"
 			interact_hint.visible = true
+			#var canisterBody = obj.get_parent() 
 			if Input.is_action_just_pressed("interact"):
-				obj.equip_canister()
+				obj.equip_canister(self)
+				item_drop.visible = true
+				item_use.visible = true
 			if equipped_pump and Input.is_action_just_pressed("use_item"):
 				obj.fill_canister()
 	
@@ -211,6 +214,10 @@ func drop_item():
 		item_use.text = "Use [Click]"
 		item_dropped()
 		trashBag = null
+	if Input.is_action_just_pressed("drop_item") and gasCanister: # release canister
+		gasCanister.release_canister(camera)
+		item_dropped()
+		gasCanister = null
 
 func equip_item(index: int):
 	if index == -1:
