@@ -865,4 +865,4 @@ transform = Transform3D(-0.8784894, 0.2131635, -0.4275717, 0.032101303, 0.919261
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 47.896736, 2.4837775, -22.130344)
 
 [node name="GasCanister" parent="." unique_id=771553999 instance=ExtResource("31_7itvb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5657578, 0.63816243, -6.039833)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5657578, 0.5846036, -6.039833)

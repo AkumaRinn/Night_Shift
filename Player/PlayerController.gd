@@ -19,6 +19,7 @@ extends Node
 @onready var player_mission
 @onready var hintLabel = $"../PlayerCanvas/HintLabel"
 @onready var hintTimer = $"../HintTimer"
+@onready var genGasLevel = $"../PlayerCanvas/GeneratorGasLevel"
 
 #Some abomination to be able to assign the player camera to the portals
 @onready var levelNode = get_parent().get_parent()
@@ -33,11 +34,14 @@ extends Node
 var inventory: Array[Node3D] = []
 var inv_index: int = -1
 var equipped_item: Node3D = null
+
+# --- Handle Items --- #
 var object = null #For pump check
 var obj = null
 var equipped_pump: Node3D = null
 var trashBag: RigidBody3D = null
 var gasCanister = null
+
 
 
 # --- Pickup settings ---
@@ -143,9 +147,14 @@ func _process(_delta):
 		if distance <= interact_distance:
 			interact_hint.text = "Generator [E]"
 			interact_hint.visible = true
-			if Input.is_action_just_pressed("interact") and gasCanister:
-				if gasCanister.is_filled:
-					obj.fill_generator()
+			var generatorBody = obj.get_parent()
+			if Input.is_action_just_pressed("use_item") and gasCanister:
+				if gasCanister.canisterFilled:
+					generatorBody.fill_generator(self, gasCanister)
+				else:
+					hintLabel.visible = true
+					hintLabel.text = "The canister is empty."
+					hintTimer.start()
 			if Input.is_action_just_pressed("interact")  and not gasCanister:
 				hintLabel.visible = true
 				hintLabel.text = "You need a diesel canister"
