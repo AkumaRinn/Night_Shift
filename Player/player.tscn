@@ -24,6 +24,8 @@ noise = SubResource("FastNoiseLite_gwnis")
 shader = ExtResource("6_x3vf3")
 shader_parameter/value = 0.0
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_apopc"]
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
 radius = 0.41796875
 height = 2.3945313
@@ -433,6 +435,7 @@ grow_horizontal = 0
 grow_vertical = 2
 rotation = -1.5707964
 scale = Vector2(1.7999994, 1)
+theme_override_styles/background = SubResource("StyleBoxEmpty_apopc")
 step = 0.1
 show_percentage = false
 
